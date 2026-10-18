@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import time
 import random
 import hashlib
 import urllib.request
@@ -27,9 +28,22 @@ SOURCES = [
 ]
 
 USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 ]
+
+def get_headers(referer="https://www.google.com/"):
+    return {
+        "User-Agent": random.choice(USER_AGENTS),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9,hi;q=0.8",
+        "Referer": referer,
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "cross-site",
+        "Upgrade-Insecure-Requests": "1"
+    }
 
 def detect_category(title):
     t = title.lower()
@@ -57,7 +71,7 @@ def deep_crawl_job_page(job_url):
         "deep_description": ""
     }
     try:
-        req = urllib.request.Request(job_url, headers={"User-Agent": random.choice(USER_AGENTS)})
+        req = urllib.request.Request(job_url, headers=get_headers(referer="https://www.google.com/"))
         with urllib.request.urlopen(req, context=ssl_context, timeout=15) as resp:
             html = resp.read().decode("utf-8", errors="ignore")
             soup = BeautifulSoup(html, "html.parser")
@@ -146,7 +160,7 @@ def build_hybrid_human_post(title, link, source_name):
 
 def scrape_source(source):
     found_items = []
-    headers = {"User-Agent": random.choice(USER_AGENTS)}
+    headers = get_headers(referer="https://www.google.com/")
     req = urllib.request.Request(source["url"], headers=headers)
     try:
         with urllib.request.urlopen(req, context=ssl_context, timeout=20) as resp:
@@ -159,7 +173,7 @@ def scrape_source(source):
                 if 18 <= len(text) <= 130 and any(
                     kw in text.lower() for kw in [
                         "online form", "recruitment", "vacancy", "bharti", "result",
-                        "admit card", "answer key", "syllabus", "apply online", "notification", "2026"
+                        "admit card", "answer key", "syllabus", "apply online", "notification", "2026", "2025"
                     ]
                 ):
                     if href.startswith("/"):
@@ -179,6 +193,8 @@ def load_existing_database():
                 data = json.load(f)
                 if isinstance(data, list):
                     return data
+                elif isinstance(data, dict) and "posts" in data:
+                    return data["posts"]
                 elif isinstance(data, dict) and "jobs" in data:
                     return data["jobs"]
         except Exception:
@@ -204,7 +220,7 @@ def main():
             existing_titles.add(norm_title)
             time.sleep(1.0)
 
-        time.sleep(random.uniform(0.5, 1.5))
+        time.sleep(random.uniform(0.8, 1.8))
 
     print(f"✅ New Unique Updates Found: {len(new_jobs)}")
     updated_database = new_jobs + existing_jobs

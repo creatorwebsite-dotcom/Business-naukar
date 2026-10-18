@@ -22,7 +22,7 @@ ssl_context.verify_mode = ssl.CERT_NONE
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
-# ALL 8 MANDATORY RECRUITMENT PORTALS (WITH RSS / API FALLBACKS)
+# ALL 8 MANDATORY RECRUITMENT PORTALS
 SOURCES = [
     {
         "name": "SarkariResult",
@@ -76,15 +76,76 @@ BLOCK_DOMAINS = [
     'play.google.com', 'apps.apple.com', 'drive.google.com',
     'whatsapp.com', 't.me', 'telegram.me', 'facebook.com',
     'twitter.com', 'instagram.com', 'youtube.com', 'pinterest.com',
-    'addtoany.com', 'sharethis.com'
+    'addtoany.com', 'sharethis.com', 'blogger.com', 'wordpress.org'
 ]
 
-# Third-party aggregator domains that must NEVER appear inside apply_link / official_web
 AGGREGATOR_DOMAINS = [
     'sarkariresult.com', 'sarkariresult.freejobalert.com', 'freejobalert.com',
     'rojgarresult.com', 'sarkariexam.com', 'indgovtjobs.in',
     'freshersnow.com', 'careerpower.in', 'jagranjosh.com', 'adda247.com'
 ]
+
+# Known Official Government Recruitment Portals (Fallback so ZERO valid posts get skipped)
+KNOWN_GOV_PORTALS = {
+    "ssc": "https://ssc.gov.in/",
+    "upsc": "https://upsc.gov.in/",
+    "rrb": "https://indianrailways.gov.in/",
+    "railway": "https://indianrailways.gov.in/",
+    "ibps": "https://www.ibps.in/",
+    "sbi": "https://sbi.co.in/web/careers",
+    "rbi": "https://opportunities.rbi.org.in/",
+    "nabard": "https://www.nabard.org/careers.aspx",
+    "india post": "https://indiapostgdsonline.gov.in/",
+    "gds": "https://indiapostgdsonline.gov.in/",
+    "itbp": "https://recruitment.itbpolice.nic.in/",
+    "bsf": "https://rectt.bsf.gov.in/",
+    "crpf": "https://rect.crpf.gov.in/",
+    "cisf": "https://cisfrectt.cisf.gov.in/",
+    "ssb": "https://ssbrectt.gov.in/",
+    "army": "https://joinindianarmy.nic.in/",
+    "navy": "https://www.joinindiannavy.gov.in/",
+    "air force": "https://agnipathvayu.cdac.in/",
+    "airforce": "https://agnipathvayu.cdac.in/",
+    "coast guard": "https://joinindiancoastguard.cdac.in/",
+    "drdo": "https://www.drdo.gov.in/drdo/careers",
+    "isro": "https://www.isro.gov.in/Careers.html",
+    "bhel": "https://careers.bhel.in/",
+    "bel ": "https://bel-india.in/careers/",
+    "ntpc": "https://careers.ntpc.co.in/",
+    "ongc": "https://ongcindia.com/",
+    "iocl": "https://iocl.com/latest-job-opening",
+    "hpcl": "https://www.hindustanpetroleum.com/careers",
+    "bpcl": "https://www.bharatpetroleum.in/Careers/",
+    "sail": "https://sailcareers.com/",
+    "gail": "https://gailonline.com/CRApplyingGail.html",
+    "aiims": "https://www.aiimsexams.ac.in/",
+    "esic": "https://www.esic.gov.in/recruitments",
+    "epfo": "https://www.epfindia.gov.in/",
+    "fci": "https://fci.gov.in/",
+    "cwc": "https://www.cewacor.nic.in/",
+    "irel": "https://www.irel.co.in/careers",
+    "supreme court": "https://www.sci.gov.in/recruitment/",
+    "uppsc": "https://uppsc.up.nic.in/",
+    "upsssc": "https://upsssc.gov.in/",
+    "up police": "https://uppbpb.gov.in/",
+    "bpsc": "https://www.bpsc.bih.nic.in/",
+    "bssc": "https://bssc.bihar.gov.in/",
+    "csbc": "https://csbc.bihar.gov.in/",
+    "mpsc": "https://mpsc.gov.in/",
+    "maharashtra": "https://mahagov.in/",
+    "rpsc": "https://rpsc.rajasthan.gov.in/",
+    "rssb": "https://rssb.rajasthan.gov.in/",
+    "mpesb": "https://esb.mp.gov.in/",
+    "mppsc": "https://mppsc.mp.gov.in/",
+    "hssc": "https://hssc.gov.in/",
+    "hpsc": "https://hpsc.gov.in/",
+    "dsssb": "https://dsssb.delhi.gov.in/",
+    "kvs": "https://kvsangathan.nic.in/",
+    "nvs": "https://navodaya.gov.in/",
+    "ctet": "https://ctet.nic.in/",
+    "nta": "https://exams.nta.ac.in/",
+    "lic": "https://licindia.in/Bottom-Links/Careers"
+}
 
 def _raw_http_get(target_url, timeout=14):
     headers = {
@@ -111,7 +172,6 @@ def fetch_network_html(url, timeout=14):
     except Exception:
         pass
 
-    # Fallback Unblocker Proxies for Cloudflare-protected portals on GitHub Actions
     encoded_url = urllib.parse.quote(url, safe="")
     proxy_gateways = [
         f"https://api.allorigins.win/raw?url={encoded_url}",
@@ -127,13 +187,10 @@ def fetch_network_html(url, timeout=14):
     return ""
 
 def is_aggregator_link(href):
-    """Returns True if the URL belongs to any of the 8 job blog websites (except direct PDF CDN)"""
+    """Checks if a link points back to a job blog instead of an official portal or PDF"""
     h = href.lower()
-    # Allow FreeJobAlert's official PDF hosting CDN (img.freejobalert.com / img2.freejobalert.com)
-    if ("img.freejobalert.com" in h or "img2.freejobalert.com" in h) and h.endswith(".pdf"):
-        return False
-    # Allow direct PDF hosted anywhere
-    if h.endswith(".pdf") and not any(x in h for x in ["/articles/", "/category/"]):
+    # Allow direct PDF files hosted on CDN or uploads folders
+    if h.endswith(".pdf") or "/wp-content/uploads/" in h or "img.freejobalert.com" in h or "img2.freejobalert.com" in h:
         return False
     return any(ag in h for ag in AGGREGATOR_DOMAINS)
 
@@ -144,9 +201,9 @@ class CategoryClassifierAgent:
     @staticmethod
     def classify(title):
         t = title.lower()
-        if any(k in t for k in ["result", "merit list", "cutoff", "score card"]):
+        if any(k in t for k in ["result", "merit list", "cutoff", "cut off", "score card", "selection list"]):
             return "Result"
-        elif any(k in t for k in ["admit card", "hall ticket", "call letter", "exam date"]):
+        elif any(k in t for k in ["admit card", "hall ticket", "call letter", "exam date", "exam city"]):
             return "Admit Card"
         elif any(k in t for k in ["answer key", "response sheet", "objection"]):
             return "Answer Key"
@@ -155,11 +212,11 @@ class CategoryClassifierAgent:
         return "Latest Jobs"
 
 # =====================================================================
-# AGENT 2: DEEP OFFICIAL LINK & PDF EXTRACTOR AGENT
+# AGENT 2: DEEP OFFICIAL LINK, REGEX TEXT HUNTER & BOARD RESOLVER
 # =====================================================================
 class DeepLinkExtractorAgent:
     @staticmethod
-    def extract_and_evaluate(article_url, preloaded_html=""):
+    def extract_and_evaluate(title, article_url, rss_snippet=""):
         extracted = {
             "apply_link": "#",
             "notif_url": "#",
@@ -167,80 +224,107 @@ class DeepLinkExtractorAgent:
             "answer_key_url": "#",
             "admit_card_url": "#",
             "official_web": "#",
-            "accuracy_score": 0
+            "accuracy_score": 1
         }
 
-        html = preloaded_html if preloaded_html else fetch_network_html(article_url, timeout=12)
-        if not html:
-            return extracted
+        # ALWAYS fetch the full article HTML + combine with RSS snippet so links are never missed!
+        live_html = fetch_network_html(article_url, timeout=12) if article_url.startswith("http") else ""
+        combined_html = f"{live_html}\n{rss_snippet}"
 
-        soup = BeautifulSoup(html, "html.parser")
+        if combined_html.strip():
+            soup = BeautifulSoup(combined_html, "html.parser")
 
-        # 1. Scan All Table Rows (tr) & List Items (li) & Paragraphs (p)
-        for container in soup.find_all(["tr", "li", "p"]):
-            row_text = re.sub(r'\s+', ' ', container.get_text()).strip().lower()
-            for a in container.find_all("a", href=True):
+            # 1. Scan Table Rows, Lists, and Paragraphs for Official Anchor Links
+            for container in soup.find_all(["tr", "li", "p", "div"]):
+                row_text = re.sub(r'\s+', ' ', container.get_text()).strip().lower()
+                if len(row_text) > 600:
+                    continue
+                for a in container.find_all("a", href=True):
+                    href = a["href"].strip()
+                    if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS):
+                        continue
+                    if is_aggregator_link(href):
+                        continue
+
+                    a_text = re.sub(r'\s+', ' ', a.get_text()).strip().lower()
+                    combo = f"{row_text} {a_text}"
+
+                    # Direct PDF Notification
+                    if href.lower().endswith(".pdf") or any(w in combo for w in ["notification", "advt", "official notice", "download pdf", "brochure"]):
+                        if extracted["notif_url"] == "#":
+                            extracted["notif_url"] = href
+                            extracted["accuracy_score"] += 3
+
+                    # Direct Apply Online Link
+                    if any(w in combo for w in ["apply online", "online registration", "apply now", "click here to apply", "registration", "online form", "apply link"]):
+                        if not href.lower().endswith(".pdf") and extracted["apply_link"] == "#":
+                            extracted["apply_link"] = href
+                            extracted["accuracy_score"] += 3
+
+                    # Result Link
+                    if any(w in combo for w in ["download result", "result", "merit list", "scorecard"]):
+                        if extracted["result_url"] == "#":
+                            extracted["result_url"] = href
+
+                    # Answer Key Link
+                    if any(w in combo for w in ["answer key", "response sheet"]):
+                        if extracted["answer_key_url"] == "#":
+                            extracted["answer_key_url"] = href
+
+                    # Admit Card Link
+                    if any(w in combo for w in ["admit card", "hall ticket", "call letter"]):
+                        if extracted["admit_card_url"] == "#":
+                            extracted["admit_card_url"] = href
+
+                    # Official Website Link
+                    if any(w in combo for w in ["official website", "official portal", "board website", "website"]):
+                        if not href.lower().endswith(".pdf") and extracted["official_web"] == "#":
+                            extracted["official_web"] = href
+                            extracted["accuracy_score"] += 2
+
+            # 2. Scan All Remaining Anchors on Page for any non-aggregator official links
+            for a in soup.find_all("a", href=True):
                 href = a["href"].strip()
-                if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS):
+                if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS) or is_aggregator_link(href):
                     continue
 
-                # Strictly block aggregator internal pages from becoming apply/notif/official links
-                if is_aggregator_link(href):
-                    continue
-
-                a_text = re.sub(r'\s+', ' ', a.get_text()).strip().lower()
-                combo = f"{row_text} {a_text}"
-
-                # Direct PDF Detection
-                if href.lower().endswith(".pdf") or any(w in combo for w in ["notification", "advt", "official notice", "download pdf"]):
-                    if extracted["notif_url"] == "#":
-                        extracted["notif_url"] = href
-                        extracted["accuracy_score"] += 3
-
-                # Direct Apply Online Portal Detection
-                if any(w in combo for w in ["apply online", "online registration", "apply now", "click here to apply", "registration", "online form"]):
-                    if not href.lower().endswith(".pdf") and extracted["apply_link"] == "#":
-                        extracted["apply_link"] = href
-                        extracted["accuracy_score"] += 3
-
-                # Result Link
-                if any(w in combo for w in ["download result", "result", "merit list", "scorecard"]):
-                    if extracted["result_url"] == "#":
-                        extracted["result_url"] = href
-
-                # Answer Key Link
-                if any(w in combo for w in ["answer key", "response sheet"]):
-                    if extracted["answer_key_url"] == "#":
-                        extracted["answer_key_url"] = href
-
-                # Admit Card Link
-                if any(w in combo for w in ["admit card", "hall ticket", "call letter"]):
-                    if extracted["admit_card_url"] == "#":
-                        extracted["admit_card_url"] = href
-
-                # Official Website Portal
-                if any(w in combo for w in ["official website", "official portal", "board website", "website"]):
-                    if not href.lower().endswith(".pdf") and extracted["official_web"] == "#":
+                if href.lower().endswith(".pdf") and extracted["notif_url"] == "#":
+                    extracted["notif_url"] = href
+                    extracted["accuracy_score"] += 2
+                elif any(ext in href.lower() for ext in [
+                    ".gov.in", ".nic.in", ".ac.in", ".edu.in", ".org.in", ".res.in",
+                    ".bank.in", "ibps.in", "careers.", "recruit", "apply", "digialm.com", "ntaonline"
+                ]):
+                    if extracted["official_web"] == "#":
                         extracted["official_web"] = href
                         extracted["accuracy_score"] += 2
+                    if extracted["apply_link"] == "#":
+                        extracted["apply_link"] = href
 
-        # 2. Fallback: Scan any remaining official .gov.in / .nic.in / .ac.in / .org links on the page
-        for a in soup.find_all("a", href=True):
-            href = a["href"].strip()
-            if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS) or is_aggregator_link(href):
-                continue
+            # 3. REGEX PLAIN-TEXT HUNTER (Catches official domains written in article text without <a> tags)
+            if extracted["official_web"] == "#":
+                page_text = soup.get_text(" ", strip=True)
+                regex_domains = re.findall(
+                    r'\b((?:https?://)?(?:www\.)?[a-zA-Z0-9-]+\.(?:gov\.in|nic\.in|ac\.in|edu\.in|org\.in|res\.in|bank\.in)(?:/[^\s"\'<>.,)]*)?)',
+                    page_text, re.IGNORECASE
+                )
+                for dom in regex_domains:
+                    clean_dom = dom if dom.lower().startswith("http") else f"https://{dom}"
+                    if not is_aggregator_link(clean_dom):
+                        extracted["official_web"] = clean_dom
+                        extracted["accuracy_score"] += 2
+                        break
 
-            if href.lower().endswith(".pdf") and extracted["notif_url"] == "#":
-                extracted["notif_url"] = href
-                extracted["accuracy_score"] += 2
-            elif any(ext in href.lower() for ext in [".gov.in", ".nic.in", ".ac.in", ".edu.in", ".org.in", ".bank.in", "ibps.in", "careers."]):
-                if extracted["official_web"] == "#":
-                    extracted["official_web"] = href
+        # 4. SMART KNOWN-BOARD RESOLVER (Ensures valid posts from JagranJosh/CareerPower are NEVER skipped)
+        if extracted["official_web"] == "#":
+            t_low = title.lower()
+            for key, portal_url in KNOWN_GOV_PORTALS.items():
+                if key in t_low:
+                    extracted["official_web"] = portal_url
                     extracted["accuracy_score"] += 2
-                if extracted["apply_link"] == "#":
-                    extracted["apply_link"] = href
+                    break
 
-        # Cross-fill missing fields ONLY with verified official_web (NEVER with third-party blog URL)
+        # 5. Cross-fill missing fields with Official Website (Never use aggregator blog URL)
         if extracted["apply_link"] == "#" and extracted["official_web"] != "#":
             extracted["apply_link"] = extracted["official_web"]
         if extracted["notif_url"] == "#" and extracted["official_web"] != "#":
@@ -378,18 +462,13 @@ class OptionB_GeminiAIAgent:
         return None
 
 # =====================================================================
-# AGENT 5: SYNTHESIZER & STRICT QUALITY GATEKEEPER
+# AGENT 5: SYNTHESIZER & SMART VERIFIER
 # =====================================================================
 class SynthesizerAgent:
     @staticmethod
-    def create_unified_post(title, link, source_name, preloaded_html="", use_ai=True):
-        print(f"    ↳ [{source_name}] Deep Crawling Official Links: {title[:38]}...")
-        deep = DeepLinkExtractorAgent.extract_and_evaluate(link, preloaded_html=preloaded_html)
-
-        # STRICT GATEKEEPER: Reject menu pages or posts where no official link / PDF was found
-        if deep["apply_link"] == "#" and deep["notif_url"] == "#" and deep["official_web"] == "#":
-            print(f"      ❌ Rejected (No direct official link/PDF inside): {title[:35]}")
-            return None
+    def create_unified_post(title, link, source_name, rss_snippet="", use_ai=True):
+        print(f"    ↳ [{source_name}] Deep Crawling Official Links: {title[:42]}...")
+        deep = DeepLinkExtractorAgent.extract_and_evaluate(title, link, rss_snippet=rss_snippet)
 
         category = CategoryClassifierAgent.classify(title)
         option_a_html = OptionA_SEOWriterAgent.generate_full_content(title, category)
@@ -440,26 +519,33 @@ class SynthesizerAgent:
         }
 
 # =====================================================================
-# AGENT 6: EXHAUSTIVE 8-PORTAL SCANNER (RSS + HTML + PROXY)
+# AGENT 6: HIGH-YIELD 8-PORTAL SCANNER (ZERO FALSE SKIPS)
 # =====================================================================
 def is_valid_job_candidate(title, href, source_name):
     t_low = title.lower().strip()
     h_low = href.lower().strip()
 
-    # Reject short menu labels or arrows (like 'Sarkari Result →' or 'Anganwadi Recruitment')
+    # Reject only 1-2 word navigation menus or arrow links
     if "→" in title or len(title.split()) < 3:
         return False
 
-    bad_Menu_Phrases = [
+    exact_menus = {
         "sarkari result", "latest notifications", "answer key", "admit card",
         "interview results", "exam results", "upcoming notifications", "anganwadi recruitment",
-        "employment news", "syllabus", "previous papers", "cutoff", "cut off", "mock test"
-    ]
-    if t_low in bad_Menu_Phrases:
+        "employment news", "syllabus", "previous papers", "cutoff", "cut off", "mock test",
+        "government jobs", "state government jobs", "bank jobs", "teaching jobs",
+        "engineering jobs", "railway jobs", "police/defence jobs", "all india govt jobs"
+    }
+    if t_low in exact_menus:
         return False
 
-    # On FreeJobAlert, genuine job posts ALWAYS contain '/articles/' in URL
-    if source_name == "FreeJobAlert" and "/articles/" not in h_low:
+    # Reject pure category/menu index URLs on FreeJobAlert without rejecting genuine job posts
+    fja_menu_paths = [
+        "/government-jobs/", "/state-government-jobs/", "/bank-jobs/", "/teaching-jobs/",
+        "/engineering-jobs/", "/railway-jobs/", "/police-defence-jobs/", "/latest-notifications/",
+        "/admit-card/", "/exam-results/", "/answer-key/", "/syllabus/", "sarkariresult.freejobalert.com"
+    ]
+    if any(h_low.endswith(mp) or "sarkariresult.freejobalert.com" in h_low for mp in fja_menu_paths):
         return False
 
     # Reject old years (2015 to 2024)
@@ -475,7 +561,7 @@ def extract_items_from_source(html, source_name, base_url):
     items = []
     soup = BeautifulSoup(html, "html.parser")
 
-    # 1. XML / RSS Feed Parser (Works great for RojgarResult, SarkariExam, IndGovtJobs, FreshersNow, JagranJosh)
+    # 1. XML / RSS Feed Parser
     if "<item>" in html or "<entry>" in html:
         for itm in soup.find_all(["item", "entry"]):
             title_node = itm.find("title")
@@ -505,11 +591,12 @@ def extract_items_from_source(html, source_name, base_url):
         if not is_valid_job_candidate(text, href, source_name):
             continue
 
-        if 15 <= len(text) <= 140 and any(
+        if 14 <= len(text) <= 150 and any(
             kw in text.lower() for kw in [
                 "online form", "recruitment", "vacancy", "bharti", "result",
-                "admit card", "answer key", "apply", "notification",
-                "2026", "officer", "constable", "clerk", "apprentice", "trainee", "assistant"
+                "admit card", "answer key", "apply", "notification", "syllabus",
+                "2026", "officer", "constable", "clerk", "apprentice", "trainee",
+                "assistant", "teacher", "engineer", "post", "exam", "selection"
             ]
         ):
             items.append((text, href, ""))
@@ -522,11 +609,12 @@ def scrape_portal_resilient(source):
     if html:
         items = extract_items_from_source(html, source["name"], source["url"])
 
-    if not items and "alt_url" in source:
-        print(f"      ↳ Trying alternate endpoint for {source['name']}...")
+    # Also fetch alt_url if primary gave fewer than 5 items
+    if len(items) < 5 and "alt_url" in source:
+        print(f"      ↳ Fetching additional posts from alt endpoint for {source['name']}...")
         alt_html = fetch_network_html(source["alt_url"])
         if alt_html:
-            items = extract_items_from_source(alt_html, source["name"], source["alt_url"])
+            items.extend(extract_items_from_source(alt_html, source["name"], source["alt_url"]))
 
     unique = []
     seen = set()
@@ -535,11 +623,12 @@ def scrape_portal_resilient(source):
             seen.add(t.lower())
             unique.append((t, l, emb))
 
-    print(f"  [{source['name']}] Found {len(unique)} valid job candidates")
-    return unique[:5]
+    print(f"  [{source['name']}] Found {len(unique)} valid job posts")
+    # Take up to 12 posts per portal (up to 96 posts across 8 portals!)
+    return unique[:12]
 
 def main():
-    print("🚀 Starting Strict Multi-Agent Scraper Across ALL 8 Mandatory Portals...")
+    print("🚀 Starting High-Yield Multi-Agent Scraper Across ALL 8 Mandatory Portals...")
     existing_database = []
     if os.path.exists(DATABASE_FILE):
         try:
@@ -567,10 +656,9 @@ def main():
 
                 use_ai_now = (ai_calls_count < MAX_AI_CALLS_PER_RUN)
                 post_entry = SynthesizerAgent.create_unified_post(
-                    title, link, source["name"], preloaded_html=embedded_html, use_ai=use_ai_now
+                    title, link, source["name"], rss_snippet=embedded_html, use_ai=use_ai_now
                 )
 
-                # Only add if Gatekeeper approved (has real official links)
                 if post_entry:
                     if use_ai_now and GEMINI_API_KEY:
                         ai_calls_count += 1
@@ -581,19 +669,19 @@ def main():
         except Exception as err:
             print(f"  ❌ Error on {source['name']}: {err}. Continuing to next portal...")
 
-        time.sleep(random.uniform(0.4, 0.8))
+        time.sleep(random.uniform(0.3, 0.7))
 
-    # Sort newly harvested posts by accuracy_score (highest quality official links on top)
+    # Sort newly harvested posts so posts with highest accuracy_score appear first, while keeping all valid posts
     new_posts.sort(key=lambda x: x.get("accuracy_score", 0), reverse=True)
 
-    print(f"\n✅ Total 100% Verified Direct-Link Posts Harvested: {len(new_posts)}")
+    print(f"\n✅ Total Verified Posts Harvested in This Run: {len(new_posts)}")
     final_database = new_posts + existing_database
     final_database = final_database[:500]
 
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
         json.dump(final_database, f, ensure_ascii=False, indent=2)
 
-    print(f"🎉 Successfully saved {len(final_database)} clean posts to {DATABASE_FILE}!")
+    print(f"🎉 Successfully saved {len(final_database)} total posts to {DATABASE_FILE}!")
 
 if __name__ == "__main__":
     main()

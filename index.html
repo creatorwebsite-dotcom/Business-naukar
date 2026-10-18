@@ -2499,6 +2499,40 @@
   // Run immediately so clean state takes effect right away
   window.loadAndSyncMasterPortal();
 })();
+</script><!-- WEBSITE SAFE PATCH FOR DETAILED DESCRIPTION RENDER -->
+<script>
+(function() {
+  const originalOpen = window.openSarkariOpenPage || window.openModal || window.showJobDetails;
+  
+  window.openSarkariOpenPage = function(postId) {
+    if (typeof originalOpen === 'function') {
+      try { originalOpen(postId); } catch(e) {}
+    }
+    
+    setTimeout(() => {
+      const modalBody = document.querySelector(".modal-content, .sarkari-modal-body, #modalBody, .popup-content");
+      if (modalBody && !document.getElementById("injectedFullDescriptionBox")) {
+        let postData = null;
+        if (typeof db !== 'undefined' && db.posts) {
+          postData = db.posts.find(p => p.id == postId || p.title === postId);
+        } else if (typeof allPosts !== 'undefined') {
+          postData = allPosts.find(p => p.id == postId);
+        }
+
+        if (postData && postData.description) {
+          const descDiv = document.createElement("div");
+          descDiv.id = "injectedFullDescriptionBox";
+          descDiv.style.cssText = "background: #fff; border: 2px solid #000; padding: 15px; margin-top: 20px; border-radius: 6px; font-size: 13px; line-height: 1.6; color: #111; text-align: left;";
+          descDiv.innerHTML = `
+            <h3 style="color: #000080; border-bottom: 2px solid #000; padding-bottom: 6px; margin-bottom: 10px; font-size: 15px;">📖 Complete Job Details & Full Description</h3>
+            <div>${postData.description}</div>
+          `;
+          modalBody.appendChild(descDiv);
+        }
+      }
+    }, 300);
+  };
+})();
 </script>
 </body>
   </html>

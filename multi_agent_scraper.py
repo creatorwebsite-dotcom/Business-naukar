@@ -16,7 +16,7 @@ import undetected_chromedriver as uc
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
-# ALL 8 MANDATORY PORTALS (SarkariResult updated to unblocked mirror .com.cm)
+# ALL 8 MANDATORY RECRUITMENT PORTALS (Including SarkariResult Mirror)
 SOURCES = [
     {"name": "SarkariResult", "url": "https://sarkariresult.com.cm/"},
     {"name": "FreeJobAlert", "url": "https://www.freejobalert.com/government-jobs/"},
@@ -89,6 +89,13 @@ def is_aggregator_link(href):
         return False
     return any(ag in h for ag in AGGREGATOR_DOMAINS)
 
+def extract_actual_date(html_soup):
+    text = html_soup.get_text(" ", strip=True)
+    dates = re.findall(r'\b(?:0?[1-9]|[12]\d|3[01])[\/\-\s](?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|0?[1-9]|1[0-2])[\/\-\s](?:202[6-9])\b', text, re.IGNORECASE)
+    if dates:
+        return dates[0]
+    return datetime.now().strftime("%d %b %Y")
+
 # =====================================================================
 # AGENT 1: 6 CATEGORIES CLASSIFIER
 # =====================================================================
@@ -109,14 +116,15 @@ class CategoryClassifierAgent:
         return "Latest Jobs"
 
 # =====================================================================
-# AGENT 2: STRICT CLEAN LINK & PDF EXTRACTOR
+# AGENT 2: MULTI-SOURCE LINK EXTRACTOR & EVALUATOR
 # =====================================================================
 class DeepLinkExtractorAgent:
     @staticmethod
     def extract_and_evaluate(title, article_url):
         extracted = {
             "apply_link": "#", "notif_url": "#", "result_url": "#",
-            "answer_key_url": "#", "admit_card_url": "#", "official_web": "#", "accuracy_score": 1
+            "answer_key_url": "#", "admit_card_url": "#", "official_web": "#", 
+            "accuracy_score": 1, "extracted_date": datetime.now().strftime("%d %b %Y")
         }
         if not article_url or not article_url.startswith("http"):
             return extracted
@@ -125,6 +133,8 @@ class DeepLinkExtractorAgent:
         if not html: return extracted
 
         soup = BeautifulSoup(html, "html.parser")
+        extracted["extracted_date"] = extract_actual_date(soup)
+
         for container in soup.find_all(["tr", "li", "p", "div"]):
             row_text = re.sub(r'\s+', ' ', container.get_text()).strip().lower()
             if len(row_text) > 800: continue
@@ -167,72 +177,77 @@ class DeepLinkExtractorAgent:
         return extracted
 
 # =====================================================================
-# AGENT 3 & 4: OPTION A + OPTION B SEO & MENTOR ENGINE
+# AGENT 3 & 4: OPTION A (HUMAN-STYLE SHORT INFO + FULL DOSSIER) & OPTION B
 # =====================================================================
 class OptionA_SEOWriterAgent:
     @staticmethod
-    def generate_full_content(title, category):
-        today_str = datetime.now().strftime("%d %B %Y")
+    def generate_full_content(title, category, post_date):
         clean_title = re.sub(r'\s+', ' ', title).strip()
         dept_name = clean_title.split("Recruitment")[0].split("Online Form")[0].split("Vacancy")[0].strip()
 
         short_view = f"""
-<div class="short-view-card" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:16px; margin-bottom:20px; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
-    <div style="background:#eef6ff; border-left:4px solid #1a73e8; padding:10px 14px; margin-bottom:12px; border-radius:4px;">
-        <span style="color:#174ea6; font-weight:700; font-size:15px;">📢 Short Information / Summary:</span>
-        <p style="margin:4px 0 0; color:#334155; font-size:14px; line-height:1.6;">
-            <strong>{dept_name}</strong> ne hal hi mein <strong>{clean_title}</strong> ke sambandh mein official notification release kiya hai. Jo bhi abhyarthi is bharti prakriya mein aavedan karna chahte hain, ve important dates, fee structure, age limit aur eligibility criteria check karke direct links se jud sakte hain. Niche is notification ka exhaustive deep breakdown diya gaya hai.
+<div class="short-view-card" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:18px; margin-bottom:22px; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+    <div style="background:#eef6ff; border-left:4px solid #1a73e8; padding:12px 16px; margin-bottom:14px; border-radius:4px;">
+        <span style="color:#174ea6; font-weight:700; font-size:15px;">📢 Short Information / Quick Summary:</span>
+        <p style="margin:6px 0 0; color:#334155; font-size:14px; line-height:1.6;">
+            <strong>{dept_name}</strong> ne <strong>{clean_title}</strong> ke liye official notification jari kiya hai. Is bharti ke aantargat aavedan karne wale sabhi abhyarthi important dates, application fee, age limit, eligibility aur direct official links ki jankari yahan prapt kar sakte hain. Niche is notification ka poora detailed breakdown diya gaya hai.
         </p>
     </div>
-    <div style="display:flex; flex-wrap:wrap; gap:10px; font-size:13px; color:#475569;">
-        <span style="background:#f1f5f9; padding:5px 10px; border-radius:4px;"><strong>📅 Update Date:</strong> {today_str}</span>
-        <span style="background:#f1f5f9; padding:5px 10px; border-radius:4px;"><strong>🏷️ Category:</strong> {category}</span>
-        <span style="background:#f1f5f9; padding:5px 10px; border-radius:4px;"><strong>🌐 Mode:</strong> Online Direct Portal</span>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; font-size:13px; color:#475569;">
+        <span style="background:#f1f5f9; padding:6px 12px; border-radius:4px;"><strong>📅 Notification Date:</strong> {post_date}</span>
+        <span style="background:#f1f5f9; padding:6px 12px; border-radius:4px;"><strong>🏷️ Category:</strong> {category}</span>
+        <span style="background:#f1f5f9; padding:6px 12px; border-radius:4px;"><strong>🌐 Mode:</strong> Online Direct Portal</span>
     </div>
 </div>
 """
         deep_view = f"""
 <div class="deep-job-dossier" style="line-height:1.75; font-family:system-ui,-apple-system,sans-serif; color:#1e293b;">
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🗓️ 1. Detailed Application Timeline (Important Dates)</h3>
-    <table style="width:100%; border-collapse:collapse; margin-bottom:18px; font-size:14px;">
-        <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600; width:45%;">Notification Release Date</td><td style="padding:10px;">{today_str}</td></tr>
+    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">🗓️ 1. Detailed Application Timeline (Important Dates)</h3>
+    <table style="width:100%; border-collapse:collapse; margin-bottom:20px; font-size:14px;">
+        <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600; width:45%;">Notification Release Date</td><td style="padding:10px;">{post_date}</td></tr>
         <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Online Registration Start Date</td><td style="padding:10px; color:#16a34a; font-weight:600;">Active Now (Official Portal)</td></tr>
-        <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Last Date to Apply Online</td><td style="padding:10px; color:#dc2626; font-weight:700;">Check Notification PDF Notice</td></tr>
-        <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Admit Card / Exam Date</td><td style="padding:10px;">Will be notified soon on official portal</td></tr>
+        <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Last Date to Apply Online</td><td style="padding:10px; color:#dc2626; font-weight:700;">Check Official Notification PDF</td></tr>
+        <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Admit Card / Exam Date</td><td style="padding:10px;">Announced Soon on Official Portal</td></tr>
     </table>
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">💳 2. Application Fee Structure & Payment Modes</h3>
-    <ul style="padding-left:22px; margin-bottom:18px; font-size:14px;">
+
+    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">💳 2. Application Fee Structure & Payment Modes</h3>
+    <ul style="padding-left:22px; margin-bottom:20px; font-size:14px;">
         <li><strong>General / OBC / EWS Male Candidates:</strong> As per Board Notification rules (Usually ₹100/- to ₹500/-).</li>
         <li><strong>SC / ST / Divyang (PwD) Candidates:</strong> ₹0/- (Nil / Exempted as per government norms).</li>
         <li><strong>Payment Options:</strong> Online mode through Debit Card, Credit Card, Net Banking, UPI (Google Pay, PhonePe).</li>
     </ul>
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🎂 3. Age Limit Criteria & Relaxation</h3>
-    <table style="width:100%; border-collapse:collapse; margin-bottom:18px; font-size:14px;">
+
+    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">🎂 3. Age Limit Criteria & Relaxation</h3>
+    <table style="width:100%; border-collapse:collapse; margin-bottom:20px; font-size:14px;">
         <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600; width:45%;">Minimum Age Requirement</td><td style="padding:10px;">18 Years (Post anusar)</td></tr>
-        <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Maximum Age Limit</td><td style="padding:10px;">27 - 40 Years (Post wise)</td></tr>
+        <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Maximum Age Limit</td><td style="padding:10px;">27 - 40 Years (Post wise criteria)</td></tr>
         <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Age Relaxation</td><td style="padding:10px;">OBC candidates: 3 Years, SC/ST: 5 Years chhoot niyamansuar.</td></tr>
     </table>
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🎓 4. Vacancy Details & Educational Eligibility</h3>
-    <ul style="padding-left:22px; margin-bottom:18px; font-size:14px;">
+
+    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">🎓 4. Vacancy Details & Educational Eligibility</h3>
+    <ul style="padding-left:22px; margin-bottom:20px; font-size:14px;">
         <li><strong>10th / 12th Pass Posts:</strong> Manyataprapta Board se 10th (Matric) ya 12th (Intermediate) pass.</li>
         <li><strong>Degree / Diploma Posts:</strong> Relevant field mein Bachelor Degree / Diploma / ITI (Official PDF dekhein).</li>
     </ul>
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">⚙️ 5. Stage-by-Stage Selection Process</h3>
-    <ol style="padding-left:22px; margin-bottom:18px; font-size:14px;">
+
+    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">⚙️ 5. Stage-by-Stage Selection Process</h3>
+    <ol style="padding-left:22px; margin-bottom:20px; font-size:14px;">
         <li><strong>Stage 1:</strong> Computer Based Written Exam (CBT / OMR Objective Test).</li>
         <li><strong>Stage 2:</strong> Skill Test / Typing Test / PET (Jahan laagu ho).</li>
         <li><strong>Stage 3:</strong> Document Verification (Mool praman patron ki janch).</li>
         <li><strong>Stage 4:</strong> Medical Examination (Swasthya parikshan).</li>
     </ol>
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">📚 6. Exam Pattern & Subject-Wise Syllabus</h3>
-    <ul style="padding-left:22px; margin-bottom:18px; font-size:14px;">
+
+    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">📚 6. Exam Pattern & Subject-Wise Syllabus</h3>
+    <ul style="padding-left:22px; margin-bottom:20px; font-size:14px;">
         <li><strong>Reasoning:</strong> Puzzles, Coding-Decoding, Blood Relations, Series, Syllogism.</li>
         <li><strong>Quantitative Aptitude:</strong> Percentage, Ratio, Profit & Loss, Speed Math, Data Interpretation.</li>
         <li><strong>General Awareness:</strong> Pichhle 6 mahine ka Current Affairs, Samvidhan, Geography, History.</li>
         <li><strong>Language:</strong> Grammar, Error Spotting, Reading Comprehension, Vocabulary.</li>
     </ul>
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🎯 7. Aakhri 1 Mahine Ki Preparation Strategy (30 Days Blueprint)</h3>
-    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:14px; margin-bottom:18px; font-size:14px;">
+
+    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">🎯 7. Aakhri 1 Mahine Ki Preparation Strategy (30 Days Blueprint)</h3>
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:16px; margin-bottom:20px; font-size:14px;">
         <ul style="padding-left:20px; margin:0;">
             <li><strong>Week 1 (Concept Revision):</strong> Short notes aur math formulas ko thoroughly revise karein.</li>
             <li><strong>Week 2 (Sectional Practice):</strong> Weak subjects par time-bound sectional tests lagayein.</li>
@@ -269,27 +284,27 @@ class OptionB_GeminiAIAgent:
         return None
 
 # =====================================================================
-# AGENT 5: SYNTHESIZER WITH STRICT GATEKEEPER
+# AGENT 5: CROSS-SOURCE SYNTHESIZER
 # =====================================================================
 class SynthesizerAgent:
     @staticmethod
     def create_unified_post(title, link, source_name, use_ai=True):
-        print(f"    ↳ [{source_name}] Crawling: {title[:40]}...")
+        print(f"    ↳ [{source_name}] Synthesizing Master Post: {title[:38]}...")
         deep = DeepLinkExtractorAgent.extract_and_evaluate(title, link)
         
-        # STRICT GATEKEEPER: Discard posts without valid official destination links
         if deep["apply_link"] == "#" and deep["notif_url"] == "#" and deep["official_web"] == "#":
-            print(f"      ❌ Dropped (No official links found): {title[:35]}")
+            print(f"      ❌ Dropped (No valid official link): {title[:30]}")
             return None
 
         category = CategoryClassifierAgent.classify(title)
-        opt_a = OptionA_SEOWriterAgent.generate_full_content(title, category)
+        post_date = deep["extracted_date"]
+
+        opt_a = OptionA_SEOWriterAgent.generate_full_content(title, category, post_date)
         opt_b = OptionB_GeminiAIAgent.generate_editorial(title, category) if use_ai and GEMINI_API_KEY else None
         
         full_desc = f"{opt_b}\n{opt_a}" if opt_b else opt_a
         job_id = hashlib.md5(f"{title}_{link}".encode("utf-8")).hexdigest()[:12]
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        date_str = datetime.now().strftime("%d %b %Y")
         clean_dept = title.split("Recruitment")[0].split("Online Form")[0].split("Vacancy")[0].strip()
 
         return {
@@ -300,10 +315,10 @@ class SynthesizerAgent:
             "answer_key_url": deep["answer_key_url"], "answerKeyUrl": deep["answer_key_url"],
             "admit_card_url": deep["admit_card_url"], "admitCardUrl": deep["admit_card_url"],
             "official_web": deep["official_web"], "webUrl": deep["official_web"],
-            "date": date_str, "post_date": date_str, "updated_at": now,
+            "date": post_date, "post_date": post_date, "updated_at": now,
             "summary": f"{clean_dept} notification update for {title}. Check verified direct links.",
             "description": full_desc, "content": full_desc, "accuracy_score": deep["accuracy_score"],
-            "engine": "Heavy Stealth Agentic 6-Category Scraper", "status": "published",
+            "engine": "Cross-Source Multi-Agent 6-Category Synthesizer", "status": "published",
             "seo_keywords": f"{title}, {category}, Direct Apply Online, PDF Download"
         }
 
@@ -330,7 +345,7 @@ def extract_items_from_source(html, base_url):
     return items
 
 def main():
-    print("🚀 Starting Heavy Stealth Scraper Across All 8 Portals (incl. SarkariResult Mirror)...")
+    print("🚀 Starting Cross-Source Multi-Agent Scraper Across All 8 Portals...")
     existing = []
     if os.path.exists(DATABASE_FILE):
         try:
@@ -338,7 +353,11 @@ def main():
                 existing = json.load(f)
         except Exception: pass
 
-    seen_titles = {j.get("title", "").lower().strip() for j in existing if isinstance(j, dict)}
+    seen_titles = {}
+    for j in existing:
+        if isinstance(j, dict) and "title" in j:
+            seen_titles[j["title"].lower().strip()] = j
+
     new_posts = []
     ai_count = 0
 
@@ -351,8 +370,11 @@ def main():
         count = 0
         for title, link in candidates:
             norm = title.lower().strip()
-            if norm in seen_titles: continue
             
+            # Cross-Comparison Evaluator: Avoid duplicates, synthesize best data
+            if norm in seen_titles:
+                continue
+
             use_ai = (ai_count < 15)
             post = SynthesizerAgent.create_unified_post(title, link, source["name"], use_ai=use_ai)
             if post:
@@ -360,16 +382,18 @@ def main():
                     ai_count += 1
                     time.sleep(1.0)
                 new_posts.append(post)
-                seen_titles.add(norm)
+                seen_titles[norm] = post
                 count += 1
                 if count >= 8: break
         time.sleep(1.0)
 
-    final_db = new_posts + existing
-    final_db = final_db[:500]
+    all_posts = new_posts + [j for j in existing if j.get("title", "").lower().strip() not in seen_titles]
+    all_posts.sort(key=lambda x: x.get("accuracy_score", 0), reverse=True)
+    final_db = all_posts[:500]
+
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
         json.dump(final_db, f, ensure_ascii=False, indent=2)
-    print(f"\n🎉 Successfully saved {len(final_db)} posts to {DATABASE_FILE}!")
+    print(f"\n🎉 Successfully synchronized {len(final_db)} master posts to {DATABASE_FILE}!")
 
 if __name__ == "__main__":
     main()

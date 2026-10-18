@@ -8,10 +8,11 @@ import asyncio
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-# Advanced Anti-Block Libraries
+# Heavy Stealth Scraper Libraries
 from curl_cffi import requests as cffi_requests
 from playwright.async_api import async_playwright
 from playwright_stealth import stealth_async
+import undetected_chromedriver as uc
 
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
@@ -40,11 +41,21 @@ AGGREGATOR_DOMAINS = [
     'careerpower.in', 'jagranjosh.com', 'adda247.com'
 ]
 
+KNOWN_GOV_PORTALS = {
+    "ssc": "https://ssc.gov.in/", "upsc": "https://upsc.gov.in/",
+    "rrb": "https://indianrailways.gov.in/", "railway": "https://indianrailways.gov.in/",
+    "ibps": "https://www.ibps.in/", "sbi": "https://sbi.co.in/web/careers",
+    "rbi": "https://opportunities.rbi.org.in/", "india post": "https://indiapostgdsonline.gov.in/",
+    "itbp": "https://recruitment.itbpolice.nic.in/", "bsf": "https://rectt.bsf.gov.in/",
+    "crpf": "https://rect.crpf.gov.in/", "bhel": "https://careers.bhel.in/",
+    "cwc": "https://www.cewacor.nic.in/", "irel": "https://www.irel.co.in/careers"
+}
+
 # =====================================================================
-# HYBRID NETWORK FETCH ENGINE (curl_cffi + Playwright Stealth)
+# HEAVY STEALTH FETCH ENGINES
 # =====================================================================
 def fetch_with_curl_cffi(url):
-    """Fast static fetching using real Chrome TLS fingerprinting"""
+    """Engine 2: curl_cffi with Chrome TLS Fingerprinting"""
     try:
         response = cffi_requests.get(url, impersonate="chrome110", timeout=15)
         if response.status_code == 200 and len(response.text) > 300:
@@ -54,7 +65,7 @@ def fetch_with_curl_cffi(url):
     return ""
 
 async def fetch_with_playwright_stealth(url):
-    """Heavy dynamic rendering & Cloudflare bypass using Playwright + Stealth"""
+    """Engine 1: Playwright + Playwright-Stealth for Cloudflare Bypass"""
     try:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
@@ -62,7 +73,7 @@ async def fetch_with_playwright_stealth(url):
                 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
             )
             await stealth_async(page)
-            await page.goto(url, timeout=30000, wait_until="domcontentloaded")
+            await page.goto(url, timeout=35000, wait_until="domcontentloaded")
             content = await page.content()
             await browser.close()
             if content and len(content) > 300:
@@ -71,12 +82,32 @@ async def fetch_with_playwright_stealth(url):
         pass
     return ""
 
-def resilient_fetch(url):
-    """Primary curl_cffi try, fallback to Playwright Stealth if blocked"""
+def fetch_with_undetected_chrome(url):
+    """Engine 3: Undetected-Chromedriver for robust rendering"""
+    try:
+        options = uc.ChromeOptions()
+        options.headless = True
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        driver = uc.Chrome(options=options)
+        driver.get(url)
+        content = driver.page_source
+        driver.quit()
+        if content and len(content) > 300:
+            return content
+    except Exception:
+        pass
+    return ""
+
+def resilient_stealth_fetch(url):
+    """Master Scraper Orchestrator using Heavy Bot Scrapers sequentially"""
     html = fetch_with_curl_cffi(url)
     if not html or "Just a moment..." in html or "Cloudflare" in html:
-        print(f"      ↳ Static fetch blocked/empty. Switching to Playwright Stealth Engine for: {url}")
+        print(f"      ↳ curl_cffi blocked. Switching to Playwright Stealth for: {url}")
         html = asyncio.run(fetch_with_playwright_stealth(url))
+    if not html or "Just a moment..." in html or "Cloudflare" in html:
+        print(f"      ↳ Playwright blocked. Switching to Undetected Chromedriver for: {url}")
+        html = fetch_with_undetected_chrome(url)
     return html
 
 def is_aggregator_link(href):
@@ -86,20 +117,22 @@ def is_aggregator_link(href):
     return any(ag in h for ag in AGGREGATOR_DOMAINS)
 
 # =====================================================================
-# AGENT 1: SMART CATEGORY CLASSIFIER
+# AGENT 1: EXACT 6 CATEGORIES CLASSIFIER
 # =====================================================================
 class CategoryClassifierAgent:
     @staticmethod
     def classify(title):
         t = title.lower()
-        if any(k in t for k in ["result", "merit list", "cutoff", "score card"]):
+        if any(k in t for k in ["result", "merit list", "cutoff", "cut off", "score card", "selection list"]):
             return "Result"
-        elif any(k in t for k in ["admit card", "hall ticket", "call letter", "exam date"]):
+        elif any(k in t for k in ["admit card", "hall ticket", "call letter", "exam date", "exam city"]):
             return "Admit Card"
         elif any(k in t for k in ["answer key", "response sheet", "objection"]):
             return "Answer Key"
         elif any(k in t for k in ["syllabus", "exam pattern"]):
             return "Syllabus"
+        elif any(k in t for k in ["admission", "counselling", "enrollment", "apply admission"]):
+            return "Admission"
         return "Latest Jobs"
 
 # =====================================================================
@@ -107,41 +140,31 @@ class CategoryClassifierAgent:
 # =====================================================================
 class DeepLinkExtractorAgent:
     @staticmethod
-    def extract_and_evaluate(article_url):
+    def extract_and_evaluate(title, article_url):
         extracted = {
-            "apply_link": "#",
-            "notif_url": "#",
-            "result_url": "#",
-            "answer_key_url": "#",
-            "admit_card_url": "#",
-            "official_web": "#",
-            "accuracy_score": 1
+            "apply_link": "#", "notif_url": "#", "result_url": "#",
+            "answer_key_url": "#", "admit_card_url": "#", "official_web": "#", "accuracy_score": 1
         }
-
         if not article_url or not article_url.startswith("http"):
             return extracted
 
-        html = resilient_fetch(article_url)
+        html = resilient_stealth_fetch(article_url)
         if not html:
             return extracted
 
         soup = BeautifulSoup(html, "html.parser")
-
         for container in soup.find_all(["tr", "li", "p", "div"]):
             row_text = re.sub(r'\s+', ' ', container.get_text()).strip().lower()
-            if len(row_text) > 800:
-                continue
+            if len(row_text) > 800: continue
             for a in container.find_all("a", href=True):
                 href = a["href"].strip()
-                if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS):
-                    continue
-                if is_aggregator_link(href):
-                    continue
+                if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS): continue
+                if is_aggregator_link(href): continue
 
                 a_text = re.sub(r'\s+', ' ', a.get_text()).strip().lower()
                 combo = f"{row_text} {a_text}"
 
-                if href.lower().endswith(".pdf") or any(w in combo for w in ["notification", "advt", "notice", "download pdf"]):
+                if href.lower().endswith(".pdf") or any(w in combo for w in ["notification", "advt", "official notice", "download pdf"]):
                     if extracted["notif_url"] == "#":
                         extracted["notif_url"] = href
                         extracted["accuracy_score"] += 3
@@ -155,6 +178,14 @@ class DeepLinkExtractorAgent:
                     if not href.lower().endswith(".pdf") and extracted["official_web"] == "#":
                         extracted["official_web"] = href
                         extracted["accuracy_score"] += 2
+
+        if extracted["official_web"] == "#":
+            t_low = title.lower()
+            for key, portal_url in KNOWN_GOV_PORTALS.items():
+                if key in t_low:
+                    extracted["official_web"] = portal_url
+                    extracted["accuracy_score"] += 2
+                    break
 
         if extracted["apply_link"] == "#" and extracted["official_web"] != "#":
             extracted["apply_link"] = extracted["official_web"]
@@ -188,7 +219,6 @@ class OptionA_SEOWriterAgent:
     </div>
 </div>
 """
-
         deep_view = f"""
 <div class="deep-job-dossier" style="line-height:1.75; font-family:system-ui,-apple-system,sans-serif; color:#1e293b;">
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🗓️ 1. Detailed Application Timeline (Important Dates)</h3>
@@ -198,27 +228,23 @@ class OptionA_SEOWriterAgent:
         <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Last Date to Apply Online</td><td style="padding:10px; color:#dc2626; font-weight:700;">Check Notification PDF Notice</td></tr>
         <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Admit Card / Exam Date</td><td style="padding:10px;">Will be notified soon on official portal</td></tr>
     </table>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">💳 2. Application Fee Structure & Payment Modes</h3>
     <ul style="padding-left:22px; margin-bottom:18px; font-size:14px;">
         <li><strong>General / OBC / EWS Male Candidates:</strong> As per Board Notification rules (Usually ₹100/- to ₹500/-).</li>
         <li><strong>SC / ST / Divyang (PwD) Candidates:</strong> ₹0/- (Nil / Exempted as per government norms).</li>
         <li><strong>Payment Options:</strong> Online mode through Debit Card, Credit Card, Net Banking, UPI (Google Pay, PhonePe).</li>
     </ul>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🎂 3. Age Limit Criteria & Relaxation</h3>
     <table style="width:100%; border-collapse:collapse; margin-bottom:18px; font-size:14px;">
         <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600; width:45%;">Minimum Age Requirement</td><td style="padding:10px;">18 Years (Post anusar)</td></tr>
         <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Maximum Age Limit</td><td style="padding:10px;">27 - 40 Years (Post wise)</td></tr>
         <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Age Relaxation</td><td style="padding:10px;">OBC candidates: 3 Years, SC/ST: 5 Years chhoot niyamansuar.</td></tr>
     </table>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🎓 4. Vacancy Details & Educational Eligibility</h3>
     <ul style="padding-left:22px; margin-bottom:18px; font-size:14px;">
         <li><strong>10th / 12th Pass Posts:</strong> Manyataprapta Board se 10th (Matric) ya 12th (Intermediate) pass.</li>
         <li><strong>Degree / Diploma Posts:</strong> Relevant field mein Bachelor Degree / Diploma / ITI (Official PDF dekhein).</li>
     </ul>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">⚙️ 5. Stage-by-Stage Selection Process</h3>
     <ol style="padding-left:22px; margin-bottom:18px; font-size:14px;">
         <li><strong>Stage 1:</strong> Computer Based Written Exam (CBT / OMR Objective Test).</li>
@@ -226,7 +252,6 @@ class OptionA_SEOWriterAgent:
         <li><strong>Stage 3:</strong> Document Verification (Mool praman patron ki janch).</li>
         <li><strong>Stage 4:</strong> Medical Examination (Swasthya parikshan).</li>
     </ol>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">📚 6. Exam Pattern & Subject-Wise Syllabus</h3>
     <ul style="padding-left:22px; margin-bottom:18px; font-size:14px;">
         <li><strong>Reasoning:</strong> Puzzles, Coding-Decoding, Blood Relations, Series, Syllogism.</li>
@@ -234,7 +259,6 @@ class OptionA_SEOWriterAgent:
         <li><strong>General Awareness:</strong> Pichhle 6 mahine ka Current Affairs, Samvidhan, Geography, History.</li>
         <li><strong>Language:</strong> Grammar, Error Spotting, Reading Comprehension, Vocabulary.</li>
     </ul>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:20px;">🎯 7. Aakhri 1 Mahine Ki Preparation Strategy (30 Days Blueprint)</h3>
     <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:14px; margin-bottom:18px; font-size:14px;">
         <ul style="padding-left:20px; margin:0;">
@@ -254,38 +278,20 @@ class OptionA_SEOWriterAgent:
 class OptionB_GeminiAIAgent:
     @staticmethod
     def generate_editorial(title, category):
-        if not GEMINI_API_KEY:
-            return None
-
-        prompt = (
-            f"You are an expert Indian competitive exam mentor. "
-            f"Write an authentic, encouraging 2-paragraph editorial guidance piece in Hinglish "
-            f"for candidates preparing for: '{title}' (Category: {category}). "
-            f"Paragraph 1 should highlight career significance and reality. "
-            f"Paragraph 2 should give practical study tips to avoid silly mistakes. "
-            f"Do not use bullet points."
-        )
-
-        payload = json.dumps({
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0.7, "maxOutputTokens": 400}
-        }).encode("utf-8")
-
-        for model_name in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash-latest"]:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={GEMINI_API_KEY}"
-            req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"}, method="POST")
+        if not GEMINI_API_KEY: return None
+        prompt = f"Write an encouraging 2-paragraph mentor guidance in Hinglish for exam aspirants preparing for: '{title}' (Category: {category})."
+        payload = json.dumps({"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.7, "maxOutputTokens": 400}}).encode("utf-8")
+        for model in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash-latest"]:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
             try:
-                with urllib.request.urlopen(req, context=ssl_context, timeout=12) as response:
-                    res_data = json.loads(response.read().decode("utf-8"))
-                    candidates = res_data.get("candidates", [])
-                    if candidates:
-                        parts = candidates[0].get("content", {}).get("parts", [])
-                        if parts and "text" in parts[0]:
-                            editorial_text = parts[0]["text"].strip()
-                            return f"""
+                req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"}, method="POST")
+                with urllib.request.urlopen(req, timeout=10) as resp:
+                    res = json.loads(resp.read().decode("utf-8"))
+                    text = res["candidates"][0]["content"]["parts"][0]["text"].strip()
+                    return f"""
 <div class="mentor-editorial-block" style="background:#fdf2f8; border-left:4px solid #db2777; padding:14px; margin-bottom:18px; border-radius:6px;">
     <h4 style="margin-top:0; color:#9d174d; font-size:16px;">🎯 Senior Mentor's Strategy Guidance</h4>
-    <p style="margin:0; font-size:14px; color:#831843; line-height:1.7;">{editorial_text}</p>
+    <p style="margin:0; font-size:14px; color:#831843; line-height:1.7;">{text}</p>
 </div>
 """
             except Exception:
@@ -298,59 +304,36 @@ class OptionB_GeminiAIAgent:
 class SynthesizerAgent:
     @staticmethod
     def create_unified_post(title, link, source_name, use_ai=True):
-        print(f"    ↳ [{source_name}] Deep Crawling Official Links: {title[:40]}...")
-        deep = DeepLinkExtractorAgent.extract_and_evaluate(link)
-
+        print(f"    ↳ [{source_name}] Heavy Stealth Crawling: {title[:40]}...")
+        deep = DeepLinkExtractorAgent.extract_and_evaluate(title, link)
         category = CategoryClassifierAgent.classify(title)
-        option_a_html = OptionA_SEOWriterAgent.generate_full_content(title, category)
-        option_b_html = None
-
-        if use_ai and GEMINI_API_KEY:
-            option_b_html = OptionB_GeminiAIAgent.generate_editorial(title, category)
-
-        full_description = f"{option_b_html}\n{option_a_html}" if option_b_html else option_a_html
-
+        
+        opt_a = OptionA_SEOWriterAgent.generate_full_content(title, category)
+        opt_b = OptionB_GeminiAIAgent.generate_editorial(title, category) if use_ai and GEMINI_API_KEY else None
+        
+        full_desc = f"{opt_b}\n{opt_a}" if opt_b else opt_a
         job_id = hashlib.md5(f"{title}_{link}".encode("utf-8")).hexdigest()[:12]
-        now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        date_display = datetime.now().strftime("%d %b %Y")
-
+        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        date_str = datetime.now().strftime("%d %b %Y")
         clean_dept = title.split("Recruitment")[0].split("Online Form")[0].split("Vacancy")[0].strip()
-        short_summary_text = f"{clean_dept} has officially released the notification update for {title}. Check key dates, age limit, syllabus and verified direct links."
 
         return {
-            "id": job_id,
-            "title": title,
-            "category": category,
-            "source": source_name,
-            "link": link,
-            "url": link,
-            "apply_link": deep["apply_link"],
-            "applyUrl": deep["apply_link"],
-            "notif_url": deep["notif_url"],
-            "notifUrl": deep["notif_url"],
-            "download_pdf": deep["notif_url"],
-            "result_url": deep["result_url"],
-            "resultUrl": deep["result_url"],
-            "answer_key_url": deep["answer_key_url"],
-            "answerKeyUrl": deep["answer_key_url"],
-            "admit_card_url": deep["admit_card_url"],
-            "admitCardUrl": deep["admit_card_url"],
-            "official_web": deep["official_web"],
-            "webUrl": deep["official_web"],
-            "date": date_display,
-            "post_date": date_display,
-            "updated_at": now_iso,
-            "summary": short_summary_text,
-            "description": full_description,
-            "content": full_description,
-            "accuracy_score": deep["accuracy_score"],
-            "engine": "Agentic Hybrid (Option B Gemini AI + Option A Short & Deep Dossier)",
-            "status": "published",
-            "seo_keywords": f"{title}, {category}, Sarkari Result, Direct Apply Online, PDF Download, Syllabus, 1 Month Strategy"
+            "id": job_id, "title": title, "category": category, "source": source_name,
+            "link": link, "url": link, "apply_link": deep["apply_link"], "applyUrl": deep["apply_link"],
+            "notif_url": deep["notif_url"], "notifUrl": deep["notif_url"], "download_pdf": deep["notif_url"],
+            "result_url": deep["result_url"], "resultUrl": deep["result_url"],
+            "answer_key_url": deep["answer_key_url"], "answerKeyUrl": deep["answer_key_url"],
+            "admit_card_url": deep["admit_card_url"], "admitCardUrl": deep["admit_card_url"],
+            "official_web": deep["official_web"], "webUrl": deep["official_web"],
+            "date": date_str, "post_date": date_str, "updated_at": now,
+            "summary": f"{clean_dept} notification update for {title}. Check verified direct links.",
+            "description": full_desc, "content": full_desc, "accuracy_score": deep["accuracy_score"],
+            "engine": "Heavy Stealth Agentic 6-Category Scraper", "status": "published",
+            "seo_keywords": f"{title}, {category}, Direct Apply Online, PDF Download"
         }
 
 # =====================================================================
-# AGENT 6: SCANNER (ALL 8 PORTALS RESILIENT)
+# AGENT 6: SCANNER
 # =====================================================================
 def extract_items_from_source(html, base_url):
     items = []
@@ -372,52 +355,46 @@ def extract_items_from_source(html, base_url):
     return items
 
 def main():
-    print("🚀 Starting Hybrid Stealth Scraper Across ALL 8 Portals...")
-    existing_database = []
+    print("🚀 Starting Heavy Stealth Scraper Across All 8 Portals...")
+    existing = []
     if os.path.exists(DATABASE_FILE):
         try:
             with open(DATABASE_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, list):
-                    existing_database = data
-        except Exception:
-            existing_database = []
+                existing = json.load(f)
+        except Exception: pass
 
-    existing_titles = {j.get("title", "").lower().strip() for j in existing_database if isinstance(j, dict)}
-
+    seen_titles = {j.get("title", "").lower().strip() for j in existing if isinstance(j, dict)}
     new_posts = []
-    ai_calls_count = 0
-    MAX_AI_CALLS_PER_RUN = 16
+    ai_count = 0
 
     for source in SOURCES:
-        print(f"\n🤖 [Scanner Agent] Scanning Portal: {source['name']}...")
-        html = resilient_fetch(source["url"])
-        candidates = extract_items_from_source(html, source["url"]) if html else []
+        print(f"\n🤖 Scanning Portal with Heavy Stealth: {source['name']}...")
+        html = resilient_stealth_fetch(source["url"])
+        if not html: continue
         
-        for title, link in candidates[:10]:
-            norm_title = title.lower().strip()
-            if norm_title in existing_titles:
-                continue
-
-            use_ai_now = (ai_calls_count < MAX_AI_CALLS_PER_RUN)
-            post_entry = SynthesizerAgent.create_unified_post(title, link, source["name"], use_ai=use_ai_now)
-            if post_entry:
-                if use_ai_now and GEMINI_API_KEY:
-                    ai_calls_count += 1
+        candidates = extract_items_from_source(html, source["url"])
+        count = 0
+        for title, link in candidates:
+            norm = title.lower().strip()
+            if norm in seen_titles: continue
+            
+            use_ai = (ai_count < 15)
+            post = SynthesizerAgent.create_unified_post(title, link, source["name"], use_ai=use_ai)
+            if post:
+                if use_ai and GEMINI_API_KEY:
+                    ai_count += 1
                     time.sleep(1.0)
-                new_posts.append(post_entry)
-                existing_titles.add(norm_title)
-
+                new_posts.append(post)
+                seen_titles.add(norm)
+                count += 1
+                if count >= 8: break
         time.sleep(1.0)
 
-    print(f"\n✅ Total Verified Posts Harvested: {len(new_posts)}")
-    final_database = new_posts + existing_database
-    final_database = final_database[:500]
-
+    final_db = new_posts + existing
+    final_db = final_db[:500]
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
-        json.dump(final_database, f, ensure_ascii=False, indent=2)
-
-    print(f"🎉 Successfully saved {len(final_database)} posts to {DATABASE_FILE}!")
+        json.dump(final_db, f, ensure_ascii=False, indent=2)
+    print(f"\n🎉 Successfully saved {len(final_db)} posts to {DATABASE_FILE}!")
 
 if __name__ == "__main__":
     main()

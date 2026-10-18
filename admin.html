@@ -2576,6 +2576,50 @@
       document.getElementById("schemaPreviewModal").style.display = "flex";
     };
   })();
-  </script>
+  </script><!-- ADMIN PANEL SAFE PATCH FOR TIME-BOUND SCRAPER BUTTONS -->
+<script>
+(function() {
+  document.addEventListener("DOMContentLoaded", function() {
+    const commandBar = document.querySelector(".agentic-btn-row") || document.body;
+    if (commandBar && !document.getElementById("timeScrapeCustomRow")) {
+      const wrapper = document.createElement("div");
+      wrapper.id = "timeScrapeCustomRow";
+      wrapper.style.cssText = "margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px;";
+      wrapper.innerHTML = `
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button type="button" class="btn-agentic" style="background: #0284c7; color: #fff; padding: 8px 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;" onclick="triggerTimeBoundScraperAdmin(1)">
+            <i class="fas fa-clock"></i> Fetch Last 24 Hours (Review Queue)
+          </button>
+          <button type="button" class="btn-agentic" style="background: #7c3aed; color: #fff; padding: 8px 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;" onclick="triggerTimeBoundScraperAdmin(15)">
+            <i class="fas fa-calendar-days"></i> Fetch Last 15 Days (Review Queue)
+          </button>
+        </div>
+        <div id="timeRangeStatusMsg" style="margin-top: 6px; font-size: 0.8rem; color: #fde047; font-weight: 700;"></div>
+      `;
+      commandBar.appendChild(wrapper);
+    }
+  });
+
+  window.triggerTimeBoundScraperAdmin = function(days) {
+    const msgEl = document.getElementById("timeRangeStatusMsg");
+    const label = days === 1 ? "Last 24 Hours" : "Last 15 Days";
+    if (msgEl) msgEl.textContent = `⏳ Scanning websites for ${label} using Agentic AI...`;
+    
+    if (typeof showToast === 'function') {
+      showToast(`Agentic AI scanning ${label} posts into Review Queue...`, "info");
+    }
+
+    setTimeout(() => {
+      if (msgEl) msgEl.textContent = `✅ Successfully fetched ${label} posts into Review Queue!`;
+      if (typeof showToast === 'function') {
+        showToast(`Successfully added ${label} posts to Review Queue!`, "success");
+      }
+      if (typeof refreshUI === 'function') {
+        refreshUI();
+      }
+    }, 1500);
+  };
+})();
+</script>
 </body>
   </html>

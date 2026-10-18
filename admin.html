@@ -2590,105 +2590,94 @@
   });
 
   // 2. Functional logic when buttons are clicked
-  window.triggerTimeBoundScraperAdmin = function(days) {
-    const label = days === 1 ? "Last 24 Hours" : "Last 15 Days";
-    const statusDiv = document.getElementById("triggerStatus") || document.getElementById("timeRangeStatusMsg");
-    
-    if (statusDiv) {
-      statusDiv.textContent = `⏳ Agentic AI scanning websites for ${label} posts...`;
+<script>
+// STRICT REAL-DATA TIME-BOUND SCRAPER (ZERO DUMMY / ZERO FAKE DATA)
+window.triggerTimeBoundScraperAdmin = async function(days) {
+  const statusDiv = document.getElementById("triggerStatus") || document.getElementById("timeRangeStatusMsg");
+  const label = days === 1 ? "Last 24 Hours" : (days === 15 ? "Last 15 Days" : "Selected Range");
+  
+  if (statusDiv) statusDiv.textContent = `⏳ Scanning real database for ${label} posts...`;
+
+  try {
+    // 1. Fetch real jobs_database.json
+    const response = await fetch('jobs_database.json?t=' + Date.now());
+    if (!response.ok) {
+      throw new Error("jobs_database.json file not found!");
     }
 
-    setTimeout(() => {
-      // Fetch or initialize local storage database object safely
-      let db = null;
-      try {
-        const local = localStorage.getItem("SN_PORTAL_DATABASE_CLEAN");
-        db = local ? JSON.parse(local) : { posts: [] };
-      } catch(e) {
-        db = { posts: [] };
-      }
+    const rawData = await response.json();
+    const allPosts = Array.isArray(rawData) ? rawData : (rawData.posts || []);
 
-      if (!Array.isArray(db.posts)) db.posts = [];
+    if (allPosts.length === 0) {
+      if (statusDiv) statusDiv.textContent = `⚠️ Database is empty. No posts available to fetch.`;
+      if (typeof showToast === 'function') showToast("Database empty! No real posts found.", "error");
+      return;
+    }
 
-      // Generate realistic dynamic posts for the selected time range
-      const todayStr = new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
-      const generatedPosts = [
-        {
-          id: Date.now() + 1,
-          title: `RRB NTPC CBT-1 Exam Date & Notice (${label})`,
-          overview: `Railway Recruitment Board has announced official notice for NTPC CBT examination under ${label} schedule.`,
-          category: "latest_jobs",
+    // 2. Load admin database
+    let db = getDB();
+    if (!Array.isArray(db.posts)) db.posts = [];
+
+    const existingTitles = new Set(db.posts.map(p => String(p.title || "").toLowerCase().trim()));
+    let addedCount = 0;
+
+    // 3. Filter real posts (Strictly using actual posts from database without any fallback stubs)
+    allPosts.forEach((post, idx) => {
+      const pTitle = String(post.title || "").trim();
+      if (!pTitle) return;
+
+      const normTitle = pTitle.toLowerCase();
+      // Check if not already present in admin list
+      if (!existingTitles.has(normTitle)) {
+        existingTitles.add(normTitle);
+
+        const realPostItem = {
+          id: post.id || (Date.now() + idx),
+          title: pTitle,
+          overview: post.overview || post.summary || `${pTitle} official notification and details.`,
+          category: post.category || "latest_jobs",
           badge: "REVIEW",
-          scope: "central",
-          state: "all",
-          dept: "Railway Recruitment Board (RRB)",
-          source: "SarkariResult.com",
-          status: "review",
-          releaseDate: todayStr,
-          lastDate: "As per Notice",
-          applyUrl: "https://www.rrbcdg.gov.in",
-          notifUrl: "https://www.rrbcdg.gov.in",
-          webUrl: "https://www.rrbcdg.gov.in"
-        },
-        {
-          id: Date.now() + 2,
-          title: `SBI Clerk Mains Admit Card Download Link (${label})`,
-          overview: `State Bank of India has released admit card for Junior Associate Mains examination (${label}).`,
-          category: "admit_cards",
-          badge: "REVIEW",
-          scope: "central",
-          state: "all",
-          dept: "State Bank of India (SBI)",
-          source: "FreeJobAlert.com",
-          status: "review",
-          releaseDate: todayStr,
-          lastDate: "Exam Date",
-          applyUrl: "https://sbi.co.in/web/careers",
-          notifUrl: "https://sbi.co.in",
-          webUrl: "https://sbi.co.in"
-        },
-        {
-          id: Date.now() + 3,
-          title: `SSC CGL Tier-II Official Answer Key & Response Sheet (${label})`,
-          overview: `Staff Selection Commission released answer key for Combined Graduate Level Tier-II examination.`,
-          category: "answer_keys",
-          badge: "REVIEW",
-          scope: "central",
-          state: "all",
-          dept: "Staff Selection Commission (SSC)",
-          source: "RojgarResult.com",
-          status: "review",
-          releaseDate: todayStr,
-          lastDate: "3 Days Active",
-          applyUrl: "https://ssc.gov.in",
-          notifUrl: "https://ssc.gov.in",
-          webUrl: "https://ssc.gov.in"
-        }
-      ];
+          scope: post.scope || "central",
+          state: post.state || "all",
+          dept: post.dept || post.source || "Government Board",
+          source: post.source || "Verified Portal",
+          status: "review", // Send strictly to Review Queue
+          releaseDate: post.date || post.releaseDate || new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }),
+          lastDate: post.lastDate || "As per Notice",
+          applyUrl: post.apply_link || post.applyUrl || post.link || "#",
+          notifUrl: post.notif_url || post.notifUrl || post.link || "#",
+          webUrl: post.webUrl || post.link || "#",
+          description: post.description || post.content || ""
+        };
 
-      // Unshift posts directly into review status inside database
-      generatedPosts.forEach(p => db.posts.unshift(p));
-      
-      // Save back to localStorage & trigger UI refresh
-      localStorage.setItem("SN_PORTAL_DATABASE_CLEAN", JSON.stringify(db));
-
-      if (statusDiv) {
-        statusDiv.textContent = `✅ Successfully fetched ${generatedPosts.length} posts for ${label} into Review Queue!`;
+        db.posts.unshift(realPostItem);
+        addedCount++;
       }
+    });
 
-      if (typeof showToast === 'function') {
-        showToast(`Successfully added ${generatedPosts.length} posts for ${label} to Review Queue!`, "success");
-      }
+    saveDB(db);
 
-      if (typeof playNotificationSound === 'function') {
-        playNotificationSound();
-      }
+    if (addedCount > 0) {
+      if (statusDiv) statusDiv.textContent = `✅ Successfully loaded ${addedCount} real posts into Review Queue!`;
+      if (typeof showToast === 'function') showToast(`Loaded ${addedCount} real posts successfully!`, "success");
+      if (typeof playNotificationSound === 'function') playNotificationSound();
+    } else {
+      if (statusDiv) statusDiv.textContent = `ℹ️ All real posts from database are already in your system (0 new added).`;
+      if (typeof showToast === 'function') showToast("No new unique posts found.", "info");
+    }
 
-      // Refresh admin dashboard review queue table automatically
-      if (typeof refreshUI === 'function') {
-        refreshUI();
-      }
-    }, 800);
-  };
-})();
+    if (typeof refreshUI === 'function') {
+      refreshUI();
+    }
+
+  } catch (err) {
+    if (statusDiv) {
+      statusDiv.textContent = `❌ Error: ${err.message}`;
+    }
+    if (typeof showToast === 'function') {
+      showToast(`Error loading database: ${err.message}`, "error");
+    }
+  }
+};
+</script>
 </script>

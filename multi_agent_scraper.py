@@ -8,16 +8,14 @@ import asyncio
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-# Heavy Stealth Scraper Libraries
 from curl_cffi import requests as cffi_requests
 from playwright.async_api import async_playwright
-from playwright_stealth import stealth_async
+from playwright_stealth import stealth
 import undetected_chromedriver as uc
 
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
-# ALL 8 MANDATORY RECRUITMENT PORTALS
 SOURCES = [
     {"name": "SarkariResult", "url": "https://www.sarkariresult.com/"},
     {"name": "FreeJobAlert", "url": "https://www.freejobalert.com/government-jobs/"},
@@ -51,11 +49,7 @@ KNOWN_GOV_PORTALS = {
     "cwc": "https://www.cewacor.nic.in/", "irel": "https://www.irel.co.in/careers"
 }
 
-# =====================================================================
-# HEAVY STEALTH FETCH ENGINES
-# =====================================================================
 def fetch_with_curl_cffi(url):
-    """Engine 2: curl_cffi with Chrome TLS Fingerprinting"""
     try:
         response = cffi_requests.get(url, impersonate="chrome110", timeout=15)
         if response.status_code == 200 and len(response.text) > 300:
@@ -65,14 +59,13 @@ def fetch_with_curl_cffi(url):
     return ""
 
 async def fetch_with_playwright_stealth(url):
-    """Engine 1: Playwright + Playwright-Stealth for Cloudflare Bypass"""
     try:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
             page = await browser.new_page(
                 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
             )
-            await stealth_async(page)
+            await stealth(page)
             await page.goto(url, timeout=35000, wait_until="domcontentloaded")
             content = await page.content()
             await browser.close()
@@ -83,7 +76,6 @@ async def fetch_with_playwright_stealth(url):
     return ""
 
 def fetch_with_undetected_chrome(url):
-    """Engine 3: Undetected-Chromedriver for robust rendering"""
     try:
         options = uc.ChromeOptions()
         options.headless = True
@@ -100,13 +92,10 @@ def fetch_with_undetected_chrome(url):
     return ""
 
 def resilient_stealth_fetch(url):
-    """Master Scraper Orchestrator using Heavy Bot Scrapers sequentially"""
     html = fetch_with_curl_cffi(url)
     if not html or "Just a moment..." in html or "Cloudflare" in html:
-        print(f"      ↳ curl_cffi blocked. Switching to Playwright Stealth for: {url}")
         html = asyncio.run(fetch_with_playwright_stealth(url))
     if not html or "Just a moment..." in html or "Cloudflare" in html:
-        print(f"      ↳ Playwright blocked. Switching to Undetected Chromedriver for: {url}")
         html = fetch_with_undetected_chrome(url)
     return html
 
@@ -116,9 +105,6 @@ def is_aggregator_link(href):
         return False
     return any(ag in h for ag in AGGREGATOR_DOMAINS)
 
-# =====================================================================
-# AGENT 1: EXACT 6 CATEGORIES CLASSIFIER
-# =====================================================================
 class CategoryClassifierAgent:
     @staticmethod
     def classify(title):
@@ -135,9 +121,6 @@ class CategoryClassifierAgent:
             return "Admission"
         return "Latest Jobs"
 
-# =====================================================================
-# AGENT 2: DEEP OFFICIAL LINK & PDF EXTRACTOR AGENT
-# =====================================================================
 class DeepLinkExtractorAgent:
     @staticmethod
     def extract_and_evaluate(title, article_url):
@@ -149,8 +132,7 @@ class DeepLinkExtractorAgent:
             return extracted
 
         html = resilient_stealth_fetch(article_url)
-        if not html:
-            return extracted
+        if not html: return extracted
 
         soup = BeautifulSoup(html, "html.parser")
         for container in soup.find_all(["tr", "li", "p", "div"]):
@@ -194,9 +176,6 @@ class DeepLinkExtractorAgent:
 
         return extracted
 
-# =====================================================================
-# AGENT 3: OPTION A - SHORT VIEW + EXHAUSTIVE DEEP DOSSIER
-# =====================================================================
 class OptionA_SEOWriterAgent:
     @staticmethod
     def generate_full_content(title, category):
@@ -272,9 +251,6 @@ class OptionA_SEOWriterAgent:
 """
         return f"{short_view}\n{deep_view}".strip()
 
-# =====================================================================
-# AGENT 4: OPTION B - GEMINI AI COUNSELOR ENGINE
-# =====================================================================
 class OptionB_GeminiAIAgent:
     @staticmethod
     def generate_editorial(title, category):
@@ -284,6 +260,7 @@ class OptionB_GeminiAIAgent:
         for model in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash-latest"]:
             url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
             try:
+                import urllib.request
                 req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"}, method="POST")
                 with urllib.request.urlopen(req, timeout=10) as resp:
                     res = json.loads(resp.read().decode("utf-8"))
@@ -298,9 +275,6 @@ class OptionB_GeminiAIAgent:
                 continue
         return None
 
-# =====================================================================
-# AGENT 5: SYNTHESIZER
-# =====================================================================
 class SynthesizerAgent:
     @staticmethod
     def create_unified_post(title, link, source_name, use_ai=True):
@@ -332,9 +306,6 @@ class SynthesizerAgent:
             "seo_keywords": f"{title}, {category}, Direct Apply Online, PDF Download"
         }
 
-# =====================================================================
-# AGENT 6: SCANNER
-# =====================================================================
 def extract_items_from_source(html, base_url):
     items = []
     soup = BeautifulSoup(html, "html.parser")

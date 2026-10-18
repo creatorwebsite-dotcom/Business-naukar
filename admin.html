@@ -1627,20 +1627,11 @@
 
       // 3. OPTION B FALLBACK: If CORS/network blocks live RSS on local file://, use verified live notifications from the 8 portals
       if (collectedRawItems.length === 0) {
-        const liveFeedFallback = [
-          { title: "SSC CGL 2026 Group B & C Online Form (17,727 Posts)", source: "SarkariResult.com", url: "https://www.sarkariresult.com", category: "latest_jobs" },
-          { title: "Railway RRB NTPC Graduate & UG Recruitment 2026 Online Form", source: "FreeJobAlert.com", url: "https://www.freejobalert.com", category: "latest_jobs" },
-          { title: "UP Police Constable & SI Bharti 2026 Apply Online", source: "RojgarResult.com", url: "https://www.rojgarresult.com", category: "latest_jobs" },
-          { title: "IBPS Clerk XVI Recruitment 2026 Online Application", source: "MySarkariNaukri.com", url: "https://www.mysarkarinaukri.com", category: "latest_jobs" },
-          { title: "India Post GDS Circle Wise Merit List & Result 2026 Out", source: "SarkariExam.com", url: "https://www.sarkariexam.com", category: "results" },
-          { title: "SSC CHSL Tier-1 Result & Cutoff Marks 2026 Declared", source: "Jobriya.in", url: "https://www.jobriya.in", category: "results" },
-          { title: "RRB NTPC CBT-1 Exam City Intimation & Admit Card 2026", source: "IndGovtJobs.in", url: "https://www.indgovtjobs.in", category: "admit_cards" },
-          { title: "SSC MTS & Havaldar Official Answer Key & Response Sheet 2026", source: "Aglasem.com", url: "https://aglasem.com", category: "answer_keys" },
-          { title: "Railway RRB Group D & NTPC Revised Official Syllabus 2026 PDF", source: "SarkariResult.com", url: "https://www.sarkariresult.com", category: "syllabus" },
-          { title: "NTA CUET UG & PG 2026 Central Universities Admission Form", source: "Aglasem.com", url: "https://aglasem.com", category: "admissions" }
-        ];
-        collectedRawItems.push(...liveFeedFallback);
-      }
+  if (typeof showToast === 'function') {
+    showToast("Live RSS fetch failed. No dummy data allowed.", "error");
+  }
+  return;
+}
 
       // 4. AGENTIC AI DEDUPLICATION & STRUCTURED POST BUILDER
       let addedCount = 0;

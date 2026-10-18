@@ -16,8 +16,9 @@ import undetected_chromedriver as uc
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
+# ALL 8 MANDATORY PORTALS (SarkariResult updated to unblocked mirror .com.cm)
 SOURCES = [
-    {"name": "SarkariResult", "url": "https://www.sarkariresult.com/"},
+    {"name": "SarkariResult", "url": "https://sarkariresult.com.cm/"},
     {"name": "FreeJobAlert", "url": "https://www.freejobalert.com/government-jobs/"},
     {"name": "RojgarResult", "url": "https://www.rojgarresult.com/"},
     {"name": "SarkariExam", "url": "https://www.sarkariexam.com/"},
@@ -34,14 +35,15 @@ BLOCK_DOMAINS = [
 ]
 
 AGGREGATOR_DOMAINS = [
-    'sarkariresult.com', 'freejobalert.com', 'rojgarresult.com',
-    'sarkariexam.com', 'indgovtjobs.in', 'freshersnow.com',
-    'careerpower.in', 'jagranjosh.com', 'adda247.com'
+    'sarkariresult.com', 'sarkariresult.com.cm', 'sarkariresulttools.net',
+    'freejobalert.com', 'rojgarresult.com', 'sarkariexam.com',
+    'indgovtjobs.in', 'freshersnow.com', 'careerpower.in',
+    'jagranjosh.com', 'adda247.com', 'sarkariresult.net'
 ]
 
 KNOWN_GOV_PORTALS = {
     "ssc": "https://ssc.gov.in/", "upsc": "https://upsc.gov.in/",
-    "rrb": "https://indianrailways.gov.in/", "railway": "https://indianrailways.gov.in/",
+    "rrb": "https://www.rrbapply.gov.in/", "railway": "https://indianrailways.gov.in/",
     "ibps": "https://www.ibps.in/", "sbi": "https://sbi.co.in/web/careers",
     "rbi": "https://opportunities.rbi.org.in/", "india post": "https://indiapostgdsonline.gov.in/",
     "itbp": "https://recruitment.itbpolice.nic.in/", "bsf": "https://rectt.bsf.gov.in/",
@@ -75,28 +77,10 @@ async def fetch_with_playwright_stealth(url):
         pass
     return ""
 
-def fetch_with_undetected_chrome(url):
-    try:
-        options = uc.ChromeOptions()
-        options.headless = True
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
-        driver = uc.Chrome(options=options)
-        driver.get(url)
-        content = driver.page_source
-        driver.quit()
-        if content and len(content) > 300:
-            return content
-    except Exception:
-        pass
-    return ""
-
 def resilient_stealth_fetch(url):
     html = fetch_with_curl_cffi(url)
     if not html or "Just a moment..." in html or "Cloudflare" in html:
         html = asyncio.run(fetch_with_playwright_stealth(url))
-    if not html or "Just a moment..." in html or "Cloudflare" in html:
-        html = fetch_with_undetected_chrome(url)
     return html
 
 def is_aggregator_link(href):
@@ -105,6 +89,9 @@ def is_aggregator_link(href):
         return False
     return any(ag in h for ag in AGGREGATOR_DOMAINS)
 
+# =====================================================================
+# AGENT 1: 6 CATEGORIES CLASSIFIER
+# =====================================================================
 class CategoryClassifierAgent:
     @staticmethod
     def classify(title):
@@ -121,6 +108,9 @@ class CategoryClassifierAgent:
             return "Admission"
         return "Latest Jobs"
 
+# =====================================================================
+# AGENT 2: STRICT CLEAN LINK & PDF EXTRACTOR
+# =====================================================================
 class DeepLinkExtractorAgent:
     @staticmethod
     def extract_and_evaluate(title, article_url):
@@ -147,17 +137,17 @@ class DeepLinkExtractorAgent:
                 combo = f"{row_text} {a_text}"
 
                 if href.lower().endswith(".pdf") or any(w in combo for w in ["notification", "advt", "official notice", "download pdf"]):
-                    if extracted["notif_url"] == "#":
+                    if not is_aggregator_link(href) and extracted["notif_url"] == "#":
                         extracted["notif_url"] = href
                         extracted["accuracy_score"] += 3
 
                 if any(w in combo for w in ["apply online", "registration", "apply now", "online form"]):
-                    if not href.lower().endswith(".pdf") and extracted["apply_link"] == "#":
+                    if not href.lower().endswith(".pdf") and not is_aggregator_link(href) and extracted["apply_link"] == "#":
                         extracted["apply_link"] = href
                         extracted["accuracy_score"] += 3
 
                 if any(w in combo for w in ["official website", "official portal", "board website"]):
-                    if not href.lower().endswith(".pdf") and extracted["official_web"] == "#":
+                    if not href.lower().endswith(".pdf") and not is_aggregator_link(href) and extracted["official_web"] == "#":
                         extracted["official_web"] = href
                         extracted["accuracy_score"] += 2
 
@@ -176,6 +166,9 @@ class DeepLinkExtractorAgent:
 
         return extracted
 
+# =====================================================================
+# AGENT 3 & 4: OPTION A + OPTION B SEO & MENTOR ENGINE
+# =====================================================================
 class OptionA_SEOWriterAgent:
     @staticmethod
     def generate_full_content(title, category):
@@ -275,13 +268,21 @@ class OptionB_GeminiAIAgent:
                 continue
         return None
 
+# =====================================================================
+# AGENT 5: SYNTHESIZER WITH STRICT GATEKEEPER
+# =====================================================================
 class SynthesizerAgent:
     @staticmethod
     def create_unified_post(title, link, source_name, use_ai=True):
-        print(f"    ↳ [{source_name}] Heavy Stealth Crawling: {title[:40]}...")
+        print(f"    ↳ [{source_name}] Crawling: {title[:40]}...")
         deep = DeepLinkExtractorAgent.extract_and_evaluate(title, link)
-        category = CategoryClassifierAgent.classify(title)
         
+        # STRICT GATEKEEPER: Discard posts without valid official destination links
+        if deep["apply_link"] == "#" and deep["notif_url"] == "#" and deep["official_web"] == "#":
+            print(f"      ❌ Dropped (No official links found): {title[:35]}")
+            return None
+
+        category = CategoryClassifierAgent.classify(title)
         opt_a = OptionA_SEOWriterAgent.generate_full_content(title, category)
         opt_b = OptionB_GeminiAIAgent.generate_editorial(title, category) if use_ai and GEMINI_API_KEY else None
         
@@ -306,6 +307,9 @@ class SynthesizerAgent:
             "seo_keywords": f"{title}, {category}, Direct Apply Online, PDF Download"
         }
 
+# =====================================================================
+# AGENT 6: SCANNER
+# =====================================================================
 def extract_items_from_source(html, base_url):
     items = []
     soup = BeautifulSoup(html, "html.parser")
@@ -326,7 +330,7 @@ def extract_items_from_source(html, base_url):
     return items
 
 def main():
-    print("🚀 Starting Heavy Stealth Scraper Across All 8 Portals...")
+    print("🚀 Starting Heavy Stealth Scraper Across All 8 Portals (incl. SarkariResult Mirror)...")
     existing = []
     if os.path.exists(DATABASE_FILE):
         try:
@@ -339,7 +343,7 @@ def main():
     ai_count = 0
 
     for source in SOURCES:
-        print(f"\n🤖 Scanning Portal with Heavy Stealth: {source['name']}...")
+        print(f"\n🤖 Scanning Portal: {source['name']}...")
         html = resilient_stealth_fetch(source["url"])
         if not html: continue
         

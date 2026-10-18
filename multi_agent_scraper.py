@@ -16,7 +16,6 @@ import undetected_chromedriver as uc
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
-# ALL 8 MANDATORY RECRUITMENT PORTALS (Including SarkariResult Mirror)
 SOURCES = [
     {"name": "SarkariResult", "url": "https://sarkariresult.com.cm/"},
     {"name": "FreeJobAlert", "url": "https://www.freejobalert.com/government-jobs/"},
@@ -96,9 +95,6 @@ def extract_actual_date(html_soup):
         return dates[0]
     return datetime.now().strftime("%d %b %Y")
 
-# =====================================================================
-# AGENT 1: 6 CATEGORIES CLASSIFIER
-# =====================================================================
 class CategoryClassifierAgent:
     @staticmethod
     def classify(title):
@@ -116,7 +112,7 @@ class CategoryClassifierAgent:
         return "Latest Jobs"
 
 # =====================================================================
-# AGENT 2: MULTI-SOURCE LINK EXTRACTOR & EVALUATOR
+# AGENT 2: ANTI-REDIRECT & DIRECT OFFICIAL BOARD PDF/LINK SNIFFER
 # =====================================================================
 class DeepLinkExtractorAgent:
     @staticmethod
@@ -124,50 +120,66 @@ class DeepLinkExtractorAgent:
         extracted = {
             "apply_link": "#", "notif_url": "#", "result_url": "#",
             "answer_key_url": "#", "admit_card_url": "#", "official_web": "#", 
-            "accuracy_score": 1, "extracted_date": datetime.now().strftime("%d %b %Y")
+            "accuracy_score": 1, "extracted_date": datetime.now().strftime("%d %b %Y"),
+            "dynamic_admin_review_boxes": {}
         }
-        if not article_url or not article_url.startswith("http"):
-            return extracted
+        
+        t_low = title.lower()
+        official_portal = "#"
+        for key, portal_url in KNOWN_GOV_PORTALS.items():
+            if key in t_low:
+                official_portal = portal_url
+                extracted["official_web"] = portal_url
+                break
 
-        html = resilient_stealth_fetch(article_url)
-        if not html: return extracted
+        # 1. Scrape aggregator source
+        if article_url and article_url.startswith("http"):
+            html = resilient_stealth_fetch(article_url)
+            if html:
+                soup = BeautifulSoup(html, "html.parser")
+                extracted["extracted_date"] = extract_actual_date(soup)
+                category = CategoryClassifierAgent.classify(title)
 
-        soup = BeautifulSoup(html, "html.parser")
-        extracted["extracted_date"] = extract_actual_date(soup)
+                for container in soup.find_all(["tr", "li", "p", "div"]):
+                    row_text = re.sub(r'\s+', ' ', container.get_text()).strip().lower()
+                    if len(row_text) > 800: continue
+                    for a in container.find_all("a", href=True):
+                        href = a["href"].strip()
+                        if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS): continue
+                        if is_aggregator_link(href) and not href.lower().endswith(".pdf"): continue
 
-        for container in soup.find_all(["tr", "li", "p", "div"]):
-            row_text = re.sub(r'\s+', ' ', container.get_text()).strip().lower()
-            if len(row_text) > 800: continue
-            for a in container.find_all("a", href=True):
-                href = a["href"].strip()
-                if not href.startswith("http") or any(b in href.lower() for b in BLOCK_DOMAINS): continue
-                if is_aggregator_link(href): continue
+                        a_text = re.sub(r'\s+', ' ', a.get_text()).strip().lower()
+                        combo = f"{row_text} {a_text}"
 
-                a_text = re.sub(r'\s+', ' ', a.get_text()).strip().lower()
-                combo = f"{row_text} {a_text}"
+                        if href.lower().endswith(".pdf") or any(w in combo for w in ["notification", "advt", "official notice", "download pdf"]):
+                            if extracted["notif_url"] == "#":
+                                extracted["notif_url"] = href
+                                extracted["accuracy_score"] += 3
 
-                if href.lower().endswith(".pdf") or any(w in combo for w in ["notification", "advt", "official notice", "download pdf"]):
-                    if not is_aggregator_link(href) and extracted["notif_url"] == "#":
-                        extracted["notif_url"] = href
-                        extracted["accuracy_score"] += 3
+                        if any(w in combo for w in ["apply online", "registration", "apply now", "online form"]):
+                            if not href.lower().endswith(".pdf") and extracted["apply_link"] == "#":
+                                extracted["apply_link"] = href
+                                extracted["accuracy_score"] += 3
 
-                if any(w in combo for w in ["apply online", "registration", "apply now", "online form"]):
-                    if not href.lower().endswith(".pdf") and not is_aggregator_link(href) and extracted["apply_link"] == "#":
-                        extracted["apply_link"] = href
-                        extracted["accuracy_score"] += 3
+        # 2. ANTI-REDIRECT & DIRECT OFFICIAL FALLBACK: If PDF/Apply link is missing or contains redirect/aggregator domain, fetch directly from official portal!
+        if (extracted["notif_url"] == "#" or is_aggregator_link(extracted["notif_url"])) and official_portal != "#":
+            print(f"      🛡️ Anti-Redirect Triggered: Fetching direct official PDF/Links from {official_portal}")
+            official_html = resilient_stealth_fetch(official_portal)
+            if official_html:
+                os_soup = BeautifulSoup(official_html, "html.parser")
+                for oa in os_soup.find_all("a", href=True):
+                    ohref = oa["href"].strip()
+                    otext = oa.get_text().strip().lower()
+                    if not ohref.startswith("http"):
+                        base = "/".join(official_portal.split("/")[:3])
+                        ohref = base + ohref if ohref.startswith("/") else base + "/" + ohref
 
-                if any(w in combo for w in ["official website", "official portal", "board website"]):
-                    if not href.lower().endswith(".pdf") and not is_aggregator_link(href) and extracted["official_web"] == "#":
-                        extracted["official_web"] = href
-                        extracted["accuracy_score"] += 2
-
-        if extracted["official_web"] == "#":
-            t_low = title.lower()
-            for key, portal_url in KNOWN_GOV_PORTALS.items():
-                if key in t_low:
-                    extracted["official_web"] = portal_url
-                    extracted["accuracy_score"] += 2
-                    break
+                    if ohref.lower().endswith(".pdf") and (extracted["notif_url"] == "#" or is_aggregator_link(extracted["notif_url"])):
+                        extracted["notif_url"] = ohref
+                        extracted["accuracy_score"] += 5
+                    if any(w in otext for w in ["apply", "registration", "online", "login"]) and extracted["apply_link"] == "#":
+                        extracted["apply_link"] = ohref
+                        extracted["accuracy_score"] += 5
 
         if extracted["apply_link"] == "#" and extracted["official_web"] != "#":
             extracted["apply_link"] = extracted["official_web"]
@@ -176,9 +188,6 @@ class DeepLinkExtractorAgent:
 
         return extracted
 
-# =====================================================================
-# AGENT 3 & 4: OPTION A (HUMAN-STYLE SHORT INFO + FULL DOSSIER) & OPTION B
-# =====================================================================
 class OptionA_SEOWriterAgent:
     @staticmethod
     def generate_full_content(title, category, post_date):
@@ -209,52 +218,16 @@ class OptionA_SEOWriterAgent:
         <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Last Date to Apply Online</td><td style="padding:10px; color:#dc2626; font-weight:700;">Check Official Notification PDF</td></tr>
         <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Admit Card / Exam Date</td><td style="padding:10px;">Announced Soon on Official Portal</td></tr>
     </table>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">💳 2. Application Fee Structure & Payment Modes</h3>
     <ul style="padding-left:22px; margin-bottom:20px; font-size:14px;">
         <li><strong>General / OBC / EWS Male Candidates:</strong> As per Board Notification rules (Usually ₹100/- to ₹500/-).</li>
         <li><strong>SC / ST / Divyang (PwD) Candidates:</strong> ₹0/- (Nil / Exempted as per government norms).</li>
-        <li><strong>Payment Options:</strong> Online mode through Debit Card, Credit Card, Net Banking, UPI (Google Pay, PhonePe).</li>
     </ul>
-
     <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">🎂 3. Age Limit Criteria & Relaxation</h3>
     <table style="width:100%; border-collapse:collapse; margin-bottom:20px; font-size:14px;">
-        <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600; width:45%;">Minimum Age Requirement</td><td style="padding:10px;">18 Years (Post anusar)</td></tr>
-        <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Maximum Age Limit</td><td style="padding:10px;">27 - 40 Years (Post wise criteria)</td></tr>
-        <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Age Relaxation</td><td style="padding:10px;">OBC candidates: 3 Years, SC/ST: 5 Years chhoot niyamansuar.</td></tr>
+        <tr style="background:#f8fafc; border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600; width:45%;">Minimum Age Requirement</td><td style="padding:10px;">18 Years</td></tr>
+        <tr style="border:1px solid #e2e8f0;"><td style="padding:10px; font-weight:600;">Maximum Age Limit</td><td style="padding:10px;">27 - 40 Years</td></tr>
     </table>
-
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">🎓 4. Vacancy Details & Educational Eligibility</h3>
-    <ul style="padding-left:22px; margin-bottom:20px; font-size:14px;">
-        <li><strong>10th / 12th Pass Posts:</strong> Manyataprapta Board se 10th (Matric) ya 12th (Intermediate) pass.</li>
-        <li><strong>Degree / Diploma Posts:</strong> Relevant field mein Bachelor Degree / Diploma / ITI (Official PDF dekhein).</li>
-    </ul>
-
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">⚙️ 5. Stage-by-Stage Selection Process</h3>
-    <ol style="padding-left:22px; margin-bottom:20px; font-size:14px;">
-        <li><strong>Stage 1:</strong> Computer Based Written Exam (CBT / OMR Objective Test).</li>
-        <li><strong>Stage 2:</strong> Skill Test / Typing Test / PET (Jahan laagu ho).</li>
-        <li><strong>Stage 3:</strong> Document Verification (Mool praman patron ki janch).</li>
-        <li><strong>Stage 4:</strong> Medical Examination (Swasthya parikshan).</li>
-    </ol>
-
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">📚 6. Exam Pattern & Subject-Wise Syllabus</h3>
-    <ul style="padding-left:22px; margin-bottom:20px; font-size:14px;">
-        <li><strong>Reasoning:</strong> Puzzles, Coding-Decoding, Blood Relations, Series, Syllogism.</li>
-        <li><strong>Quantitative Aptitude:</strong> Percentage, Ratio, Profit & Loss, Speed Math, Data Interpretation.</li>
-        <li><strong>General Awareness:</strong> Pichhle 6 mahine ka Current Affairs, Samvidhan, Geography, History.</li>
-        <li><strong>Language:</strong> Grammar, Error Spotting, Reading Comprehension, Vocabulary.</li>
-    </ul>
-
-    <h3 style="color:#0f172a; border-bottom:2px solid #cbd5e1; padding-bottom:8px; margin-top:24px;">🎯 7. Aakhri 1 Mahine Ki Preparation Strategy (30 Days Blueprint)</h3>
-    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:16px; margin-bottom:20px; font-size:14px;">
-        <ul style="padding-left:20px; margin:0;">
-            <li><strong>Week 1 (Concept Revision):</strong> Short notes aur math formulas ko thoroughly revise karein.</li>
-            <li><strong>Week 2 (Sectional Practice):</strong> Weak subjects par time-bound sectional tests lagayein.</li>
-            <li><strong>Week 3 (Full Mock Routine):</strong> Pariksha ke exact time-slot par rojana 1 poora Full Mock Test lagayein.</li>
-            <li><strong>Week 4 (Previous Year Papers):</strong> Pichhle 5 saalon ke actual papers solve karein aur calm mind se revise karein.</li>
-        </ul>
-    </div>
 </div>
 """
         return f"{short_view}\n{deep_view}".strip()
@@ -283,19 +256,12 @@ class OptionB_GeminiAIAgent:
                 continue
         return None
 
-# =====================================================================
-# AGENT 5: CROSS-SOURCE SYNTHESIZER
-# =====================================================================
 class SynthesizerAgent:
     @staticmethod
     def create_unified_post(title, link, source_name, use_ai=True):
-        print(f"    ↳ [{source_name}] Synthesizing Master Post: {title[:38]}...")
+        print(f"    ↳ [{source_name}] Master Synthesis: {title[:38]}...")
         deep = DeepLinkExtractorAgent.extract_and_evaluate(title, link)
         
-        if deep["apply_link"] == "#" and deep["notif_url"] == "#" and deep["official_web"] == "#":
-            print(f"      ❌ Dropped (No valid official link): {title[:30]}")
-            return None
-
         category = CategoryClassifierAgent.classify(title)
         post_date = deep["extracted_date"]
 
@@ -316,15 +282,12 @@ class SynthesizerAgent:
             "admit_card_url": deep["admit_card_url"], "admitCardUrl": deep["admit_card_url"],
             "official_web": deep["official_web"], "webUrl": deep["official_web"],
             "date": post_date, "post_date": post_date, "updated_at": now,
-            "summary": f"{clean_dept} notification update for {title}. Check verified direct links.",
+            "summary": f"{clean_dept} notification update for {title}. Check verified direct official links.",
             "description": full_desc, "content": full_desc, "accuracy_score": deep["accuracy_score"],
-            "engine": "Cross-Source Multi-Agent 6-Category Synthesizer", "status": "published",
+            "engine": "Anti-Redirect Direct Official Sniffer Synthesizer", "status": "pending_review",
             "seo_keywords": f"{title}, {category}, Direct Apply Online, PDF Download"
         }
 
-# =====================================================================
-# AGENT 6: SCANNER
-# =====================================================================
 def extract_items_from_source(html, base_url):
     items = []
     soup = BeautifulSoup(html, "html.parser")
@@ -345,7 +308,7 @@ def extract_items_from_source(html, base_url):
     return items
 
 def main():
-    print("🚀 Starting Cross-Source Multi-Agent Scraper Across All 8 Portals...")
+    print("🚀 Starting Anti-Redirect & Direct Official PDF Sniffer Scraper...")
     existing = []
     if os.path.exists(DATABASE_FILE):
         try:
@@ -353,11 +316,7 @@ def main():
                 existing = json.load(f)
         except Exception: pass
 
-    seen_titles = {}
-    for j in existing:
-        if isinstance(j, dict) and "title" in j:
-            seen_titles[j["title"].lower().strip()] = j
-
+    seen_titles = {j.get("title", "").lower().strip() for j in existing if isinstance(j, dict)}
     new_posts = []
     ai_count = 0
 
@@ -370,10 +329,7 @@ def main():
         count = 0
         for title, link in candidates:
             norm = title.lower().strip()
-            
-            # Cross-Comparison Evaluator: Avoid duplicates, synthesize best data
-            if norm in seen_titles:
-                continue
+            if norm in seen_titles: continue
 
             use_ai = (ai_count < 15)
             post = SynthesizerAgent.create_unified_post(title, link, source["name"], use_ai=use_ai)
@@ -382,18 +338,16 @@ def main():
                     ai_count += 1
                     time.sleep(1.0)
                 new_posts.append(post)
-                seen_titles[norm] = post
+                seen_titles.add(norm)
                 count += 1
-                if count >= 8: break
+                if count >= 6: break
         time.sleep(1.0)
 
-    all_posts = new_posts + [j for j in existing if j.get("title", "").lower().strip() not in seen_titles]
-    all_posts.sort(key=lambda x: x.get("accuracy_score", 0), reverse=True)
-    final_db = all_posts[:500]
-
+    final_db = new_posts + existing
+    final_db = final_db[:500]
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
         json.dump(final_db, f, ensure_ascii=False, indent=2)
-    print(f"\n🎉 Successfully synchronized {len(final_db)} master posts to {DATABASE_FILE}!")
+    print(f"\n🎉 Successfully saved {len(final_db)} posts to {DATABASE_FILE} for admin review!")
 
 if __name__ == "__main__":
     main()

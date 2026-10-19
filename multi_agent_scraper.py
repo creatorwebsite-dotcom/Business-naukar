@@ -41,7 +41,6 @@ OFFICIAL_HUBS = {
     "cantonment": {"name": "Cantonment Board", "home": "https://ecantonmentboard.gov.in", "notices": "https://ecantonmentboard.gov.in"}
 }
 
-# Exhaustive Master Directory covering Section 1 (200 Posts) and Section 2 (100 Posts)[cite: 19, 28]
 MASTER_DIRECTORY_CATALOG = [
     ("UPSC Civil Services IAS / IPS / IFS Examination", "upsc"),
     ("UPSC Central Armed Police Forces CAPF Assistant Commandant", "upsc"),
@@ -157,7 +156,6 @@ def blocking_fetch(url):
     return ""
 
 async def safe_fetch_non_blocking(url, loop):
-    """Ensures bot never hangs for more than 50 seconds on any single request; skips immediately if stuck."""
     if not url or not url.startswith("http"):
         return ""
     try:
@@ -169,7 +167,6 @@ async def safe_fetch_non_blocking(url, loop):
         return ""
 
 def is_within_one_month(date_str):
-    """Filters out posts older than 30 days (1 month)."""
     if not date_str or "To be notified" in date_str or "As per" in date_str:
         return True
     date_patterns = [
@@ -213,7 +210,7 @@ class MasterSynthesizer:
     @staticmethod
     def build_post(title, link, source_name, used_quotes_set):
         meta = IntentAndMetaClassifierAgent.analyze(title)
-        intent_sig = f"{hashlib.md5(title.lower().encode('8550')).hexdigest()[:10]}__{meta['primary_intent']}"
+        intent_sig = f"{hashlib.md5(title.lower().encode('utf-8')).hexdigest()[:10]}__{meta['primary_intent']}"
         job_id = hashlib.md5(intent_sig.encode("utf-8")).hexdigest()[:12]
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -222,7 +219,6 @@ class MasterSynthesizer:
             quote = f"🔥 [{title[:25]} Sankalp]: Har ek din ki tapasya aapko is selection ke aur kareeb le jati hai!"
         used_quotes_set.add(quote.lower())
 
-        # Option A (Structured Dossier) & Option B (Strategy Mentor)
         content = f"""
 <div class="short-view-card" style="background:#ffffff; border:1px solid #cbd5e1; border-radius:8px; padding:18px; margin-bottom:20px;">
     <div style="background:#fef3c7; border-left:4px solid #d97706; padding:8px 12px; margin-bottom:10px; font-weight:600; color:#92400e;">"{quote}"</div>
@@ -297,7 +293,6 @@ async def main_async():
 
     loop = asyncio.get_running_loop()
 
-    # 1. Fetch Aggregators Concurrently with strict non-blocking timeout protection
     tasks = [process_aggregator(src, seen, used_quotes_set, loop) for src in SOURCES]
     results = await asyncio.gather(*tasks, return_exceptions=True)
     
@@ -309,7 +304,6 @@ async def main_async():
                     posts_by_signature[sig] = post
                     new_posts_count += 1
                 else:
-                    # Delta Update Check
                     old_p = posts_by_signature[sig]
                     if old_p.get("link") != post.get("link"):
                         old_p["link"] = post["link"]
@@ -317,7 +311,6 @@ async def main_async():
                         old_p["status"] = "pending_review"
                         delta_updated_count += 1
 
-    # 2. Master Directory Sweep (All 300+ entries)[cite: 19, 28]
     for title, hub_key in MASTER_DIRECTORY_CATALOG:
         norm = title.lower().strip()
         hub = OFFICIAL_HUBS.get(hub_key, {"notices": "https://www.google.com"})
@@ -339,7 +332,6 @@ async def main_async():
 
 def main():
     try:
-        # Strict Hard Timeout Limit: exactly 330 seconds (5.5 minutes), safely under 6 minutes
         asyncio.run(asyncio.wait_for(main_async(), timeout=330.0))
     except asyncio.TimeoutError:
         print("⚠️ Hard timeout of 5.5 minutes reached. Saving current progress safely and exiting.")

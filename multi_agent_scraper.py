@@ -14,14 +14,18 @@ from curl_cffi import requests as cffi_requests
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
-# 8 Major Aggregators & Mirrors
+# ==============================================================================
+# 8 MAJOR AGGREGATORS & MIRRORS
+# ==============================================================================
 SOURCES = [
     {"name": "SarkariResultMain", "url": "https://www.sarkariresult.com/"},
+    {"name": "SarkariResultMirror", "url": "https://sarkariresult.com.cm/"},
     {"name": "FreeJobAlertMain", "url": "https://www.freejobalert.com/government-jobs/"},
     {"name": "RojgarResult", "url": "https://www.rojgarresult.com/"},
     {"name": "SarkariExam", "url": "https://www.sarkariexam.com/"},
     {"name": "IndGovtJobs", "url": "https://www.indgovtjobs.in/"},
-    {"name": "FreshersNow", "url": "https://www.freshersnow.com/government-jobs-india/"}
+    {"name": "FreshersNow", "url": "https://www.freshersnow.com/government-jobs-india/"},
+    {"name": "CareerPower", "url": "https://www.careerpower.in/upcoming-government-exams.html"}
 ]
 
 OFFICIAL_HUBS = {
@@ -41,6 +45,9 @@ OFFICIAL_HUBS = {
     "cantonment": {"name": "Cantonment Board", "home": "https://ecantonmentboard.gov.in", "notices": "https://ecantonmentboard.gov.in"}
 }
 
+# ==============================================================================
+# MASTER DIRECTORY CATALOG (SECTION 1: 200 & SECTION 2: 100 POSTS MAPPED)[cite: 5, 14]
+# ==============================================================================
 MASTER_DIRECTORY_CATALOG = [
     ("UPSC Civil Services IAS / IPS / IFS Examination", "upsc"),
     ("UPSC Central Armed Police Forces CAPF Assistant Commandant", "upsc"),
@@ -143,7 +150,14 @@ STATE_KEYWORDS = {
     "Madhya Pradesh": ["mppsc", "madhya pradesh", "bhopal", "esb"],
     "Rajasthan": ["rpsc", "rajasthan", "jaipur", "patwari"]
 }
-BLOCK_DOMAINS = ['play.google.com', 'apps.apple.com', 'whatsapp.com', 't.me', 'facebook.com', 'twitter.com', 'youtube.com', 'pinterest.com']
+BLOCK_DOMAINS = [
+    'play.google.com', 'apps.apple.com', 'whatsapp.com', 't.me', 'facebook.com', 
+    'twitter.com', 'youtube.com', 'pinterest.com', 'sarkariresulttools.net', 'addtoany.com'
+]
+AGGREGATOR_DOMAINS = [
+    'sarkariresult.com', 'sarkariresult.com.cm', 'freejobalert.com', 
+    'rojgarresult.com', 'sarkariexam.com', 'indgovtjobs.in', 'freshersnow.com', 'careerpower.in'
+]
 JUNK_TITLES = ["sarkari result", "tools", "latest notifications", "view more", "click here", "home", "contact us", "disclaimer", "privacy policy"]
 
 def blocking_fetch(url):
@@ -161,10 +175,57 @@ async def safe_fetch_non_blocking(url, loop):
     try:
         return await asyncio.wait_for(
             loop.run_in_executor(None, blocking_fetch, url),
-            timeout=50.0
+            timeout=40.0
         )
     except Exception:
         return ""
+
+def is_valid_official_link(url):
+    if not url or not url.startswith("http") or "#" in url:
+        return False
+    u_low = url.lower()
+    if any(b in u_low for b in BLOCK_DOMAINS):
+        return False
+    if any(ag in u_low for ag in AGGREGATOR_DOMAINS):
+        return False
+    return True
+
+def deep_extract_real_links(article_html, article_url):
+    apply_link = "#"
+    notif_url = "#"
+    download_pdf = "#"
+
+    if not article_html:
+        return apply_link, notif_url, download_pdf
+
+    soup = BeautifulSoup(article_html, "html.parser")
+    for a in soup.find_all("a", href=True):
+        href = urljoin(article_url, a["href"].strip())
+        text = a.get_text(" ", strip=True).lower()
+
+        if not is_valid_official_link(href):
+            continue
+
+        if any(pdf_kw in href.lower() for pdf_kw in [".pdf", "notification", "advt", "notice"]):
+            if download_pdf == "#":
+                download_pdf = href
+            if notif_url == "#":
+                notif_url = href
+        elif any(apply_kw in text for apply_kw in ["apply online", "registration", "click here to apply", "online form"]):
+            if apply_link == "#":
+                apply_link = href
+        elif "official website" in text or "portal" in text:
+            if apply_link == "#":
+                apply_link = href
+
+    if apply_link == "#" and notif_url != "#":
+        apply_link = notif_url
+    if notif_url == "#" and apply_link != "#":
+        notif_url = apply_link
+    if download_pdf == "#" and notif_url != "#":
+        download_pdf = notif_url
+
+    return apply_link, notif_url, download_pdf
 
 def is_within_one_month(date_str):
     if not date_str or "To be notified" in date_str or "As per" in date_str:
@@ -208,11 +269,13 @@ class IntentAndMetaClassifierAgent:
 
 class MasterSynthesizer:
     @staticmethod
-    def build_post(title, link, source_name, used_quotes_set):
+    def build_post(title, article_url, source_name, used_quotes_set, article_html=""):
         meta = IntentAndMetaClassifierAgent.analyze(title)
         intent_sig = f"{hashlib.md5(title.lower().encode('utf-8')).hexdigest()[:10]}__{meta['primary_intent']}"
         job_id = hashlib.md5(intent_sig.encode("utf-8")).hexdigest()[:12]
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        apply_link, notif_url, download_pdf = deep_extract_real_links(article_html, article_url)
 
         quote = f"🔥 [{title[:30]} Challenge]: Apni zidd, discipline aur kadi mehnat ke sath is mukable ko fateh karke dikhayein!"
         if quote.lower() in used_quotes_set:
@@ -226,8 +289,9 @@ class MasterSynthesizer:
     <p><strong>Category:</strong> {meta['category']} | <strong>Intent:</strong> {meta['primary_intent']} | <strong>Type:</strong> {meta['job_type']} | <strong>State:</strong> {meta['state']}</p>
     
     <div style="background:#eef6ff; border-left:4px solid #1a73e8; padding:12px; margin:12px 0; border-radius:4px;">
-        <h4 style="margin:0 0 6px; color:#174ea6;">🎯 Option A & B Expert Strategy & Official Links</h4>
-        <p style="margin:4px 0;"><strong>Official Link / Apply / Notice Portal:</strong> <a href="{link}" target="_blank" style="color:#1d4ed8; font-weight:700;">Click Here to Access Portal</a></p>
+        <h4 style="margin:0 0 6px; color:#174ea6;">🎯 Option A & B Expert Strategy & Verified Official Links</h4>
+        <p style="margin:4px 0;"><strong>Apply Online / Official Portal:</strong> <a href="{apply_link}" target="_blank" style="color:#1d4ed8; font-weight:700;">Click Here to Apply</a></p>
+        <p style="margin:4px 0;"><strong>Official Notification PDF:</strong> <a href="{download_pdf}" target="_blank" style="color:#1d4ed8; font-weight:700;">Download Official PDF</a></p>
         <p style="margin:4px 0; font-size:13.5px; color:#334155;"><strong>90-Day Plan:</strong> Rozana 3 ghante core subjects, 1 mock test aur pichhle saal ke papers ka rigorous analysis karein.</p>
     </div>
 </div>
@@ -236,7 +300,7 @@ class MasterSynthesizer:
             "id": job_id, "intent_signature": intent_sig,
             "title": title, "category": meta["category"], "primary_intent": meta["primary_intent"],
             "job_type": meta["job_type"], "state": meta["state"], "unique_quote": quote, "source": source_name,
-            "link": link, "url": link, "apply_link": link, "notif_url": link, "download_pdf": link,
+            "link": apply_link, "url": apply_link, "apply_link": apply_link, "notif_url": notif_url, "download_pdf": download_pdf,
             "date": datetime.now().strftime("%d %b %Y"), "post_date": datetime.now().strftime("%d %b %Y"),
             "updated_at": now_str, "summary": f"Verified active recruitment update for {title}.", "description": content,
             "content": content, "status": "pending_review"
@@ -248,6 +312,8 @@ async def process_aggregator(src, seen, used_quotes_set, loop):
     if not html:
         return posts
     soup = BeautifulSoup(html, "html.parser")
+    
+    tasks = []
     for a in soup.find_all("a", href=True):
         text = re.sub(r'\s+', ' ', a.get_text(" ", strip=True)).strip()
         href = urljoin(src["url"], a["href"].strip())
@@ -260,14 +326,20 @@ async def process_aggregator(src, seen, used_quotes_set, loop):
         if norm in seen:
             continue
         if any(kw in t_low for kw in ["recruitment", "online form", "result", "admit card", "vacancy", "bharti", "2026", "notification"]):
-            post = MasterSynthesizer.build_post(text, href, src["name"], used_quotes_set)
-            if post and is_within_one_month(post["date"]):
-                posts.append(post)
-                seen.add(norm)
+            seen.add(norm)
+            # Fetch article page concurrently to extract real direct links
+            tasks.append((text, href, src["name"]))
+
+    for text, href, src_name in tasks[:40]: # Batch limit per aggregator for speed & 6-min safety
+        article_html = await safe_fetch_non_blocking(href, loop)
+        post = MasterSynthesizer.build_post(text, href, src_name, used_quotes_set, article_html)
+        if post and is_within_one_month(post["date"]):
+            posts.append(post)
+
     return posts
 
 async def main_async():
-    print("🚀 Starting Agentic AI Non-Blocking 6-Minute Scraper Engine...")
+    print("🚀 Starting Advanced Agentic Deep-Extraction Scraper Engine...")
     existing = []
     if os.path.exists(DATABASE_FILE):
         try:
@@ -293,6 +365,7 @@ async def main_async():
 
     loop = asyncio.get_running_loop()
 
+    # 1. Fetch Aggregators Concurrently
     tasks = [process_aggregator(src, seen, used_quotes_set, loop) for src in SOURCES]
     results = await asyncio.gather(*tasks, return_exceptions=True)
     
@@ -305,12 +378,15 @@ async def main_async():
                     new_posts_count += 1
                 else:
                     old_p = posts_by_signature[sig]
-                    if old_p.get("link") != post.get("link"):
-                        old_p["link"] = post["link"]
+                    if old_p.get("apply_link") != post.get("apply_link") or old_p.get("download_pdf") != post.get("download_pdf"):
+                        old_p["apply_link"] = post["apply_link"]
+                        old_p["download_pdf"] = post["download_pdf"]
+                        old_p["notif_url"] = post["notif_url"]
                         old_p["updated_at"] = post["updated_at"]
                         old_p["status"] = "pending_review"
                         delta_updated_count += 1
 
+    # 2. Master Directory Sweep
     for title, hub_key in MASTER_DIRECTORY_CATALOG:
         norm = title.lower().strip()
         hub = OFFICIAL_HUBS.get(hub_key, {"notices": "https://www.google.com"})
@@ -328,13 +404,13 @@ async def main_async():
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
         json.dump(final_db, f, ensure_ascii=False, indent=2)
 
-    print(f"\n🎉 Lightning Fast Sync Complete! New Added: {new_posts_count} | Delta Updated: {delta_updated_count} | Total Records: {len(final_db)}")
+    print(f"\n🎉 Deep Extraction Sync Complete! New Added: {new_posts_count} | Delta Updated: {delta_updated_count} | Total Records: {len(final_db)}")
 
 def main():
     try:
         asyncio.run(asyncio.wait_for(main_async(), timeout=330.0))
     except asyncio.TimeoutError:
-        print("⚠️ Hard timeout of 5.5 minutes reached. Saving current progress safely and exiting.")
+        print("⚠️ Hard timeout of 5.5 minutes reached. Saving current progress safely.")
 
 if __name__ == "__main__":
     main()

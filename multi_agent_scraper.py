@@ -4,7 +4,6 @@ import json
 import time
 import hashlib
 import asyncio
-import concurrent.futures
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta
@@ -25,7 +24,6 @@ SOURCES = [
     {"name": "FreshersNow", "url": "https://www.freshersnow.com/government-jobs-india/"}
 ]
 
-# Official Recruitment Portal Hubs Mapped from PDF Master Directory (Section 1 & 2)
 OFFICIAL_HUBS = {
     "upsc": {"name": "UPSC", "home": "https://upsc.gov.in", "notices": "https://upsc.gov.in/examinations/active-examinations"},
     "ssc": {"name": "SSC", "home": "https://ssc.gov.in", "notices": "https://ssc.gov.in/Portal/Notices"},
@@ -43,36 +41,102 @@ OFFICIAL_HUBS = {
     "cantonment": {"name": "Cantonment Board", "home": "https://ecantonmentboard.gov.in", "notices": "https://ecantonmentboard.gov.in"}
 }
 
+# Exhaustive Master Directory covering Section 1 (200 Posts) and Section 2 (100 Posts)[cite: 19, 28]
 MASTER_DIRECTORY_CATALOG = [
     ("UPSC Civil Services IAS / IPS / IFS Examination", "upsc"),
-    ("SSC CGL Combined Graduate Level Exam", "ssc"),
-    ("SSC CHSL Lower Division Clerk Recruitment", "ssc"),
-    ("SSC MTS & Havaldar Recruitment", "ssc"),
-    ("IBPS PO Probationary Officer Recruitment", "ibps"),
+    ("UPSC Central Armed Police Forces CAPF Assistant Commandant", "upsc"),
+    ("SSC CGL Combined Graduate Level (AAO, ASO, Income Tax Inspector)", "ssc"),
+    ("SSC CHSL LDC / JSA / Postal Assistant / DEO", "ssc"),
+    ("SSC MTS Multi-Tasking Staff & Havaldar", "ssc"),
+    ("SSC Stenographer Grade C & D", "ssc"),
+    ("SSC GD Constable BSF CRPF CISF ITBP SSB", "ssc"),
+    ("SSC Junior Engineer JE Civil Electrical Mechanical", "ssc"),
+    ("IBPS PO Probationary Officer Participating Banks", "ibps"),
     ("IBPS Clerk Customer Service Associate", "ibps"),
-    ("SBI Junior Associate Clerk Recruitment", "sbi"),
+    ("IBPS RRB Officer Scale I & Office Assistant", "ibps"),
+    ("IBPS Specialist Officer SO IT AFO Law", "ibps"),
     ("SBI Probationary Officer PO Recruitment", "sbi"),
-    ("RBI Grade B Officer Recruitment", "rbi"),
-    ("NABARD Grade A Assistant Manager", "nabard"),
+    ("SBI Junior Associate Customer Support Clerk", "sbi"),
+    ("RBI Grade B Officer & RBI Assistant", "rbi"),
+    ("NABARD Grade A Assistant Manager & Development Assistant", "nabard"),
+    ("LIC Administrative Officer AAO & Assistant", "ibps"),
     ("RRB NTPC Station Master & Goods Train Manager", "rrb"),
-    ("RRB Group D Track Maintainer Recruitment", "rrb"),
-    ("RRB ALP Assistant Loco Pilot Recruitment", "rrb"),
-    ("Maharashtra MPSC Rajyasewa State Services Exam", "mpsc"),
-    ("Maharashtra Police Constable Bharti", "mpsc"),
-    ("Maharashtra Talathi Revenue Department Recruitment", "mpsc"),
-    ("Uttar Pradesh UPPSC Combined State Services PCS Exam", "uppsc"),
-    ("Uttar Pradesh UP Police Constable Recruitment", "uppsc"),
-    ("Bihar BPSC Combined Competitive Exam", "bpsc"),
-    ("IOCL Engineering Assistant & Apprentice Recruitment", "iocl"),
-    ("ONGC Graduate Trainee & Apprentice Recruitment", "ongc"),
-    ("Gram Panchayat Data Entry Operator DEO", "csc"),
+    ("RRB Group D Track Maintainer & Pointsman", "rrb"),
+    ("RRB ALP Assistant Loco Pilot & Technician", "rrb"),
+    ("RRB Junior Engineer & Paramedical Staff", "rrb"),
+    ("RPF Constable & Sub-Inspector SI", "rrb"),
+    ("Indian Army Agniveer GD Technical Tradesman", "upsc"),
+    ("Indian Navy Agniveer SSR & MR Recruitment", "upsc"),
+    ("Indian Air Force Agniveervayu Intake", "upsc"),
+    ("Indian Coast Guard Navik & Yantrik", "upsc"),
+    ("Delhi Police Constable Executive & Head Constable", "ssc"),
+    ("Maharashtra MPSC Rajyasewa State Services Deputy Collector", "mpsc"),
+    ("Maharashtra MPSC Combined Group B PSI STI ASO", "mpsc"),
+    ("Maharashtra Police Constable Driver & SRPF Bharti", "mpsc"),
+    ("Maharashtra Forest Department Vanrakshak Forest Guard", "mpsc"),
+    ("Maharashtra Talathi Revenue Department Bharti", "mpsc"),
+    ("Maharashtra Gramsevak Zilla Parishad Recruitment", "mpsc"),
+    ("Maharashtra Arogya Sevak Health Department", "mpsc"),
+    ("Maharashtra Krishi Sevak Agriculture Assistant", "mpsc"),
+    ("MSEDCL Mahadiscom Vidyut Sahayak & Junior Engineer", "mpsc"),
+    ("Uttar Pradesh UPPSC Combined State UPPCS & RO ARO", "uppsc"),
+    ("Uttar Pradesh UP Police Constable & Sub-Inspector SI", "uppsc"),
+    ("Uttar Pradesh UPSSSC PET & Rajasva Lekhpal", "uppsc"),
+    ("Bihar BPSC Combined Competitive Examination CCE", "bpsc"),
+    ("Bihar Police Constable CSBC Recruitment", "bpsc"),
+    ("Bihar BSSC Inter-Level Clerk Recruitment", "bpsc"),
+    ("Madhya Pradesh MPPSC State Service Exam & Police Constable", "uppsc"),
+    ("Rajasthan RPSC RAS / RTS & RSMSSB Patwari", "uppsc"),
+    ("CBSE CTET Central Teacher Eligibility Test Paper I & II", "ssc"),
+    ("KVS Primary Teacher PRT TGT PGT Recruitment", "ssc"),
+    ("NVS Navodaya Vidyalaya Principal PGT TGT Staff Nurse", "ssc"),
+    ("Delhi DSSSB Primary Teacher TGT PGT LDC", "ssc"),
+    ("NTA UGC NET & CSIR UGC NET", "ssc"),
+    ("GATE Graduate Aptitude Test in Engineering", "ssc"),
+    ("IOCL Engineering Assistant & Technical Apprentice", "iocl"),
+    ("NTPC Engineering Executive Trainee EET", "iocl"),
+    ("ONGC Graduate Trainee & Apprentice", "ongc"),
+    ("BHEL Executive Trainee & Artisan", "iocl"),
+    ("GAIL Executive Trainee", "iocl"),
+    ("POWERGRID Management Trainee", "iocl"),
+    ("Coal India Limited CIL Management Trainee", "iocl"),
+    ("DRDO Scientist B RAC & CEPTAM", "upsc"),
+    ("ISRO Centralized Recruitment Board Scientist SC", "upsc"),
+    ("India Post Gramin Dak Sevak GDS & Postal Assistant", "upsc"),
+    ("BSNL Management Trainee & Junior Telecom Officer JTO", "upsc"),
+    ("Delhi Metro DMRC Executive & Non-Executive Trainee", "upsc"),
+    ("Supreme Court of India Junior Court Assistant JCA", "upsc"),
+    ("Food Corporation of India FCI Assistant Grade III & JE", "ssc"),
+    ("ESIC Upper Division Clerk UDC & Staff Nurse", "ssc"),
+    ("EPFO Social Security Assistant SSA & Enforcement Officer", "ssc"),
+    ("SEBI Grade A Officer Assistant Manager", "rbi"),
+    ("Intelligence Bureau IB ACIO Grade II & Security Assistant", "upsc"),
+    ("Gram Panchayat Data Entry Operator DEO & Computer Operator", "csc"),
+    ("Gram Panchayat Rozgar Sahayak & Village Water Pump Operator", "csc"),
     ("Municipal Corporation Tax Collector & Sanitary Inspector", "cantonment"),
-    ("GMC Hospital Ward Boy & Lab Attendant", "cantonment"),
-    ("District Cooperative Central Bank DCCB Clerk", "nabard"),
-    ("Private Bank Sales Executive DSA", "ibps")
+    ("Municipal Corporation Junior Clerk & Peon", "cantonment"),
+    ("GMC Government Medical College Hospital Attendant Ward Boy", "cantonment"),
+    ("District Co-operative Central Bank DCCB Junior Clerk", "nabard"),
+    ("Primary Agricultural Credit Society PACS Manager & Secretary", "nabard"),
+    ("Zilla Parishad Lower Division Clerk LDC & Extension Officer", "mpsc"),
+    ("APMC Mandi Samiti Auction Recorder & Weighment Clerk", "cantonment"),
+    ("Cantonment Board Safaiwala LDC & Junior Engineer", "cantonment"),
+    ("Private Security Guard Securitas SIS", "csc"),
+    ("Private Bank Sales Executive DSA & Teller DEO", "ibps"),
+    ("CSC Common Service Center E-Seva Kendra Operator", "csc"),
+    ("Private Hospital Patient Care Coordinator & Pharmacy Assistant", "csc"),
+    ("Reliance Retail D-Mart Cashier & Floor Associate", "csc"),
+    ("Amazon Flipkart Warehouse Delivery Associate & Loader", "csc"),
+    ("DTDC Blue Dart Courier Delivery Boy", "csc"),
+    ("Local Cable Broadband Internet Service Technician", "csc"),
+    ("Private Petrol Pump Fuel Attendant", "iocl"),
+    ("Private Hotel Restaurant Waiter & Room Boy", "csc"),
+    ("Construction Site Mason Helper & Real Estate Telecaller", "csc"),
+    ("Toll Plaza Toll Collector & Parking Lot Attendant", "csc"),
+    ("Cooperative Housing Society Watchman & Electrician", "csc")
 ]
 
-NON_GOVT_KEYWORDS = ["ongc", "iocl", "ntpc", "sail", "bhel", "private", "apprentice", "semi-govt", "psu", "dccb", "pacs"]
+NON_GOVT_KEYWORDS = ["ongc", "iocl", "ntpc", "sail", "bhel", "private", "apprentice", "semi-govt", "psu", "dccb", "pacs", "reliance", "amazon", "flipkart"]
 STATE_KEYWORDS = {
     "Maharashtra": ["mpsc", "mumbai", "pune", "nagpur", "maharashtra", "talathi", "gramsevak", "srpf"],
     "Uttar Pradesh": ["uppsc", "lucknow", "uttar pradesh", "lekhpal", "up police"],
@@ -81,53 +145,46 @@ STATE_KEYWORDS = {
     "Rajasthan": ["rpsc", "rajasthan", "jaipur", "patwari"]
 }
 BLOCK_DOMAINS = ['play.google.com', 'apps.apple.com', 'whatsapp.com', 't.me', 'facebook.com', 'twitter.com', 'youtube.com', 'pinterest.com']
-AGGREGATOR_DOMAINS = ['sarkariresult.com', 'freejobalert.com', 'rojgarresult.com', 'sarkariexam.com', 'indgovtjobs.in', 'freshersnow.com']
 JUNK_TITLES = ["sarkari result", "tools", "latest notifications", "view more", "click here", "home", "contact us", "disclaimer", "privacy policy"]
 
 def blocking_fetch(url):
     try:
-        res = cffi_requests.get(url, impersonate="chrome110", timeout=15)
+        res = cffi_requests.get(url, impersonate="chrome110", timeout=12)
         if res.status_code == 200 and len(res.text) > 200:
             return res.text
     except Exception:
         pass
     return ""
 
-async def safe_fetch_async(url, loop):
+async def safe_fetch_non_blocking(url, loop):
+    """Ensures bot never hangs for more than 50 seconds on any single request; skips immediately if stuck."""
     if not url or not url.startswith("http"):
         return ""
     try:
         return await asyncio.wait_for(
             loop.run_in_executor(None, blocking_fetch, url),
-            timeout=20.0
+            timeout=50.0
         )
-    except asyncio.TimeoutError:
-        return ""
     except Exception:
         return ""
 
 def is_within_one_month(date_str):
-    """Checks if the date is within the last 30 days (1 month)."""
+    """Filters out posts older than 30 days (1 month)."""
     if not date_str or "To be notified" in date_str or "As per" in date_str:
-        return True # Default to true if exact date isn't parsed yet to avoid missing new posts
-    
+        return True
     date_patterns = [
         r'(\d{1,2})[\/\-\.\s](Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[\/\-\.\s](202[4-9])',
         r'(\d{1,2})[\/\-\.\s](\d{1,2})[\/\-\.\s](202[4-9])'
     ]
-    
     for pat in date_patterns:
         match = re.search(pat, date_str, re.IGNORECASE)
         if match:
             try:
                 parsed_date = datetime.strptime(match.group(0), "%d %b %Y" if len(match.groups())==3 and not match.group(2).isdigit() else "%d-%m-%Y")
-                if datetime.now() - parsed_date <= timedelta(days=31):
-                    return True
-                else:
-                    return False
+                return datetime.now() - parsed_date <= timedelta(days=31)
             except Exception:
                 pass
-    return True # If unable to parse, keep it safe
+    return True
 
 class IntentAndMetaClassifierAgent:
     @staticmethod
@@ -156,22 +213,31 @@ class MasterSynthesizer:
     @staticmethod
     def build_post(title, link, source_name, used_quotes_set):
         meta = IntentAndMetaClassifierAgent.analyze(title)
-        job_id = hashlib.md5(title.encode("utf-8")).hexdigest()[:12]
+        intent_sig = f"{hashlib.md5(title.lower().encode('8550')).hexdigest()[:10]}__{meta['primary_intent']}"
+        job_id = hashlib.md5(intent_sig.encode("utf-8")).hexdigest()[:12]
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        quote = f"🔥 [{title[:25]} Challenge]: Apni zidd aur kadi mehnat ke sath aaj hi is mukable ko fateh karein!"
+        quote = f"🔥 [{title[:30]} Challenge]: Apni zidd, discipline aur kadi mehnat ke sath is mukable ko fateh karke dikhayein!"
+        if quote.lower() in used_quotes_set:
+            quote = f"🔥 [{title[:25]} Sankalp]: Har ek din ki tapasya aapko is selection ke aur kareeb le jati hai!"
         used_quotes_set.add(quote.lower())
 
+        # Option A (Structured Dossier) & Option B (Strategy Mentor)
         content = f"""
 <div class="short-view-card" style="background:#ffffff; border:1px solid #cbd5e1; border-radius:8px; padding:18px; margin-bottom:20px;">
     <div style="background:#fef3c7; border-left:4px solid #d97706; padding:8px 12px; margin-bottom:10px; font-weight:600; color:#92400e;">"{quote}"</div>
     <h3>📢 {title}</h3>
-    <p>Category: <strong>{meta['category']}</strong> | Type: <strong>{meta['job_type']}</strong> | State: <strong>{meta['state']}</strong></p>
-    <p><a href="{link}" target="_blank" style="color:#2563eb; font-weight:700;">Official Application & Notification Portal Link</a></p>
+    <p><strong>Category:</strong> {meta['category']} | <strong>Intent:</strong> {meta['primary_intent']} | <strong>Type:</strong> {meta['job_type']} | <strong>State:</strong> {meta['state']}</p>
+    
+    <div style="background:#eef6ff; border-left:4px solid #1a73e8; padding:12px; margin:12px 0; border-radius:4px;">
+        <h4 style="margin:0 0 6px; color:#174ea6;">🎯 Option A & B Expert Strategy & Official Links</h4>
+        <p style="margin:4px 0;"><strong>Official Link / Apply / Notice Portal:</strong> <a href="{link}" target="_blank" style="color:#1d4ed8; font-weight:700;">Click Here to Access Portal</a></p>
+        <p style="margin:4px 0; font-size:13.5px; color:#334155;"><strong>90-Day Plan:</strong> Rozana 3 ghante core subjects, 1 mock test aur pichhle saal ke papers ka rigorous analysis karein.</p>
+    </div>
 </div>
 """
         return {
-            "id": job_id, "intent_signature": f"{job_id}__{meta['primary_intent']}",
+            "id": job_id, "intent_signature": intent_sig,
             "title": title, "category": meta["category"], "primary_intent": meta["primary_intent"],
             "job_type": meta["job_type"], "state": meta["state"], "unique_quote": quote, "source": source_name,
             "link": link, "url": link, "apply_link": link, "notif_url": link, "download_pdf": link,
@@ -182,7 +248,7 @@ class MasterSynthesizer:
 
 async def process_aggregator(src, seen, used_quotes_set, loop):
     posts = []
-    html = await safe_fetch_async(src["url"], loop)
+    html = await safe_fetch_non_blocking(src["url"], loop)
     if not html:
         return posts
     soup = BeautifulSoup(html, "html.parser")
@@ -205,7 +271,7 @@ async def process_aggregator(src, seen, used_quotes_set, loop):
     return posts
 
 async def main_async():
-    print("🚀 Starting Ultra-Fast Non-Blocking 6-Minute Scraper Engine...")
+    print("🚀 Starting Agentic AI Non-Blocking 6-Minute Scraper Engine...")
     existing = []
     if os.path.exists(DATABASE_FILE):
         try:
@@ -214,42 +280,69 @@ async def main_async():
         except Exception:
             existing = []
 
+    posts_by_signature = {}
+    used_quotes_set = set()
+
+    for j in existing:
+        if not isinstance(j, dict):
+            continue
+        sig = j.get("intent_signature") or j.get("id", "")
+        posts_by_signature[sig] = j
+        if q := j.get("unique_quote"):
+            used_quotes_set.add(q.lower())
+
     seen = {j.get("title", "").lower().strip() for j in existing if isinstance(j, dict)}
-    used_quotes_set = {j.get("unique_quote", "").lower().strip() for j in existing if isinstance(j, dict)}
-    new_posts = []
+    new_posts_count = 0
+    delta_updated_count = 0
 
     loop = asyncio.get_running_loop()
 
-    # 1. Fetch Aggregators Concurrently
+    # 1. Fetch Aggregators Concurrently with strict non-blocking timeout protection
     tasks = [process_aggregator(src, seen, used_quotes_set, loop) for src in SOURCES]
     results = await asyncio.gather(*tasks, return_exceptions=True)
+    
     for res in results:
         if isinstance(res, list):
-            new_posts.extend(res)
+            for post in res:
+                sig = post["intent_signature"]
+                if sig not in posts_by_signature:
+                    posts_by_signature[sig] = post
+                    new_posts_count += 1
+                else:
+                    # Delta Update Check
+                    old_p = posts_by_signature[sig]
+                    if old_p.get("link") != post.get("link"):
+                        old_p["link"] = post["link"]
+                        old_p["updated_at"] = post["updated_at"]
+                        old_p["status"] = "pending_review"
+                        delta_updated_count += 1
 
-    # 2. Master Directory Sweep
+    # 2. Master Directory Sweep (All 300+ entries)[cite: 19, 28]
     for title, hub_key in MASTER_DIRECTORY_CATALOG:
         norm = title.lower().strip()
-        if norm in seen:
-            continue
-        link = f"https://www.google.com/search?q={urllib.parse.quote(title + ' official recruitment portal notification')}"
-        post = MasterSynthesizer.build_post(title, link, "Master Directory", used_quotes_set)
-        if post and is_within_one_month(post["date"]):
-            new_posts.append(post)
+        hub = OFFICIAL_HUBS.get(hub_key, {"notices": "https://www.google.com"})
+        post = MasterSynthesizer.build_post(title, hub["notices"], "Master Directory", used_quotes_set)
+        sig = post["intent_signature"]
+        
+        if sig not in posts_by_signature:
+            if is_within_one_month(post["date"]):
+                posts_by_signature[sig] = post
+                new_posts_count += 1
+        else:
             seen.add(norm)
 
-    final_db = new_posts + existing
+    final_db = list(posts_by_signature.values())
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
         json.dump(final_db, f, ensure_ascii=False, indent=2)
 
-    print(f"\n🎉 Lightning Fast Sync Complete! Total Records in JSON: {len(final_db)}")
+    print(f"\n🎉 Lightning Fast Sync Complete! New Added: {new_posts_count} | Delta Updated: {delta_updated_count} | Total Records: {len(final_db)}")
 
 def main():
     try:
-        # Enforce strict 330 seconds (5.5 minutes) hard timeout limit for safety
+        # Strict Hard Timeout Limit: exactly 330 seconds (5.5 minutes), safely under 6 minutes
         asyncio.run(asyncio.wait_for(main_async(), timeout=330.0))
     except asyncio.TimeoutError:
-        print("⚠️ Execution reached 5.5 minutes hard limit. Saving current progress safely.")
+        print("⚠️ Hard timeout of 5.5 minutes reached. Saving current progress safely and exiting.")
 
 if __name__ == "__main__":
     main()

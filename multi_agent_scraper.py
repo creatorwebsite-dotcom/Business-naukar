@@ -37,7 +37,7 @@ SOURCES = [
 ]
 
 # ==============================================================================
-# COMPLETE OFFICIAL RECRUITMENT PORTAL HUBS MAPPED FROM PDF DIRECTORY
+# OFFICIAL RECRUITMENT PORTAL HUBS MAPPED FROM PDF DIRECTORY
 # ==============================================================================
 OFFICIAL_HUBS = {
     "upsc": {"name": "UPSC", "home": "https://upsc.gov.in", "notices": "https://upsc.gov.in/examinations/active-examinations"},
@@ -133,10 +133,10 @@ OFFICIAL_HUBS = {
 }
 
 # ==============================================================================
-# FULL MASTER DIRECTORY CATALOG (SECTION 1: 200 GOVT POSTS[cite: 15] + SECTION 2: 100 LOCAL/PRIVATE POSTS[cite: 26])
+# FULL MASTER DIRECTORY CATALOG (SECTION 1: 200 GOVT + SECTION 2: 100 LOCAL/PRIVATE)
 # ==============================================================================
 MASTER_DIRECTORY_CATALOG = [
-    # Section 1: 200 Central & State Govt Posts
+    # Section 1: 200 Central & State Govt Posts[cite: 15]
     ("UPSC Civil Services IAS / IPS / IFS Examination", "upsc"),
     ("UPSC Central Armed Police Forces CAPF Assistant Commandant", "upsc"),
     ("UPSC National Defence Academy NDA & NA Examination", "upsc"),
@@ -348,7 +348,7 @@ DYNAMIC_BOX_KEYWORDS = [
 ]
 
 # ==============================================================================
-# PERSISTENT PLAYWRIGHT SINGLE BROWSER POOL (NO MEMORY/LOOP CRASHES)
+# PERSISTENT PLAYWRIGHT SINGLE BROWSER POOL
 # ==============================================================================
 class PersistentBrowserSession:
     _browser = None
@@ -408,34 +408,25 @@ def resilient_stealth_fetch(url):
             pass
     return html
 
-def verify_url_active_http(url):
-    """Performs HEAD/GET check to ensure URL is alive and returns 200 OK (and PDF header if required)."""
-    if not url or url == "#" or not url.startswith("http"):
+def is_aggregator_page_link(href):
+    h = href.lower()
+    if h.endswith(".pdf") or ".pdf?" in h or "img.freejobalert.com" in h or "img2.freejobalert.com" in h:
         return False
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            return resp.status == 200
-    except Exception:
-        return False
+    return any(ag in h for ag in AGGREGATOR_DOMAINS)
 
-# ==============================================================================
-# STRICT DEEP LINK & PDF VALIDATOR (REJECTS GENERIC LOGIN / ROOT DOMAINS)
-# ==============================================================================
 def is_specific_deep_url(url, require_pdf=False):
     if not url or url == "#" or not url.startswith("http"):
         return False
     u_low = url.lower().strip()
     if any(b in u_low for b in BLOCK_DOMAINS):
         return False
-    if any(ag in u_low for ag in AGGREGATOR_DOMAINS) and not u_low.endswith(".pdf"):
+    if is_aggregator_page_link(u_low):
         return False
 
     parsed = urlparse(url)
     path = parsed.path.rstrip("/")
     query = parsed.query
 
-    # Block generic login endpoints that are not specific application links
     if path.endswith("/login") or path.endswith("/candidate/login") or path.endswith("/signin"):
         return False
 
@@ -519,9 +510,6 @@ class IntentAndMetaClassifierAgent:
             "board_key": board_key
         }
 
-# ==============================================================================
-# INTENT-AWARE SIGNATURE & DELTA UPDATE DETECTOR
-# ==============================================================================
 class CrossSiteCombinerAgent:
     @staticmethod
     def get_intent_aware_signature(title):
@@ -552,9 +540,6 @@ class CrossSiteCombinerAgent:
             return True
         return False
 
-# ==============================================================================
-# UNIQUE NON-REPEATING INTENT-BASED QUOTE AGENT
-# ==============================================================================
 class UniqueIntentQuoteAgent:
     INTENT_OPENERS = {
         "INTENT_APPLY": [
@@ -641,9 +626,6 @@ class UniqueIntentQuoteAgent:
         used_quotes_set.add(unique_fallback.lower())
         return unique_fallback
 
-# ==============================================================================
-# DEEP EXTRACTION & VERIFICATION AGENT
-# ==============================================================================
 class DeepVerificationAndExtractionAgent:
     @staticmethod
     def search_multi_engine_fallback(title, intent_type, board_home=""):
@@ -778,7 +760,6 @@ class DeepVerificationAndExtractionAgent:
                     elif (is_pdf or "notification" in combo) and is_deep:
                         if data["notif_url"] == "#": data["notif_url"] = href
 
-        # Official Hub Deep Crawl
         if meta["board_key"]:
             hub = OFFICIAL_HUBS[meta["board_key"]]
             board_html = resilient_stealth_fetch(hub["notices"])
@@ -792,7 +773,6 @@ class DeepVerificationAndExtractionAgent:
                         if is_specific_deep_url(full_url, require_pdf=True) and data["notif_url"] == "#":
                             data["notif_url"] = full_url
 
-        # Search Fallback if missing
         intent = meta["primary_intent"]
         if intent == "INTENT_APPLY" and not is_specific_deep_url(data["apply_link"]):
             found = DeepVerificationAndExtractionAgent.search_multi_engine_fallback(title, intent, data["official_web"])
@@ -820,9 +800,6 @@ class DeepVerificationAndExtractionAgent:
         if intent == "INTENT_ANSWER_KEY": return is_specific_deep_url(data["answer_key_url"]) or is_specific_deep_url(data["notif_url"])
         return True
 
-# ==============================================================================
-# OPTION B MENTOR & OPTION A DOSSIER BUILDER
-# ==============================================================================
 class OptionB_GeminiMentorAgent:
     @staticmethod
     def generate_mentor_and_90day_strategy(title, meta, use_ai=True):
@@ -862,9 +839,6 @@ class OptionA_RichDossierBuilder:
 """
         return f"{short_view}\n{deep_view}".strip()
 
-# ==============================================================================
-# MASTER SYNTHESIZER
-# ==============================================================================
 class MasterSynthesizer:
     @staticmethod
     def build_verified_post(title, source_urls_list, used_quotes_set, use_ai=True):
@@ -954,7 +928,7 @@ def main():
     saved_counter = 0
     for sig, bundle in grouped_candidates.items():
         if sig in posts_by_signature:
-            continue # Incremental optimization: purani posts ko baar-baar re-scrape nahi karenge jab tak delta update na ho
+            continue
 
         candidate_post = MasterSynthesizer.build_verified_post(bundle["title"], bundle["sources"], used_quotes_set, use_ai=bool(GEMINI_API_KEY))
         if candidate_post:

@@ -14,9 +14,6 @@ from curl_cffi import requests as cffi_requests
 DATABASE_FILE = "jobs_database.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
-# ==============================================================================
-# 8 MAJOR AGGREGATORS & MIRRORS
-# ==============================================================================
 SOURCES = [
     {"name": "SarkariResultMain", "url": "https://www.sarkariresult.com/"},
     {"name": "SarkariResultMirror", "url": "https://sarkariresult.com.cm/"},
@@ -45,9 +42,6 @@ OFFICIAL_HUBS = {
     "cantonment": {"name": "Cantonment Board", "home": "https://ecantonmentboard.gov.in", "notices": "https://ecantonmentboard.gov.in"}
 }
 
-# ==============================================================================
-# MASTER DIRECTORY CATALOG (SECTION 1: 200 & SECTION 2: 100 POSTS MAPPED)[cite: 5, 14]
-# ==============================================================================
 MASTER_DIRECTORY_CATALOG = [
     ("UPSC Civil Services IAS / IPS / IFS Examination", "upsc"),
     ("UPSC Central Armed Police Forces CAPF Assistant Commandant", "upsc"),
@@ -175,7 +169,7 @@ async def safe_fetch_non_blocking(url, loop):
     try:
         return await asyncio.wait_for(
             loop.run_in_executor(None, blocking_fetch, url),
-            timeout=40.0
+            timeout=35.0
         )
     except Exception:
         return ""
@@ -190,40 +184,41 @@ def is_valid_official_link(url):
         return False
     return True
 
-def deep_extract_real_links(article_html, article_url):
-    apply_link = "#"
-    notif_url = "#"
-    download_pdf = "#"
+def get_guaranteed_link(title, default_fallback=""):
+    if default_fallback and is_valid_official_link(default_fallback):
+        return default_fallback
+    return f"https://www.google.com/search?q={urllib.parse.quote(title + ' official notification apply online')}"
 
-    if not article_html:
-        return apply_link, notif_url, download_pdf
+def deep_extract_real_links(article_html, article_url, title=""):
+    apply_link = ""
+    notif_url = ""
+    download_pdf = ""
 
-    soup = BeautifulSoup(article_html, "html.parser")
-    for a in soup.find_all("a", href=True):
-        href = urljoin(article_url, a["href"].strip())
-        text = a.get_text(" ", strip=True).lower()
+    if article_html:
+        soup = BeautifulSoup(article_html, "html.parser")
+        for a in soup.find_all("a", href=True):
+            href = urljoin(article_url, a["href"].strip())
+            text = a.get_text(" ", strip=True).lower()
 
-        if not is_valid_official_link(href):
-            continue
+            if not is_valid_official_link(href):
+                continue
 
-        if any(pdf_kw in href.lower() for pdf_kw in [".pdf", "notification", "advt", "notice"]):
-            if download_pdf == "#":
-                download_pdf = href
-            if notif_url == "#":
-                notif_url = href
-        elif any(apply_kw in text for apply_kw in ["apply online", "registration", "click here to apply", "online form"]):
-            if apply_link == "#":
-                apply_link = href
-        elif "official website" in text or "portal" in text:
-            if apply_link == "#":
-                apply_link = href
+            if any(pdf_kw in href.lower() for pdf_kw in [".pdf", "notification", "advt", "notice"]):
+                if not download_pdf:
+                    download_pdf = href
+                if not notif_url:
+                    notif_url = href
+            elif any(apply_kw in text for apply_kw in ["apply online", "registration", "click here to apply", "online form", "official website"]):
+                if not apply_link:
+                    apply_link = href
 
-    if apply_link == "#" and notif_url != "#":
-        apply_link = notif_url
-    if notif_url == "#" and apply_link != "#":
+    # Guaranteed fallbacks so fields are never empty or hash
+    if not apply_link:
+        apply_link = get_guaranteed_link(title, article_url if is_valid_official_link(article_url) else "")
+    if not notif_url:
         notif_url = apply_link
-    if download_pdf == "#" and notif_url != "#":
-        download_pdf = notif_url
+    if not download_pdf:
+        download_pdf = apply_link
 
     return apply_link, notif_url, download_pdf
 
@@ -275,7 +270,7 @@ class MasterSynthesizer:
         job_id = hashlib.md5(intent_sig.encode("utf-8")).hexdigest()[:12]
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        apply_link, notif_url, download_pdf = deep_extract_real_links(article_html, article_url)
+        apply_link, notif_url, download_pdf = deep_extract_real_links(article_html, article_url, title)
 
         quote = f"🔥 [{title[:30]} Challenge]: Apni zidd, discipline aur kadi mehnat ke sath is mukable ko fateh karke dikhayein!"
         if quote.lower() in used_quotes_set:
@@ -327,10 +322,9 @@ async def process_aggregator(src, seen, used_quotes_set, loop):
             continue
         if any(kw in t_low for kw in ["recruitment", "online form", "result", "admit card", "vacancy", "bharti", "2026", "notification"]):
             seen.add(norm)
-            # Fetch article page concurrently to extract real direct links
             tasks.append((text, href, src["name"]))
 
-    for text, href, src_name in tasks[:40]: # Batch limit per aggregator for speed & 6-min safety
+    for text, href, src_name in tasks[:30]:
         article_html = await safe_fetch_non_blocking(href, loop)
         post = MasterSynthesizer.build_post(text, href, src_name, used_quotes_set, article_html)
         if post and is_within_one_month(post["date"]):
@@ -339,7 +333,7 @@ async def process_aggregator(src, seen, used_quotes_set, loop):
     return posts
 
 async def main_async():
-    print("🚀 Starting Advanced Agentic Deep-Extraction Scraper Engine...")
+    print("🚀 Starting Guaranteed-Link Agentic Scraper Engine...")
     existing = []
     if os.path.exists(DATABASE_FILE):
         try:
@@ -355,6 +349,16 @@ async def main_async():
         if not isinstance(j, dict):
             continue
         sig = j.get("intent_signature") or j.get("id", "")
+        # Fix any previously blank links in existing database
+        if j.get("apply_link") == "#" or not j.get("apply_link"):
+            j["apply_link"] = get_guaranteed_link(j.get("title", ""))
+            j["link"] = j["apply_link"]
+            j["url"] = j["apply_link"]
+        if j.get("download_pdf") == "#" or not j.get("download_pdf"):
+            j["download_pdf"] = j["apply_link"]
+        if j.get("notif_url") == "#" or not j.get("notif_url"):
+            j["notif_url"] = j["apply_link"]
+            
         posts_by_signature[sig] = j
         if q := j.get("unique_quote"):
             used_quotes_set.add(q.lower())
@@ -365,7 +369,6 @@ async def main_async():
 
     loop = asyncio.get_running_loop()
 
-    # 1. Fetch Aggregators Concurrently
     tasks = [process_aggregator(src, seen, used_quotes_set, loop) for src in SOURCES]
     results = await asyncio.gather(*tasks, return_exceptions=True)
     
@@ -376,17 +379,7 @@ async def main_async():
                 if sig not in posts_by_signature:
                     posts_by_signature[sig] = post
                     new_posts_count += 1
-                else:
-                    old_p = posts_by_signature[sig]
-                    if old_p.get("apply_link") != post.get("apply_link") or old_p.get("download_pdf") != post.get("download_pdf"):
-                        old_p["apply_link"] = post["apply_link"]
-                        old_p["download_pdf"] = post["download_pdf"]
-                        old_p["notif_url"] = post["notif_url"]
-                        old_p["updated_at"] = post["updated_at"]
-                        old_p["status"] = "pending_review"
-                        delta_updated_count += 1
 
-    # 2. Master Directory Sweep
     for title, hub_key in MASTER_DIRECTORY_CATALOG:
         norm = title.lower().strip()
         hub = OFFICIAL_HUBS.get(hub_key, {"notices": "https://www.google.com"})
@@ -398,19 +391,25 @@ async def main_async():
                 posts_by_signature[sig] = post
                 new_posts_count += 1
         else:
-            seen.add(norm)
+            # Ensure no blank links for master directory items
+            if posts_by_signature[sig].get("apply_link") == "#" or not posts_by_signature[sig].get("apply_link"):
+                posts_by_signature[sig]["apply_link"] = post["apply_link"]
+                posts_by_signature[sig]["link"] = post["apply_link"]
+                posts_by_signature[sig]["url"] = post["apply_link"]
+                posts_by_signature[sig]["download_pdf"] = post["download_pdf"]
+                posts_by_signature[sig]["notif_url"] = post["notif_url"]
 
     final_db = list(posts_by_signature.values())
     with open(DATABASE_FILE, "w", encoding="utf-8") as f:
         json.dump(final_db, f, ensure_ascii=False, indent=2)
 
-    print(f"\n🎉 Deep Extraction Sync Complete! New Added: {new_posts_count} | Delta Updated: {delta_updated_count} | Total Records: {len(final_db)}")
+    print(f"\n🎉 Sync Complete! New Added: {new_posts_count} | Updated: {delta_updated_count} | Total Records: {len(final_db)}")
 
 def main():
     try:
         asyncio.run(asyncio.wait_for(main_async(), timeout=330.0))
     except asyncio.TimeoutError:
-        print("⚠️ Hard timeout of 5.5 minutes reached. Saving current progress safely.")
+        print("⚠️ Hard timeout of 5.5 minutes reached. Saving progress safely.")
 
 if __name__ == "__main__":
     main()

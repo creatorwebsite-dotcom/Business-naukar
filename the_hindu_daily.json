@@ -1,9 +1,45 @@
 {
-  "updatedAt": "20 Oct 2026, 09:18 PM IST",
+  "updatedAt": "20 Oct 2026, 09:52 PM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "West Bengal CM meets families of deceased in Kolkata puja pandal stampede",
+      "link": "https://www.thehindu.com/news/national/west-bengal/west-bengal-cm-meets-families-of-deceased-in-kolkata-puja-pandal-stampede/article71605079.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:18:50 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Suvendu Adhikari hands over a cheque of ₹25 lakh to relatives and assures government job for one person in every family"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Rubio pushes for India to buy more U.S., Venezuelan oil",
+      "link": "https://www.thehindu.com/business/Economy/marco-rubio-oil-purchases-india-mumbai-october-20-2026/article71604269.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:15:44 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Jaishankar hosts U.S.<br>• Secretary of State, UAE FM in Mumbai, holds trilateral talks on trade, energy, and connectivity"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Cardiologists from across the globe discuss angioplasty complications at meet in Chennai",
+      "link": "https://www.thehindu.com/news/cities/chennai/cardiologists-from-across-the-globe-discuss-angioplasty-complications-at-meet-in-chennai/article71603283.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:13:47 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Cardiologists from across the globe discuss angioplasty complications at meet in Chennai"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Kanthapuram Sunni faction calls off protests against Waqf board reconstitution in Keralam",
+      "link": "https://www.thehindu.com/news/national/kerala/kanthapuram-sunni-faction-calls-off-protests-against-waqf-board-reconstitution-in-keralam/article71604998.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:12:31 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The faction will have a nominee in the board, says Minister Samsudheen"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -21,42 +57,6 @@
       "pubDate": "Tue, 20 Oct 2026 20:49:49 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The project is expected to bring relief to motorists, especially truck drivers, bound for industrial units in the district"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Delhi protest: Judicial custody of Saurav Das, Ashutosh Ranka extended by two days",
-      "link": "https://www.thehindu.com/news/cities/Delhi/delhi-protest-cjp-leaders-judicial-custody-extended-by-two-days/article71602829.ece",
-      "pubDate": "Tue, 20 Oct 2026 20:41:20 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• A Special Executive Magistrate observed that their conduct showed that they have no respect for the law and that there are serious concerns about them breaching peace"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Arrest made in Sakthikulangara skeletal remains case",
-      "link": "https://www.thehindu.com/news/national/kerala/arrest-made-in-sakthikulangara-skeletal-remains-case/article71604648.ece",
-      "pubDate": "Tue, 20 Oct 2026 20:35:48 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The gruesome incident came to light on September 30 when workers cleaning the harbor's septic tank found decomposed remains concealed beneath a mat"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Activists seek Governor’s intervention for release of people arrested in Odisha’s bauxite region",
-      "link": "https://www.thehindu.com/news/national/odisha/activists-seek-governors-intervention-for-release-of-people-arrested-in-odishas-bauxite-region/article71604731.ece",
-      "pubDate": "Tue, 20 Oct 2026 20:10:24 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Two activists, Randall Sequeira and Laxman Naik, associated with the resistance against Sijimali bauxite mining, were picked up from Bhabanipatna"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "L-G would be final authority in proposed U.T.-level body in Ladakh, says Centre’s proposal",
-      "link": "https://www.thehindu.com/news/national/ladakh/l-g-would-be-final-authority-in-proposed-ut-level-body-in-ladakh-says-centres-proposal/article71604466.ece",
-      "pubDate": "Tue, 20 Oct 2026 19:59:18 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The draft, accessed by The Hindu asks, whether the delimitation of constituencies for the elected body will be done by an election authority or a Delimitation Commission; it also explores multiple options, including reserving one-third or up to 50% of the seats in the proposed body for women"
     },
     {
       "category": "economy",
@@ -115,56 +115,56 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
-      "title": "Defence Minister Rajnath Singh meets Iranian Vice-President, Tajikistan Prime Minister",
-      "link": "https://www.thehindu.com/news/national/defence-minister-rajnath-singh-meets-iranian-vice-president-tajikistan-prime-minister/article71604395.ece",
-      "pubDate": "Tue, 20 Oct 2026 18:02:04 +0530",
+      "title": "French PM vows ‘massive’ police deployment for new demonstrations on October 24",
+      "link": "https://www.thehindu.com/news/international/french-pm-vows-massive-police-deployment-for-new-demonstrations-on-october-24/article71604984.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:47:20 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• \"Pleasure to meet H.E.<br>• Mr Mohammad Reza Aref, First Vice President of Iran on the sidelines of the SCO Heads of Government meeting in Dushanbe,\" Defence Minister Rajnath Singh said"
+      "keyPoints": "• \"The deployment for next Saturday will be massive,\" Mr.<br>• Lecornu said in Parliament, acknowledging that the security operation for the protests last weekend had been \"too static and not mobile enough.\""
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "Iran Guards say their mines halted two tankers crossing Strait of Hormuz",
+      "link": "https://www.thehindu.com/news/international/iran-guards-say-their-mines-halted-two-tankers-crossing-strait-of-hormuz/article71605265.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:43:09 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• Iranian forces have repeatedly targeted ships attempting to pass through Hormuz via a southern route close to the Omani coast"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "Rubio pushes for India to buy more U.S., Venezuelan oil",
+      "link": "https://www.thehindu.com/business/Economy/marco-rubio-oil-purchases-india-mumbai-october-20-2026/article71604269.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:15:44 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• Jaishankar hosts U.S.<br>• Secretary of State, UAE FM in Mumbai, holds trilateral talks on trade, energy, and connectivity"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "At SCO meet, Rajnath calls for dismantling the entire ecosystem of terrorism",
+      "link": "https://www.thehindu.com/news/international/ecosystem-of-terrorism-must-be-firmly-and-collectively-dismantled-rajnath-singh-at-sco-meet/article71604143.ece",
+      "pubDate": "Tue, 20 Oct 2026 19:05:39 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• There is no place for those who finance, support, or provide safe havens to terrorists, says Defence Minister; India supports adoption of action plan for trade and economic cooperation among SCO members"
     },
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
       "title": "Rubio, Jaishankar meet in Mumbai as U.S. and India aim to finalise trade deal",
       "link": "https://www.thehindu.com/news/national/marco-rubio-mumbai-visit-october-20-2026/article71603994.ece",
-      "pubDate": "Tue, 20 Oct 2026 18:00:58 +0530",
+      "pubDate": "Tue, 20 Oct 2026 18:50:17 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The two sides discussed energy security, defence cooperation and strengthening bilateral ties, Mr."
     },
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
-      "title": "Rubio says U.S. to discuss refining Venezuelan crude with Reliance, adds India made ‘substantial progress’ in diversifying energy supplies",
-      "link": "https://www.thehindu.com/business/Economy/marco-rubio-oil-purchases-india-mumbai-october-20-2026/article71604269.ece",
-      "pubDate": "Tue, 20 Oct 2026 16:57:10 +0530",
+      "title": "Defence Minister Rajnath Singh meets Iranian Vice-President, Tajikistan Prime Minister",
+      "link": "https://www.thehindu.com/news/national/defence-minister-rajnath-singh-meets-iranian-vice-president-tajikistan-prime-minister/article71604395.ece",
+      "pubDate": "Tue, 20 Oct 2026 18:02:04 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• ‌Secretary of ​State also said that India and U.S.<br>• are ‘very very close’ to finalising the trade deal"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Zelenskyy says spoke to Rubio over Starlink, Starshield issues",
-      "link": "https://www.thehindu.com/news/international/zelenskyy-says-spoke-to-rubio-over-starlink-starshield-issues/article71604158.ece",
-      "pubDate": "Tue, 20 Oct 2026 16:22:07 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Starshield, developed by tech titan Elon Musk’s SpaceX, is controlled and managed by the U.S.<br>• government; Ukraine also uses the civilian Starlink system but not for military purposes."
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Death toll rises to 60 in Houthi strike on Yemen training camp in deadliest attack in months",
-      "link": "https://www.thehindu.com/news/international/death-toll-rises-to-60-in-houthi-strike-on-yemen-training-camp-in-deadliest-attack-in-months/article71604054.ece",
-      "pubDate": "Tue, 20 Oct 2026 16:13:06 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• At least a dozen people were still missing a day after the Iran-backed rebels hit the al-Alam training camp in Shabwa province with ballistic missiles, Yemeni officials said"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Ecosystem of terrorism must be firmly and collectively ‘dismantled’: Rajnath Singh at SCO meet",
-      "link": "https://www.thehindu.com/news/international/ecosystem-of-terrorism-must-be-firmly-and-collectively-dismantled-rajnath-singh-at-sco-meet/article71604143.ece",
-      "pubDate": "Tue, 20 Oct 2026 16:07:59 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• He further said that terrorism radicalises societies and deprives our youth of the opportunities they deserve"
+      "keyPoints": "• \"Pleasure to meet H.E.<br>• Mr Mohammad Reza Aref, First Vice President of Iran on the sidelines of the SCO Heads of Government meeting in Dushanbe,\" Defence Minister Rajnath Singh said"
     },
     {
       "category": "scitech",

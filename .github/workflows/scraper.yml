@@ -1,12 +1,19 @@
-name: Automated Recruitment Sync
+name: Automated Recruitment & The Hindu Sync
 
 on:
   schedule:
+    # 1. The Hindu Exam News Scraper (Subah 6:40 AM IST -> 10 1 * * *)
+    - cron: '10 1 * * *'
+
+    # 2. Recruitment Portals Scraper (Aapke exact schedule times)
+    - cron: '10 2 * * *'    # Subah 7:40 AM IST
     - cron: '10 4 * * *'    # 9:40 AM IST
+    - cron: '40 5 * * *'    # 11:10 AM IST
     - cron: '20 8 * * *'    # 1:50 PM IST
     - cron: '10 12 * * *'   # 5:40 PM IST
     - cron: '10 13 * * *'   # 6:40 PM IST
     - cron: '40 15 * * *'   # 9:10 PM IST
+
   workflow_dispatch:
 
 jobs:
@@ -29,16 +36,25 @@ jobs:
           pip install beautifulsoup4 curl_cffi playwright playwright-stealth undetected-chromedriver
           playwright install chromium
 
-      - name: Run Hybrid Scraper
+      # Step A: Run The Hindu Exam News Bot (Generates the_hindu_daily.json)
+      - name: Run The Hindu Exam News Bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python the_hindu_bot.py
+
+      # Step B: Run Hybrid Multi-Agent Recruitment Scraper (Generates jobs_database.json)
+      - name: Run Hybrid Recruitment Scraper
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python multi_agent_scraper.py
 
-      - name: Commit and Push Database
+      # Step C: Commit and Push Both Databases to GitHub
+      - name: Commit and Push Databases
         run: |
           git config --global user.name "SarkariPortal-Bot"
           git config --global user.email "bot@sarkarinaukar.com"
-          git add jobs_database.json
-          git commit -m "Auto-sync recruitment feeds via heavy stealth scraper" || exit 0
+          git add jobs_database.json the_hindu_daily.json
+          git commit -m "Auto-sync recruitment feeds and The Hindu exam digest" || exit 0
           git pull --rebase origin main
           git push origin main

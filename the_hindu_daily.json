@@ -1,9 +1,27 @@
 {
-  "updatedAt": "20 Oct 2026, 09:52 PM IST",
+  "updatedAt": "20 Oct 2026, 09:54 PM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Arrest made in Sakthikulangara skeletal remains case",
+      "link": "https://www.thehindu.com/news/national/kerala/arrest-made-in-sakthikulangara-skeletal-remains-case/article71604648.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:44:03 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The gruesome incident came to light on September 30 when workers cleaning the harbor's septic tank found decomposed remains concealed beneath a mat"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "CJP leaders Saurav Das, Ashutosh Ranka move Delhi HC against judicial custody",
+      "link": "https://www.thehindu.com/news/national/saurav-das-ashutosh-ranka-judicial-custody-cjp-seeks-urgent-hearing-in-delhi-high-court/article71604565.ece",
+      "pubDate": "Tue, 20 Oct 2026 21:38:47 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The CJP leaders have questioned the justification for their continued detention on grounds of public order; their plea states that any restriction on liberty must be backed by a real and proximate connection with a disturbance of public order, rather than a remote possibility of such a disturbance"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -39,24 +57,6 @@
       "pubDate": "Tue, 20 Oct 2026 21:12:31 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The faction will have a nominee in the board, says Minister Samsudheen"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Collector reviews flood mitigation works in Cuddalore",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/collector-reviews-flood-mitigation-works-in-cuddalore/article71603598.ece",
-      "pubDate": "Tue, 20 Oct 2026 20:57:24 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Collector reviews flood mitigation works in Cuddalore"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "State Highways Dept. to complete widening of BHEL Feeder Road in Ranipet by December",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/state-highways-dept-to-complete-widening-of-bhel-feeder-road-in-ranipet-by-december/article71604699.ece",
-      "pubDate": "Tue, 20 Oct 2026 20:49:49 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The project is expected to bring relief to motorists, especially truck drivers, bound for industrial units in the district"
     },
     {
       "category": "economy",

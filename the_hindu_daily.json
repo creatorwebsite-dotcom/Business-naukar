@@ -1,9 +1,36 @@
 {
-  "updatedAt": "20 Oct 2026, 08:45 PM IST",
+  "updatedAt": "20 Oct 2026, 09:10 PM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Collector reviews flood mitigation works in Cuddalore",
+      "link": "https://www.thehindu.com/news/national/tamil-nadu/collector-reviews-flood-mitigation-works-in-cuddalore/article71603598.ece",
+      "pubDate": "Tue, 20 Oct 2026 20:57:24 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Collector reviews flood mitigation works in Cuddalore"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "State Highways Dept. to complete widening of BHEL Feeder Road in Ranipet by December",
+      "link": "https://www.thehindu.com/news/national/tamil-nadu/state-highways-dept-to-complete-widening-of-bhel-feeder-road-in-ranipet-by-december/article71604699.ece",
+      "pubDate": "Tue, 20 Oct 2026 20:49:49 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The project is expected to bring relief to motorists, especially truck drivers, bound for industrial units in the district"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Delhi protest: Judicial custody of Saurav Das, Ashutosh Ranka extended by two days",
+      "link": "https://www.thehindu.com/news/cities/Delhi/delhi-protest-cjp-leaders-judicial-custody-extended-by-two-days/article71602829.ece",
+      "pubDate": "Tue, 20 Oct 2026 20:41:20 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• A Special Executive Magistrate observed that their conduct showed that they have no respect for the law and that there are serious concerns about them breaching peace"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -30,33 +57,6 @@
       "pubDate": "Tue, 20 Oct 2026 19:59:18 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The draft, accessed by The Hindu asks, whether the delimitation of constituencies for the elected body will be done by an election authority or a Delimitation Commission; it also explores multiple options, including reserving one-third or up to 50% of the seats in the proposed body for women"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "President promulgates LAHDC Regulation, paves the way for hill council polls in all eight districts of Ladakh",
-      "link": "https://www.thehindu.com/news/national/ladakh/president-promulgates-lahdc-regulation-paves-the-way-for-hill-council-polls-in-all-eight-districts-of-ladakh/article71604027.ece",
-      "pubDate": "Tue, 20 Oct 2026 19:54:00 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• L-G Vinai Kumar Saxena says the decision is historic as ‘it was implemented in a record time of just six days and now paves the way for creation of LAHDC in all eight districts of Ladakh, including the newly-created Sankoo district’"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Air Chief Marshal A.P. Singh completes final IAF sortie in Hyderabad with instructor who first taught him to fly",
-      "link": "https://www.thehindu.com/news/cities/Hyderabad/air-chief-marshal-ap-singh-completes-final-iaf-sortie-in-hyderabad-with-instructor-who-first-taught-him-to-fly/article71604571.ece",
-      "pubDate": "Tue, 20 Oct 2026 19:48:35 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Air Chief Marshal A.P. Singh completes final IAF sortie in Hyderabad with instructor who first taught him to fly"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Indian scientists identify Martian analogue sites",
-      "link": "https://www.thehindu.com/sci-tech/science/indian-scientists-identify-martian-analogue-sites/article71604126.ece",
-      "pubDate": "Tue, 20 Oct 2026 19:43:18 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Researchers added that identifying terrestrial analogue sites has become a pressing requirement in the era of intense planetary exploration since recent studies demonstrated that orbital data alone cannot fully characterise Martian minerals."
     },
     {
       "category": "economy",

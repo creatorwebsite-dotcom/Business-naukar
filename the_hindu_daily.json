@@ -1,5 +1,5 @@
 {
-  "updatedAt": "21 Oct 2026, 11:21 AM IST",
+  "updatedAt": "21 Oct 2026, 11:31 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
@@ -61,6 +61,15 @@
     {
       "category": "economy",
       "categoryLabel": "📈 Economy & Banking",
+      "title": "What are the deal contours of India-New Zealand FTA?",
+      "link": "https://www.thehindu.com/business/Economy/what-are-the-deal-contours-of-india-new-zealand-fta/article71606245.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:19:47 +0530",
+      "examRelevance": "GS Paper-III & Banking/SSC: RBI Monetary Policy, GDP, Inflation, Budget & Banking",
+      "keyPoints": "• The latest Free Trade Agreement to come into force has several advantages for India in terms of trade, investment, and the mobility of students, while protecting India’s sensitive sectors"
+    },
+    {
+      "category": "economy",
+      "categoryLabel": "📈 Economy & Banking",
       "title": "Moves by the North of England to unlock India trade",
       "link": "https://www.thehindu.com/opinion/op-ed/moves-by-the-north-of-england-to-unlock-india-trade/article71605182.ece",
       "pubDate": "Wed, 21 Oct 2026 09:58:35 +0530",
@@ -104,13 +113,13 @@
       "keyPoints": "• The winners of the 2026 Economics Nobel Prize transformed macroeconomics by showing how individual choices, household expectations and business behaviour shape the economy and influence the effectiveness of government policies"
     },
     {
-      "category": "economy",
-      "categoryLabel": "📈 Economy & Banking",
-      "title": "India’s agrivoltaic capacity is expected to be more than 5-gigawatts in next 3-4 years: MNRE Secretary",
-      "link": "https://www.thehindu.com/business/Industry/indias-agrivoltaic-capacity-is-expected-to-be-more-than-5-gigawatts-in-next-3-4-years-5-gigawatts/article71602893.ece",
-      "pubDate": "Mon, 19 Oct 2026 21:11:40 +0530",
-      "examRelevance": "GS Paper-III & Banking/SSC: RBI Monetary Policy, GDP, Inflation, Budget & Banking",
-      "keyPoints": "• “It is difficult to estimate but it should be upwards of 5-gigawatts in the next 3-4 years.<br>• It depends on state’s enthusiasm, ability to quickly notify a feed-in tariff,” said Union Ministry of New and Renewable Energy Secretary Santosh Sarangi"
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "What are the deal contours of India-New Zealand FTA?",
+      "link": "https://www.thehindu.com/business/Economy/what-are-the-deal-contours-of-india-new-zealand-fta/article71606245.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:19:47 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The latest Free Trade Agreement to come into force has several advantages for India in terms of trade, investment, and the mobility of students, while protecting India’s sensitive sectors"
     },
     {
       "category": "ir",
@@ -156,15 +165,6 @@
       "pubDate": "Wed, 21 Oct 2026 09:05:01 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• After laying a wreath at the Taj Mahal Palace Hotel, S.<br>• Jaishankar says India expects its partners to show ‘zero tolerance’ towards terrorism"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "India, U.S. trade deal to be much different: Donald Trump",
-      "link": "https://www.thehindu.com/news/international/india-us-trade-deal-to-be-much-different-donald-trump/article71606121.ece",
-      "pubDate": "Wed, 21 Oct 2026 08:52:10 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Speaking to reporters at the Oval Office on Tuesday (October 20, 2026), Mr.<br>• Trump said India and the U.S.<br>• were pretty close to making a trade deal"
     },
     {
       "category": "scitech",

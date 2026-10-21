@@ -1,9 +1,45 @@
 {
-  "updatedAt": "21 Oct 2026, 11:31 AM IST",
+  "updatedAt": "21 Oct 2026, 12:04 PM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Eight web security keys of firm used by Govt. and PSUs leaked",
+      "link": "https://www.thehindu.com/sci-tech/technology/eight-web-security-keys-of-firm-used-by-govt-and-psus-leaked/article71606342.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:32:58 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Many government websites, including the Aadhaar issuer UIDAI and the income tax filing portal, use eMudhra certificates or other technology from the firm; no indication that the firm’s root certificates itself — which sit above the tier that was leaked — have been compromised"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Tamil Nadu rains LIVE: Schools declare holiday in Chennai, four other districts",
+      "link": "https://www.thehindu.com/news/national/tamil-nadu/tamil-nadu-rains-live-updates-chennai-school-holiday-october-21-2026/article71606190.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:32:29 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• A fresh system, over the Bay of Bengal, is likely to sustain intense rainfall across Tamil Nadu till October 26, the Regional Meteorological Centre (RMC) said"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "The ECI’s unfinished lessons",
+      "link": "https://www.thehindu.com/opinion/op-ed/the-ecis-unfinished-lessons/article71605299.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:22:18 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• While the ECI need not accept every allegation made by political parties, constitutional authority cannot substitute for verifiable evidence"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "What are the deal contours of India-New Zealand FTA?",
+      "link": "https://www.thehindu.com/business/Economy/what-are-the-deal-contours-of-india-new-zealand-fta/article71606245.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:19:47 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The latest Free Trade Agreement to come into force has several advantages for India in terms of trade, investment, and the mobility of students, while protecting India’s sensitive sectors"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -16,47 +52,11 @@
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
-      "title": "What are the deal contours of India-New Zealand FTA?",
-      "link": "https://www.thehindu.com/business/Economy/what-are-the-deal-contours-of-india-new-zealand-fta/article71606245.ece",
-      "pubDate": "Wed, 21 Oct 2026 11:17:42 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The latest Free Trade Agreement to come into force has several advantages for India in terms of trade, investment, and the mobility of students, while protecting India’s sensitive sectors"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Tamil Nadu rains LIVE: Schools declare holiday in Chennai, four other districts",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/tamil-nadu-rains-live-updates-chennai-school-holiday-october-21-2026/article71606190.ece",
-      "pubDate": "Wed, 21 Oct 2026 11:13:15 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• A fresh system, over the Bay of Bengal, is likely to sustain intense rainfall across Tamil Nadu till October 26, the Regional Meteorological Centre (RMC) said"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
       "title": "India opposes attempts to portray world’s largest democracy negatively using unverified allegations at UN",
       "link": "https://www.thehindu.com/news/national/india-opposes-attempts-to-portray-worlds-largest-democracy-negatively-using-unverified-allegations-at-un/article71606235.ece",
       "pubDate": "Wed, 21 Oct 2026 11:06:55 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• Deputy Secretary Barkha Tamrakar told the UN General Assembly’s Third Committee that India opposes turning “unverified allegations” into a negative characterisation, amid concerns raised by UN experts over Delhi’s youth-led protests"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Special officers to administer rural local bodies in 37 districts till April 2027 in T.N.",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/special-officers-to-administer-rural-local-bodies-in-37-districts-till-april-2027-in-tn/article71606232.ece",
-      "pubDate": "Wed, 21 Oct 2026 10:31:25 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Special officers are administering rural local bodies in several districts since January 2025"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Speed up utilisation of SC and ST Sub-Plan Funds: Bhatti",
-      "link": "https://www.thehindu.com/news/national/telangana/telangana-fm-bhatti-urges-rapid-utilization-of-scst-sub-plan-funds/article71604584.ece",
-      "pubDate": "Wed, 21 Oct 2026 09:45:24 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Expressing concern over delays in expenditure by some departments, the Deputy Chief Minister directed officials to identify gaps in utilisation and take immediate corrective measures"
     },
     {
       "category": "economy",
@@ -169,6 +169,33 @@
     {
       "category": "scitech",
       "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Meta's global affairs officer Joel Kaplan to leave company after 15 years",
+      "link": "https://www.thehindu.com/sci-tech/technology/metas-global-affairs-officer-joel-kaplan-to-leave-company-after-15-years/article71606120.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:51:11 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• Meta chief global affairs officer Joel ​Kaplan will leave the company ‌next year after 15 years"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Anthropic logged net loss of over $80 billion in first half of 2026: Report",
+      "link": "https://www.thehindu.com/sci-tech/technology/anthropic-logged-net-loss-of-over-80-billion-in-first-half-of-2026-report/article71606111.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:37:07 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• Reuters reported first in September that Anthropic posted a net loss ‌of $42 billion in 2025"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Eight web security keys of firm used by Govt. and PSUs leaked",
+      "link": "https://www.thehindu.com/sci-tech/technology/eight-web-security-keys-of-firm-used-by-govt-and-psus-leaked/article71606342.ece",
+      "pubDate": "Wed, 21 Oct 2026 11:32:58 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• Many government websites, including the Aadhaar issuer UIDAI and the income tax filing portal, use eMudhra certificates or other technology from the firm; no indication that the firm’s root certificates itself — which sit above the tier that was leaked — have been compromised"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
       "title": "OpenAI says its AI agents weakened internal monitoring system",
       "link": "https://www.thehindu.com/sci-tech/technology/openai-says-its-ai-agents-weakened-internal-monitoring-system/article71606110.ece",
       "pubDate": "Wed, 21 Oct 2026 10:22:10 +0530",
@@ -192,33 +219,6 @@
       "pubDate": "Wed, 21 Oct 2026 09:40:48 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
       "keyPoints": "• Bhambhani, in an order passed on September 21, observed that merely using an insurance company’s name or trademark to identify it in social media posts did not, in the circumstances of the case, amount to trademark infringement"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Keralam seeks FSSAI clarity on high fat, sugar, salt food",
-      "link": "https://www.thehindu.com/news/national/kerala/keralam-seeks-fssai-clarity-on-high-fat-sugar-salt-food/article71604523.ece",
-      "pubDate": "Wed, 21 Oct 2026 09:35:42 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• The State will strengthen all legal measures to curb unhealthy eating habits among children and prevent excessive consumption of junk food, says Health Minister K."
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Disability group urges Centre to classify communication aids as essential products",
-      "link": "https://www.thehindu.com/news/national/disability-group-urges-centre-to-classify-communication-aids-as-essential-products/article71603955.ece",
-      "pubDate": "Wed, 21 Oct 2026 09:35:07 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Doctors with Disabilities: Agents of Change has sought the classification of AAC devices and prostheses as essential assistive products under the draft Rights of Persons with Disabilities (Amendment) Rules, 2026, warning that their current categorisation could create uncertainty over insurance and public financing"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Elon Musk says he backs SpaceX-Tesla merger as rocket firm turns profit",
-      "link": "https://www.thehindu.com/sci-tech/technology/elon-musk-says-he-backs-spacex-tesla-merger-as-rocket-firm-turns-profit/article71606098.ece",
-      "pubDate": "Wed, 21 Oct 2026 09:30:04 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Elon Musk’s remarks came after SpaceX posted net income of $4.4 billion for the July-September period, compared with a loss of $1.1 billion a year earlier"
     },
     {
       "category": "editorial",

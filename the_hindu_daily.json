@@ -1,9 +1,45 @@
 {
-  "updatedAt": "27 Oct 2026, 12:09 AM IST",
+  "updatedAt": "27 Oct 2026, 12:45 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Minister Vanni Arasu inspects rain affected areas in Kallakurichi",
+      "link": "https://www.thehindu.com/news/national/tamil-nadu/minister-vanni-arasu-inspects-rain-affected-areas-in-kallakurichi/article71626589.ece",
+      "pubDate": "Tue, 27 Oct 2026 00:26:32 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Minister Vanni Arasu inspects rain affected areas in Kallakurichi"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "State government relaxes norms for height restriction on non-high rise buildings",
+      "link": "https://www.thehindu.com/news/national/tamil-nadu/state-government-relaxes-norms-for-height-restriction-on-non-high-rise-buildings/article71628586.ece",
+      "pubDate": "Tue, 27 Oct 2026 00:23:20 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The State government has amended the Tamil Nadu Combined Development and Building Rules, 2019, relaxing height restriction on non-high rise buildings from 18.3 metres to 19.5 metres"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "A.P., Odisha on alert as cyclone ‘Arnab’ nears land | LIVE",
+      "link": "https://www.thehindu.com/news/national/cyclone-arnab-andhra-pradesh-odisha-live-updates-imd-weather-forecast-rain-warnings-bay-of-bengal-october-26-2026/article71625447.ece",
+      "pubDate": "Tue, 27 Oct 2026 00:02:22 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• IMD issues red alerts for seven of the 28 districts in Andhra Pradesh for October 27"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Tiger Shroff firing case: Custody of four accused extended till Oct 28; 11th accused remanded till Oct 31",
+      "link": "https://www.thehindu.com/news/cities/mumbai/tiger-shroff-attack-police-custody-of-4-extended-till-october-28-voice-samples-needed-say-cops/article71627255.ece",
+      "pubDate": "Tue, 27 Oct 2026 00:00:57 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Mumbai Crime Branch seeks to trace weapon supply, Signal communications and local support network; defence questions need for further custody"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -21,42 +57,6 @@
       "pubDate": "Mon, 26 Oct 2026 23:38:14 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The district will host various programmes until November 2 as part of the anti-corruption awareness campaign."
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Suspected kingpin of drug network held in Malappuram",
-      "link": "https://www.thehindu.com/news/national/kerala/suspected-kingpin-of-drug-network-held-in-malappuram/article71627134.ece",
-      "pubDate": "Mon, 26 Oct 2026 23:36:52 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Police say Ibrahim Badusha played a key role in the network linked to the seizure of 12.8 kg of MDMA from Coimbatore in August"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Kannur panchayat contracts: KSU vice-president challenges allegations, threatens legal action",
-      "link": "https://www.thehindu.com/news/national/kerala/kannur-panchayat-contracts-ksu-vice-president-challenges-allegations-threatens-legal-action/article71626560.ece",
-      "pubDate": "Mon, 26 Oct 2026 23:33:13 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The confrontation comes amid a fresh vigilance investigation into alleged irregularities in public works contracts worth more than ₹12 crore awarded to the company."
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Madras High Court denies anticipatory bail to Anbil Mahesh Poyyamozhi in ₹100-crore private schools fraud case",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/madras-high-court-denies-anticipatory-bail-to-anbil-mahesh-poyyamozhi-in-rs-100-crore-private-schools-fraud-case/article71625866.ece",
-      "pubDate": "Mon, 26 Oct 2026 23:31:35 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Lakshminarayanan dismisses his advance bail plea in a case being investigated by the Chennai Central Crime Branch police"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Virtual autopsy at Kozhikode Medical College Hospital: launch likely to take time",
-      "link": "https://www.thehindu.com/news/national/kerala/launch-of-virtual-autopsy-at-kozhikode-medical-college-hospital-likely-to-take-time/article71627140.ece",
-      "pubDate": "Mon, 26 Oct 2026 23:29:11 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The Forensic Medicine Department has submitted a detailed list of the facilities to be introduced at the hospital, including the staff to be appointed and the equipment to be installed, to the government"
     },
     {
       "category": "economy",
@@ -223,20 +223,38 @@
     {
       "category": "editorial",
       "categoryLabel": "✍️ Editorial Spark",
-      "title": "Old values, new avenues: On India-Poland ties",
-      "link": "https://www.thehindu.com/opinion/editorial/old-values-new-avenues-on-india-poland-ties/article71623770.ece",
-      "pubDate": "Mon, 26 Oct 2026 08:58:03 +0530",
+      "title": "Dubious retreat: on the National Medical Commission and its MSMER",
+      "link": "https://www.thehindu.com/opinion/editorial/dubious-retreat-on-the-national-medical-commission-and-its-msmer/article71627812.ece",
+      "pubDate": "Mon, 26 Oct 2026 22:57:12 +0530",
       "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
-      "keyPoints": "• India and Poland have no conflict, but are pulled apart by other nations<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
+      "keyPoints": "• The National Medical Commission must not be seen as lax on regulation<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
+    },
+    {
+      "category": "editorial",
+      "categoryLabel": "✍️ Editorial Spark",
+      "title": "A final surge: on Luiz Inácio Lula da Silva’s triumph in Brazil",
+      "link": "https://www.thehindu.com/opinion/editorial/a-final-surge-on-luiz-inacio-lula-da-silvas-triumph-in-brazil/article71627840.ece",
+      "pubDate": "Mon, 26 Oct 2026 22:53:17 +0530",
+      "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
+      "keyPoints": "• Lula is the resistance to U.S.<br>• imperial ambitions in South America<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
     },
     {
       "category": "editorial",
       "categoryLabel": "✍️ Editorial Spark",
       "title": "Wicked surprise: On the northeast monsoon",
       "link": "https://www.thehindu.com/opinion/editorial/wicked-surprise-on-the-northeast-monsoon/article71623526.ece",
-      "pubDate": "Mon, 26 Oct 2026 00:48:54 +0530",
+      "pubDate": "Mon, 26 Oct 2026 09:16:51 +0530",
       "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
       "keyPoints": "• The northeast monsoon is more unpredictable, and the south must be wary<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
+    },
+    {
+      "category": "editorial",
+      "categoryLabel": "✍️ Editorial Spark",
+      "title": "Old values, new avenues: On India-Poland ties",
+      "link": "https://www.thehindu.com/opinion/editorial/old-values-new-avenues-on-india-poland-ties/article71623770.ece",
+      "pubDate": "Mon, 26 Oct 2026 08:58:03 +0530",
+      "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
+      "keyPoints": "• India and Poland have no conflict, but are pulled apart by other nations<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
     },
     {
       "category": "editorial",
@@ -255,24 +273,6 @@
       "pubDate": "Sat, 24 Oct 2026 08:26:51 +0530",
       "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
       "keyPoints": "• Marco Rubio’s second visit to India this year yielded little in terms of results<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
-    },
-    {
-      "category": "editorial",
-      "categoryLabel": "✍️ Editorial Spark",
-      "title": "Canary in the coal mine: On the performance of India’s core industrial sectors",
-      "link": "https://www.thehindu.com/opinion/editorial/canary-in-the-coal-mine-on-performance-of-indias-core-industrial-sectors/article71611800.ece",
-      "pubDate": "Fri, 23 Oct 2026 00:14:34 +0530",
-      "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
-      "keyPoints": "• Core sector data indicate impending growth slowdowns<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
-    },
-    {
-      "category": "editorial",
-      "categoryLabel": "✍️ Editorial Spark",
-      "title": "Tunnelling through: On China’s export control list, tunnel-boring machines",
-      "link": "https://www.thehindu.com/opinion/editorial/tunnelling-through-on-chinas-export-control-list-tunnel-boring-machines/article71611821.ece",
-      "pubDate": "Fri, 23 Oct 2026 00:09:20 +0530",
-      "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
-      "keyPoints": "• Domestic manufacturing and foreign partnerships must go hand-in-hand<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
     }
   ]
 }

@@ -1,9 +1,54 @@
 {
-  "updatedAt": "05 Nov 2026, 01:12 AM IST",
+  "updatedAt": "05 Nov 2026, 01:54 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Government proposes immediate suspension of manufacturing licences of substandard drugs",
+      "link": "https://www.thehindu.com/sci-tech/health/government-proposes-immediate-suspension-of-manufacturing-licences-of-substandard-drugs/article71666870.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:26:53 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Proposed amendment provides for mandatory corrective measures before revocation of the suspension; suspension shall continue until the manufacturer undertakes corrective action"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Celebrations among NDA alliance leaders after landslide victory",
+      "link": "https://www.thehindu.com/news/national/andhra-pradesh/celebrations-among-nda-alliance-leaders-after-landslide-victory/article71666944.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:22:46 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Celebrations among NDA alliance leaders after landslide victory"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Kochi police yet to complete verification of private bus employees",
+      "link": "https://www.thehindu.com/news/national/kerala/kochi-police-yet-to-complete-verification-of-private-bus-employees/article71666851.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:22:08 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The police launched the background verification drive following a series of incidents of criminal behaviour involving private bus crew"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "ZPTC, MPTC Elections postponed due to rains in Agency mandals",
+      "link": "https://www.thehindu.com/news/national/andhra-pradesh/zptc-mptc-elections-postponed-due-to-rains-in-agency-mandals/article71667323.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:21:46 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> ZPTC, MPTC Elections postponed due to rains in Agency mandals"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Direct T.N. DGP to frame guidelines regarding registration of criminal cases for social media posts, political criticism and online speech, insists a PIL plea before Madras High Court",
+      "link": "https://www.thehindu.com/news/national/tamil-nadu/direct-tn-dgp-to-frame-guidelines-regarding-registration-of-criminal-cases-for-social-media-posts-political-criticism-and-online-speech-insists-a-pil-plea-before-madras-high-court/article71666993.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:18:17 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Litigant says the Telangana High Court had framed a set of guidelines last year for the police in the neighbouring State and that Tamil Nadu could take a cue from that judgment"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -12,51 +57,6 @@
       "pubDate": "Thu, 05 Nov 2026 01:02:16 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> Two 17-year-old students sexually assaulted at party, two booked under PoCSO"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Karnataka will integrate all its skilling efforts into a single unified system: CM",
-      "link": "https://www.thehindu.com/news/national/karnataka/state-will-integrate-all-its-skilling-efforts-into-a-single-unified-system-cm/article71666725.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:59:23 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• To reshape State’s workforce pipeline, government will allocate ₹5,000 crore to streamline its fragmented skilling initiatives spread across various departments and entities and also train 30 lakh beneficiaries over the next seven years"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Visvesvaraya Technological University decides to introduce on-demand examinations for candidates who failed",
-      "link": "https://www.thehindu.com/news/national/karnataka/vtu-to-replace-supplementary-exams-with-on-demand-tests/article71665880.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:58:47 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• With the introduction of the on-demand examination system, students will no longer have to wait for the university to announce the supplementary examination schedule"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Police Inspector awarded two-month imprisonment in contempt case",
-      "link": "https://www.thehindu.com/news/national/telangana/police-inspector-awarded-two-month-imprisonment-in-contempt-case/article71667111.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:58:46 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Police Inspector awarded two-month imprisonment in contempt case"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "After a decade, Chikkajala Fort near Bengaluru to get a new lease of life using CSR funds",
-      "link": "https://www.thehindu.com/news/national/karnataka/chikkajala-fort-to-get-a-new-lease-of-life-after-a-decade-under-csr-funds/article71666178.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:58:30 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• In 2016, the National Highways Authority of India (NHAI), which implemented the road widening project of NH 44, demolished the northern side of the fort"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Police ARSI suspended for allegedly reporting for duty drunk, misbehaving with public",
-      "link": "https://www.thehindu.com/news/national/karnataka/police-arsi-suspended-for-allegedly-reporting-for-duty-drunk-misbehaving-with-public/article71667187.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:57:27 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Police ARSI suspended for allegedly reporting for duty drunk, misbehaving with public"
     },
     {
       "category": "economy",
@@ -169,6 +169,24 @@
     {
       "category": "scitech",
       "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Government proposes immediate suspension of manufacturing licences of substandard drugs",
+      "link": "https://www.thehindu.com/sci-tech/health/government-proposes-immediate-suspension-of-manufacturing-licences-of-substandard-drugs/article71666870.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:26:53 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• Proposed amendment provides for mandatory corrective measures before revocation of the suspension; suspension shall continue until the manufacturer undertakes corrective action"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Anaemia burden — iron alone is no solution",
+      "link": "https://www.thehindu.com/opinion/lead/anaemia-burden-iron-alone-is-no-solution/article71666828.ece",
+      "pubDate": "Thu, 05 Nov 2026 00:42:56 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• India must tackle its anaemia burden through targeted nutrition, better diagnostics and comprehensive public health measures, not salt fortification alone"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
       "title": "Science should move past ‘top 2%’ label",
       "link": "https://www.thehindu.com/opinion/op-ed/science-should-move-past-top-2-label/article71667264.ece",
       "pubDate": "Thu, 05 Nov 2026 00:28:48 +0530",
@@ -203,29 +221,11 @@
       "keyPoints": "• <strong>Key Update:</strong> Apollo Foundation’s hospital in Aragonda blends healthcare with education, nutrition and sanitation"
     },
     {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "As Canva restructures, how is AI reshaping creative businesses? | Explained",
-      "link": "https://www.thehindu.com/business/Industry/as-canva-restructures-how-is-ai-reshaping-creative-businesses-explained/article71664828.ece",
-      "pubDate": "Wed, 04 Nov 2026 17:31:00 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Canva says 1,271 jobs are affected by its reorganisation amid slowing growth.<br>• Adobe, Figma and Getty Images show how generative AI is reshaping products, costs and business models in the creative industry"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "The Milky Way grew by devouring galaxies, leaving a trail of ghost stars",
-      "link": "https://www.thehindu.com/sci-tech/science/the-milky-way-grew-by-devouring-galaxies-leaving-a-trail-of-ghost-stars/article71652934.ece",
-      "pubDate": "Wed, 04 Nov 2026 17:24:39 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Galactic archaeologists are using precise measures and larger sample sizes afforded by new missions to tease apart minute differences between groups of stars, revealing the history of the Milky Way going back almost 12 billion years"
-    },
-    {
       "category": "editorial",
       "categoryLabel": "✍️ Editorial Spark",
       "title": "Helping hand: On Cyclones Arnab and Murasu",
       "link": "https://www.thehindu.com/opinion/editorial/helping-hand-on-cyclones-arnab-and-murasu/article71666118.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:55:20 +0530",
+      "pubDate": "Thu, 05 Nov 2026 01:47:28 +0530",
       "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
       "keyPoints": "• States need help to rebuild public infrastructure after damage in cyclones<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
     },

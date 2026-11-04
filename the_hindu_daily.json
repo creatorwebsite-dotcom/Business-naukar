@@ -1,9 +1,54 @@
 {
-  "updatedAt": "05 Nov 2026, 01:54 AM IST",
+  "updatedAt": "05 Nov 2026, 02:57 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Recruitment for more than 11,000 posts in Bihar’s health department to begin soon",
+      "link": "https://www.thehindu.com/news/national/bihar/recruitment-for-more-than-11000-posts-in-bihars-health-department-to-begin-soon/article71666903.ece",
+      "pubDate": "Thu, 05 Nov 2026 02:24:06 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Currently, updated details of vacant positions have been sought from all 38 districts of the state.<br>• All recruitments will be conducted at the State Health Society level"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "More than 43 lakh pucca houses completed in Bihar for poor families",
+      "link": "https://www.thehindu.com/news/national/bihar/more-than-43-lakh-pucca-houses-completed-in-bihar-for-poor-families/article71666913.ece",
+      "pubDate": "Thu, 05 Nov 2026 02:15:59 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• ₹56,743.40 crore spent under PMAY-G so far in the State; of the 43 lakh houses, 36.63 lakh pucca houses built in just yearrs between FY 2016-17 & 2021-22"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Explosion damages railway track in northern Rajasthan district",
+      "link": "https://www.thehindu.com/news/national/rajasthan/explosion-damages-railway-track-in-northern-rajasthan-district/article71666135.ece",
+      "pubDate": "Thu, 05 Nov 2026 02:02:00 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The blast, which occurred near 50 GB village, shattered two concrete railway sleepers beneath the tracks, dislodged the track clips and created a two-foot-deep crater at the site"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "U.P. to match Assembly voter lists with Panchayat and Urban local body rolls to find missing voters",
+      "link": "https://www.thehindu.com/news/national/uttar-pradesh/up-to-match-assembly-voter-lists-with-panchayat-and-urban-local-body-rolls-to-find-missing-voters/article71667160.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:53:51 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• CEO office said that guidelines have been sent to all District Election Officers (DEOs), who have been told to carry out the matching thoroughly"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Helping hand: On Cyclones Arnab and Murasu",
+      "link": "https://www.thehindu.com/opinion/editorial/helping-hand-on-cyclones-arnab-and-murasu/article71666118.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:47:28 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• States need help to rebuild public infrastructure after damage in cyclones"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -12,51 +57,6 @@
       "pubDate": "Thu, 05 Nov 2026 01:26:53 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• Proposed amendment provides for mandatory corrective measures before revocation of the suspension; suspension shall continue until the manufacturer undertakes corrective action"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Celebrations among NDA alliance leaders after landslide victory",
-      "link": "https://www.thehindu.com/news/national/andhra-pradesh/celebrations-among-nda-alliance-leaders-after-landslide-victory/article71666944.ece",
-      "pubDate": "Thu, 05 Nov 2026 01:22:46 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Celebrations among NDA alliance leaders after landslide victory"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Kochi police yet to complete verification of private bus employees",
-      "link": "https://www.thehindu.com/news/national/kerala/kochi-police-yet-to-complete-verification-of-private-bus-employees/article71666851.ece",
-      "pubDate": "Thu, 05 Nov 2026 01:22:08 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The police launched the background verification drive following a series of incidents of criminal behaviour involving private bus crew"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "ZPTC, MPTC Elections postponed due to rains in Agency mandals",
-      "link": "https://www.thehindu.com/news/national/andhra-pradesh/zptc-mptc-elections-postponed-due-to-rains-in-agency-mandals/article71667323.ece",
-      "pubDate": "Thu, 05 Nov 2026 01:21:46 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> ZPTC, MPTC Elections postponed due to rains in Agency mandals"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Direct T.N. DGP to frame guidelines regarding registration of criminal cases for social media posts, political criticism and online speech, insists a PIL plea before Madras High Court",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/direct-tn-dgp-to-frame-guidelines-regarding-registration-of-criminal-cases-for-social-media-posts-political-criticism-and-online-speech-insists-a-pil-plea-before-madras-high-court/article71666993.ece",
-      "pubDate": "Thu, 05 Nov 2026 01:18:17 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Litigant says the Telangana High Court had framed a set of guidelines last year for the police in the neighbouring State and that Tamil Nadu could take a cue from that judgment"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Two 17-year-old students sexually assaulted at party, two booked under PoCSO",
-      "link": "https://www.thehindu.com/news/national/telangana/two-17-year-old-students-sexually-assaulted-at-party-two-booked-under-pocso/article71667068.ece",
-      "pubDate": "Thu, 05 Nov 2026 01:02:16 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Two 17-year-old students sexually assaulted at party, two booked under PoCSO"
     },
     {
       "category": "economy",
@@ -115,20 +115,47 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
-      "title": "Damning report: On Justice Muralidhar’s report on Israeli atrocities",
-      "link": "https://www.thehindu.com/opinion/editorial/damning-report-on-justice-muralidhars-report-on-israeli-atrocities/article71665929.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:49:58 +0530",
+      "title": "Israel President urges compromise after divisive election",
+      "link": "https://www.thehindu.com/news/international/israel-president-urges-compromise-after-divisive-election/article71667417.ece",
+      "pubDate": "Thu, 05 Nov 2026 02:49:20 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The world must act on Justice Muralidhar’s report on Israeli atrocities"
+      "keyPoints": "• President Isaac Herzog began meeting party leaders to decide whether to give Prime Minister Benjamin Netanyahu or his rival Gadi Eisenkot the first chance to form a government in the deeply polarised country"
     },
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
       "title": "U.S. midterm elections 2026 LIVE: Trump says 'largely true' Iran war caused election loss",
       "link": "https://www.thehindu.com/news/international/us-midterm-elections-2026-senate-governor-races-winners-lossers-live-updates-trump-republicans-democrats-news/article71660811.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:49:30 +0530",
+      "pubDate": "Thu, 05 Nov 2026 02:28:41 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• Democrats won full control of the U.S.<br>• Congress in a sweeping midterm rout with a landslide of upsets that delivered a crushing rebuke of President Donald Trump and his Republican Party"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "Democrats win U.S. Congress in midterm rout of U.S. President Donald Trump",
+      "link": "https://www.thehindu.com/news/international/us-midterm-elections-2026-senate-governor-races-winners-losers-trump-republicans-democrats-news/article71663818.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:20:03 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The Opposition party also retained key Senate seats, while victory in Georgia’s Governor race added to mounting signs that Republicans face a difficult night"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "Abdul El-Sayed: The progressive’s progress",
+      "link": "https://www.thehindu.com/news/international/abdul-el-sayed-the-progressives-progress/article71666954.ece",
+      "pubDate": "Thu, 05 Nov 2026 01:15:25 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• Abdul El-Sayed’s describes himself as ‘just a capitalist who understands how capitalism works’ and identifies as a progressive; his candidacy was backed by leading figures such as Bernie Sanders and Alexandria Ocasio-Cortez"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "Damning report: On Justice Muralidhar’s report on Israeli atrocities",
+      "link": "https://www.thehindu.com/opinion/editorial/damning-report-on-justice-muralidhars-report-on-israeli-atrocities/article71665929.ece",
+      "pubDate": "Thu, 05 Nov 2026 00:54:47 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The world must act on Justice Muralidhar’s report on Israeli atrocities"
     },
     {
       "category": "ir",
@@ -138,33 +165,6 @@
       "pubDate": "Thu, 05 Nov 2026 00:48:44 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• Donald Trump said the war has been worth it to stop Tehran from “having ‌a nuclear weapon”"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "What the BRICS carbon market partnership needs",
-      "link": "https://www.thehindu.com/opinion/op-ed/what-the-brics-carbon-market-partnership-needs/article71666874.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:34:53 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• BRICS can turn fragmented carbon markets into a coordinated trading framework"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Vance tries to distance himself from Iran war after Republican Party’s deep losses in midterm elections",
-      "link": "https://www.thehindu.com/news/international/vance-tries-to-distance-himself-from-iran-war-after-republican-partys-deep-losses-in-midterm-elections/article71667348.ece",
-      "pubDate": "Thu, 05 Nov 2026 00:28:19 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Vance, who has said he would decide after the election whether to run for President in 2028, issued a lengthy social media post blaming the unpopular conflict with Iran for the Grand Old Party’s drubbing"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "U.S. judge temporarily blocks deportation of detained Afghans to Afghanistan or Pakistan",
-      "link": "https://www.thehindu.com/news/international/us-judge-temporarily-blocks-deportation-of-detained-afghans-to-afghanistan-or-pakistan/article71667117.ece",
-      "pubDate": "Wed, 04 Nov 2026 23:34:37 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The order pauses planned removals until Saturday after advocates and lawmakers warned that deported Afghans could face persecution, torture or death"
     },
     {
       "category": "scitech",

@@ -1,9 +1,54 @@
 {
-  "updatedAt": "07 Nov 2026, 11:14 PM IST",
+  "updatedAt": "07 Nov 2026, 11:31 PM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Lucknow-bound IndiGo flight returns to Bengaluru after hijack threat note found onboard",
+      "link": "https://www.thehindu.com/news/national/karnataka/lucknow-bound-indigo-flight-emergency-returns-to-bengaluru-after-hijack-threat-note-found-onboard/article71679041.ece",
+      "pubDate": "Sat, 07 Nov 2026 23:22:43 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Flight 6E-451 had departed from Terminal 1 of KIA when cabin crew members found the note that said “This flight is going to hijack at 6.30, ignore and see the consequences”"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Rajajingar murders: How did the accused transport bodies across locations without being detected?",
+      "link": "https://www.thehindu.com/news/cities/bangalore/rajajingar-murders-how-did-the-accused-transport-bodies-across-locations-without-being-intercepted/article71679003.ece",
+      "pubDate": "Sat, 07 Nov 2026 23:20:04 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Neither a patrolling vehicle nor a checkpoint detected the accused Indushekhar even as he crossed State borders"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Students urged to dream big, prepare for a self-reliant India",
+      "link": "https://www.thehindu.com/news/national/andhra-pradesh/students-urged-to-dream-big-prepare-for-a-self-reliant-india/article71679044.ece",
+      "pubDate": "Sat, 07 Nov 2026 23:17:05 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Students urged to dream big, prepare for a self-reliant India"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Bengaluru’s GBA launches phase 2 of ‘Ward One’",
+      "link": "https://www.thehindu.com/news/cities/bangalore/bengalurus-gba-launches-phase-2-of-ward-one/article71679329.ece",
+      "pubDate": "Sat, 07 Nov 2026 23:16:28 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Bengaluru’s GBA launches phase 2 of ‘Ward One’"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Habitual offender arrested for murdering 65-year-old woman in Bengaluru",
+      "link": "https://www.thehindu.com/news/national/karnataka/habitual-offender-arrested-for-murdering-65-year-old-woman-in-bengaluru/article71678977.ece",
+      "pubDate": "Sat, 07 Nov 2026 23:12:25 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Habitual offender arrested for murdering 65-year-old woman in Bengaluru"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -12,51 +57,6 @@
       "pubDate": "Sat, 07 Nov 2026 23:05:39 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> Pawan attributes ZPTC, MPTC poll victories to welfare, development"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "No complete closure of Ballari Road for 18 months for elevated corridor work: BDA",
-      "link": "https://www.thehindu.com/news/cities/bangalore/no-complete-closure-of-ballari-road-for-18-months-for-elevated-corridor-work-bda/article71679222.ece",
-      "pubDate": "Sat, 07 Nov 2026 23:00:29 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The clarification comes amid concerns over the traffic disruption expected during the construction period."
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "'Tough' stance on Kishau Dam project laid ground for victory in BBMB dues case: Himachal CM",
-      "link": "https://www.thehindu.com/news/national/himachal-pradesh/tough-stance-on-kishau-dam-project-laid-ground-for-victory-in-bbmb-dues-case-himachal-cm/article71679262.ece",
-      "pubDate": "Sat, 07 Nov 2026 22:56:12 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Sukhvinder Singh Sukhu says he had consistently raised the issue of dues arising from BBMB projects and made it clear to the Centre that the rights of Himachal Pradesh in the matter must be resolved before any further progress was made on the Kishau Dam project"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "A woman stitches her way into the male-dominated ritual tradition of Theyyam",
-      "link": "https://www.thehindu.com/news/national/kerala/a-woman-stitches-her-way-into-the-male-dominated-ritual-tradition-of-theyyam/article71670573.ece",
-      "pubDate": "Sat, 07 Nov 2026 22:51:49 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Based in Kannayi Mukkottu near Payyannur, she spends the Theyyam season creating attire and accessories, a craft she learned from her father and now sustains as a specialised, highly regarded artisan."
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Enforcement Directorate is not a ‘super cop’, says Karnataka High Court",
-      "link": "https://www.thehindu.com/news/national/karnataka/enforcement-directorate-is-not-a-super-cop-says-karnataka-high-court/article71677912.ece",
-      "pubDate": "Sat, 07 Nov 2026 22:49:56 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• ED cannot file private complaint when other agencies decline to act on its information on alleged offences, court said while quashing ED cases against K.Y.<br>• Nanjegowda, Congress MLA from Malur"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Manipur gets Northeast’s first AI-enabled career intelligence hub",
-      "link": "https://www.thehindu.com/news/national/manipur/manipur-gets-northeasts-first-ai-enabled-career-intelligence-hub/article71678274.ece",
-      "pubDate": "Sat, 07 Nov 2026 22:48:58 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Chief Minister Yumnam Khemchand Singh says the facility marks a significant step towards integrating artificial intelligence into the education and career guidance ecosystem of the State"
     },
     {
       "category": "economy",

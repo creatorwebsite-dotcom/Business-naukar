@@ -1,9 +1,36 @@
 {
-  "updatedAt": "08 Nov 2026, 11:50 PM IST",
+  "updatedAt": "09 Nov 2026, 01:25 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Air pollution over 50 times WHO limit in parts of Delhi as people defy ban on firecrackers on Deepavali",
+      "link": "https://www.thehindu.com/news/cities/Delhi/air-pollution-over-50-times-who-limit-in-parts-of-delhi-as-people-defy-ban-on-firecrackers-on-deepavali/article71681210.ece",
+      "pubDate": "Mon, 09 Nov 2026 01:01:12 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The overall air quality of Delhi continued to be in the “very poor” category while many parts of the city continued to reel under “severe” air quality"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "19 Indian seafarers stranded in Yemen evacuated, Embassy says",
+      "link": "https://www.thehindu.com/news/national/indian-seafarers-stranded-in-yemen-evacuated/article71681203.ece",
+      "pubDate": "Mon, 09 Nov 2026 00:43:45 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The evacuation comes days after India said 14 Indian nationals aboard a yacht involved in an incident off the Yemeni coast were safe"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Thick smog blankets Delhi on Deepavali night, AQI at 20 stations ‘severe’",
+      "link": "https://www.thehindu.com/news/cities/Delhi/delhi-air-quality-deepavali-cracker-ban-ver-poor/article71681158.ece",
+      "pubDate": "Sun, 08 Nov 2026 23:03:38 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The Air Quality Early Warning System (EWS) has forecast that Delhi's air quality is likely to slip into the 'severe' category from November 9 and remain there for the subsequent few days"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -30,33 +57,6 @@
       "pubDate": "Sun, 08 Nov 2026 21:54:53 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• Ministers, MLAs asked to spend festival with poor families who received houses; 2.21 lakh houses completed under scheme"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Rajajinagar murders: Two more bodies recovered near Chamundi hills in Mysuru",
-      "link": "https://www.thehindu.com/news/cities/bangalore/rajajinagar-murders-two-more-bodies-recovered-near-chamundi-hills-in-mysuru/article71680991.ece",
-      "pubDate": "Sun, 08 Nov 2026 21:25:53 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• With this development, five bodies have been traced so far in the case, while the search for the remaining two continues"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "UK Hindu family takes legal action after school objects to boy wearing tilak",
-      "link": "https://www.thehindu.com/news/international/uk-hindu-family-takes-legal-action-after-school-objects-to-boy-wearing-tilak/article71681073.ece",
-      "pubDate": "Sun, 08 Nov 2026 21:01:46 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The parents of a nine-year-old boy have approached the UK High Court, alleging religious discrimination after he was prevented from wearing the sacred Tilak-Chandlo to school"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Jean Drèze urges T.N. govt. to take strict action amid report of ‘fake book’ at Kalaignar Centenary Library",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/jean-dreze-fake-book-publisher-tn-madurai-kalaignar-centenary-library/article71681030.ece",
-      "pubDate": "Sun, 08 Nov 2026 20:12:15 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• “It is important to stem the rot before it spreads, all the more so if this book was AI-generated,” the economist said in a clarification via e-mail to The Hindu"
     },
     {
       "category": "economy",
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "19 Indian seafarers stranded in Yemen evacuated, Embassy says",
+      "link": "https://www.thehindu.com/news/national/indian-seafarers-stranded-in-yemen-evacuated/article71681203.ece",
+      "pubDate": "Mon, 09 Nov 2026 00:43:45 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The evacuation comes days after India said 14 Indian nationals aboard a yacht involved in an incident off the Yemeni coast were safe"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Tens of thousands march in Amsterdam, pressing Dutch government on Gaza, Israel",
       "link": "https://www.thehindu.com/news/international/tens-of-thousands-march-in-amsterdam-pressing-dutch-government-on-gaza-israel/article71681124.ece",
       "pubDate": "Sun, 08 Nov 2026 23:19:19 +0530",
@@ -156,15 +165,6 @@
       "pubDate": "Sun, 08 Nov 2026 22:20:05 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The devastating result leaves Trump politically hamstrung as he enters the remaining two-year 'lame duck' period of his White House tenure"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Eisenkot says Netanyahu's party welcome to join government under him as new Israeli PM",
-      "link": "https://www.thehindu.com/news/international/israel-gadi-eisenkot-netanyahus-party-welcome-to-join-government/article71681107.ece",
-      "pubDate": "Sun, 08 Nov 2026 21:57:00 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Gadi Eisenkot has six weeks to form a government"
     },
     {
       "category": "scitech",

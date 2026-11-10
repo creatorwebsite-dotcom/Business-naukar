@@ -1,9 +1,18 @@
 {
-  "updatedAt": "11 Nov 2026, 01:10 AM IST",
+  "updatedAt": "11 Nov 2026, 01:57 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Vaiko releases 34-year crime report; rebukes allies for criticising T.N. government",
+      "link": "https://www.thehindu.com/news/national/tamil-nadu/vaiko-releases-34-year-crime-report-rebukes-allies-for-criticising-tn-government/article71686350.ece",
+      "pubDate": "Wed, 11 Nov 2026 01:26:07 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• <strong>Key Update:</strong> Vaiko releases 34-year crime report; rebukes allies for criticising T.N. government"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -48,15 +57,6 @@
       "pubDate": "Wed, 11 Nov 2026 00:42:33 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• She claims to have been deboarded from a Singapore-bound airplane and picked up from the airport by the police without showing any summons, warrant, court order or Look Out Circular"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Focus on Tamil during Kandasashthi: Minister",
-      "link": "https://www.thehindu.com/news/cities/chennai/focus-on-tamil-during-kandasashthi-minister/article71686608.ece",
-      "pubDate": "Wed, 11 Nov 2026 00:33:54 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• He urged temples under the purview of the department to ensure that Odhuvars chant/sing the Thirupugazh, Thirumurai, and Kandasashthi kavacham"
     },
     {
       "category": "economy",
@@ -169,6 +169,33 @@
     {
       "category": "scitech",
       "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Strategic autonomy must guide India’s Starlink policy",
+      "link": "https://www.thehindu.com/opinion/op-ed/strategic-autonomy-must-guide-indias-starlink-policy/article71687057.ece",
+      "pubDate": "Wed, 11 Nov 2026 01:22:43 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• India must balance Starlink’s benefits with national security and strategic autonomy"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "The Siang dam and a threatened homeland",
+      "link": "https://www.thehindu.com/news/national/arunachal-pradesh/siang-dam-and-a-threatened-homeland-in-arunachal-pradesh/article71675266.ece",
+      "pubDate": "Tue, 10 Nov 2026 22:59:35 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• The Adi community has been protesting against the Siang Upper Multipurpose Project in Arunachal Pradesh, saying it threatens their land, livelihoods, and civilisation.<br>• The agitation has turned violent in response to increasing use of force by the State authorities.<br>• The community alleges that the State government has used deceit, force, and threats to get consent for the feasibility study."
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "A case for Nepal: suing major carbon emitters for floods",
+      "link": "https://www.thehindu.com/opinion/op-ed/a-case-for-nepal-suing-major-carbon-emitters-for-floods/article71683852.ece",
+      "pubDate": "Tue, 10 Nov 2026 21:19:52 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• While climate wrongs harm society, they do not harm individuals in a sufficiently direct and proximate way"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
       "title": "Supreme Court goes beyond Deepavali AQI, flags vehicular emissions polluting Delhi air",
       "link": "https://www.thehindu.com/news/national/supreme-court-goes-beyond-deepavali-aqi-flags-vehicular-emissions-polluting-delhi-air/article71685844.ece",
       "pubDate": "Tue, 10 Nov 2026 19:09:42 +0530",
@@ -194,49 +221,22 @@
       "keyPoints": "• The sudden emergence of Nvidia CEO Huang's infidelity has created concerns about whether China has been able to access the cutting-edge chips designed by Nvidia that are powering the development of artificial intelligence"
     },
     {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Kadambini Ganguly: breaking barriers in medicine",
-      "link": "https://www.thehindu.com/children/kadambini-ganguly-breaking-barriers-in-medicine/article71685840.ece",
-      "pubDate": "Tue, 10 Nov 2026 16:36:53 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• In her time, Kadambini Ganguly challenged convention to become the first Indian female doctor to practice Western medicine"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "At peak of air pollution on Deepavali, data goes missing at several government monitoring stations in Delhi",
-      "link": "https://www.thehindu.com/news/cities/Delhi/at-peak-of-air-pollution-on-deepavali-night-data-goes-missing-at-several-govt-monitoring-stations-in-delhi/article71682391.ece",
-      "pubDate": "Tue, 10 Nov 2026 16:11:38 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Missing PM2.5 data for several hours on CPCB website understated city’s pollution levels: experts; 227 PM2.5 observations were missing across 59 stations; govt.<br>• will look into it: Mishra"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Does the Temple wearable reveal useful information about brain health?",
-      "link": "https://www.thehindu.com/sci-tech/health/does-the-temple-wearable-reveal-useful-information-about-brain-health/article71678659.ece",
-      "pubDate": "Tue, 10 Nov 2026 15:50:53 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Billionaire Deepinder Goyal has begun selling Temple, a temple-attached wearable he says can monitor brain health and ageing by measuring cerebral blood flow outside the lab.<br>• Critics and doctors question the device’s medical claims, noting the evidence is preliminary, not peer-reviewed, and its core metric—the Brain Flow index—remains controversial amid concerns over links to longevity or cognitive outcomes"
-    },
-    {
       "category": "editorial",
       "categoryLabel": "✍️ Editorial Spark",
-      "title": "Without any rationale: on the disbanding of the Justice Kurian Joseph Committee",
-      "link": "https://www.thehindu.com/opinion/editorial/without-any-rationale-on-the-disbanding-of-the-justice-kurian-joseph-committee/article71686725.ece",
-      "pubDate": "Tue, 10 Nov 2026 22:46:43 +0530",
-      "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
-      "keyPoints": "• India’s federal structure could have benefited from the Kurian Committee<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
-    },
-    {
-      "category": "editorial",
-      "categoryLabel": "✍️ Editorial Spark",
-      "title": "Caste and class: on OBC reservation",
+      "title": "Caste and class: On OBC reservation",
       "link": "https://www.thehindu.com/opinion/editorial/caste-and-class-on-obc-reservation/article71686599.ece",
-      "pubDate": "Tue, 10 Nov 2026 22:44:11 +0530",
+      "pubDate": "Wed, 11 Nov 2026 01:13:59 +0530",
       "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
       "keyPoints": "• Exclusion of creamy layer is essential, but must be done consistently<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
+    },
+    {
+      "category": "editorial",
+      "categoryLabel": "✍️ Editorial Spark",
+      "title": "Without any rationale: On the disbanding of the Justice Kurian Joseph Committee",
+      "link": "https://www.thehindu.com/opinion/editorial/without-any-rationale-on-the-disbanding-of-the-justice-kurian-joseph-committee/article71686725.ece",
+      "pubDate": "Wed, 11 Nov 2026 01:02:37 +0530",
+      "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
+      "keyPoints": "• India’s federal structure could have benefited from the Kurian Committee<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
     },
     {
       "category": "editorial",

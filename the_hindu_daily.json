@@ -1,9 +1,27 @@
 {
-  "updatedAt": "12 Nov 2026, 01:02 AM IST",
+  "updatedAt": "12 Nov 2026, 01:40 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Norwegian journalist Helle Lyng says she has been stopped from coming to Hyderabad for Bharat Summit",
+      "link": "https://www.thehindu.com/news/national/norwegian-journalist-helle-lyng-says-she-has-been-stopped-from-coming-to-hyderabad-for-bharat-summit/article71691222.ece",
+      "pubDate": "Thu, 12 Nov 2026 01:25:39 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Lyng says she has been denied entry into India despite having a visa"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Karnataka Minister Eshwar Khandre asks officials to blacklist Larsen & Toubro for ‘delaying’ works",
+      "link": "https://www.thehindu.com/news/national/karnataka/karnataka-minister-eshwar-khandre-asks-officials-to-blacklist-larsen-toubro-for-delaying-works/article71690624.ece",
+      "pubDate": "Thu, 12 Nov 2026 01:19:00 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Rural Development and Panchayat Raj Minister Eshwar Khandre has directed that Larsen & Toubro Limited be blacklisted for alleged slow progress of work in drinking water projects"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -39,24 +57,6 @@
       "pubDate": "Thu, 12 Nov 2026 00:34:44 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The Sholinganallur junction has a bad stretch of road that is riddled with potholes; portions of OMR that were re-laid in February have come apart"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Anti-Sterlite protests: CM orders ₹5.25-cr. additional relief to victims",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/anti-sterlite-protest-cm-orders-525-cr-additional-relief-to-victims/article71689687.ece",
-      "pubDate": "Thu, 12 Nov 2026 00:33:57 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Anti-Sterlite protests: CM orders ₹5.25-cr. additional relief to victims"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Low-pressure area likely to form over Bay of Bengal, ease rain deficit in State",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/next-low-pressure-area-likely-to-form-over-bay-of-bengal-around-november-13-and-intensify-into-depression-in-2-days/article71689794.ece",
-      "pubDate": "Thu, 12 Nov 2026 00:32:14 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Regional Meteorological Centre watches next weather system likely for rainfall prospects over Tamil Nadu"
     },
     {
       "category": "economy",
@@ -223,20 +223,20 @@
     {
       "category": "editorial",
       "categoryLabel": "✍️ Editorial Spark",
-      "title": "Visions of the future: on this year’s Booker Prize",
-      "link": "https://www.thehindu.com/opinion/editorial/visions-of-the-future-on-this-years-booker-prize/article71690348.ece",
-      "pubDate": "Wed, 11 Nov 2026 22:55:48 +0530",
+      "title": "Milking power: On the overturning of Gokul Dairy cooperative mandate",
+      "link": "https://www.thehindu.com/opinion/editorial/milking-power-on-the-overturning-of-gokul-dairy-cooperative-mandate/article71690141.ece",
+      "pubDate": "Thu, 12 Nov 2026 01:04:27 +0530",
       "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
-      "keyPoints": "• This year’s Booker Prize betrays an anxiety about AI’s place in society<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
+      "keyPoints": "• The overturning of the mandate in the Gokul Dairy cooperative is disturbing<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
     },
     {
       "category": "editorial",
       "categoryLabel": "✍️ Editorial Spark",
-      "title": "Milking power: on the overturning of Gokul Dairy cooperative mandate",
-      "link": "https://www.thehindu.com/opinion/editorial/milking-power-on-the-overturning-of-gokul-dairy-cooperative-mandate/article71690141.ece",
-      "pubDate": "Wed, 11 Nov 2026 22:53:46 +0530",
+      "title": "Visions of the future: On this year’s Booker Prize",
+      "link": "https://www.thehindu.com/opinion/editorial/visions-of-the-future-on-this-years-booker-prize/article71690348.ece",
+      "pubDate": "Thu, 12 Nov 2026 00:53:40 +0530",
       "examRelevance": "UPSC & State PSC Mains / Essay: Deep Analytical Core Summary & Vocabulary",
-      "keyPoints": "• The overturning of the mandate in the Gokul Dairy cooperative is disturbing<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
+      "keyPoints": "• This year’s Booker Prize betrays an anxiety about AI’s place in society<br>• <strong>Editorial Spark (Mains/Essay):</strong> Critical analytical perspective for descriptive answer writing."
     },
     {
       "category": "editorial",

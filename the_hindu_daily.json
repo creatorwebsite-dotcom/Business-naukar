@@ -1,5 +1,5 @@
 {
-  "updatedAt": "13 Nov 2026, 02:17 AM IST",
+  "updatedAt": "13 Nov 2026, 03:24 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Yemen’s Houthis say they targeted Saudi East-West pipeline, port city of Yanbu",
+      "link": "https://www.thehindu.com/news/international/yemens-houthis-say-they-targeted-saudi-east-west-pipeline-port-city-of-yanbu/article71695404.ece",
+      "pubDate": "Fri, 13 Nov 2026 02:56:22 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The East-West pipeline, which ends at Yanbu, has become increasingly important to Saudi Arabia, allowing it to get its oil to market after Iran blockaded the Strait of Hormuz on the other side of the Arabian Peninsula"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Military helicopter crashes in southern Turkey, killing 4",
       "link": "https://www.thehindu.com/news/international/turkiye-samankoy-army-helicopter-crash-personnel-killed/article71695300.ece",
       "pubDate": "Thu, 12 Nov 2026 23:45:01 +0530",
@@ -158,13 +167,13 @@
       "keyPoints": "• A officer said the suspect shot himself while barricaded inside an apartment.<br>• He added that the man apparently had a dispute with the building’s homeowners association"
     },
     {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Centre sanctions new roads, infrastructure along China’s border",
-      "link": "https://www.thehindu.com/news/national/centre-sanctions-new-roads-infrastructure-along-chinas-border/article71694100.ece",
-      "pubDate": "Thu, 12 Nov 2026 22:24:22 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The Indo-Tibetan Border Police sanctions the construction of 15 pedestrian suspension bridges and 18 log bridges in Arunachal Pradesh; CCS clears 26 new roads as part of ICBR-III"
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Widespread outage hits Microsoft apps",
+      "link": "https://www.thehindu.com/sci-tech/technology/internet/widespread-outage-hits-microsoft-apps/article71695400.ece",
+      "pubDate": "Fri, 13 Nov 2026 02:31:36 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• Microsoft said that a portion of its infrastructure was “experiencing elevated load” — which it said was “likely contributing to the connectivity errors”; it determined a number of servers were “unexpectedly unavailable” due to a problem that caused them to fail during automated checks"
     },
     {
       "category": "scitech",
@@ -210,15 +219,6 @@
       "pubDate": "Thu, 12 Nov 2026 22:56:35 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
       "keyPoints": "• The configuration of the third stage was revisited comprehensively with respect to the design margins, raw material acceptance criteria, assembly procedures, and the quality checks that were followed so far"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "India undergoing massive transformation in renewable energy: Earthshot Prize CEO",
-      "link": "https://www.thehindu.com/sci-tech/energy-and-environment/india-undergoing-massive-transformation-in-renewable-energy-earthshot-prize-ceo/article71694272.ece",
-      "pubDate": "Thu, 12 Nov 2026 22:44:40 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• “There is a race on right now.<br>• The first country that can have access to cheap, clean and abundant energy, is going to have a huge economic advantage.<br>• And India knows that,” says Jason Knauf"
     },
     {
       "category": "editorial",

@@ -1,9 +1,54 @@
 {
-  "updatedAt": "14 Nov 2026, 01:06 AM IST",
+  "updatedAt": "14 Nov 2026, 01:58 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "The challenge of holding the Quad together",
+      "link": "https://www.thehindu.com/opinion/op-ed/the-challenge-of-holding-the-quad-together/article71698092.ece",
+      "pubDate": "Sat, 14 Nov 2026 01:27:29 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The big ticket question confronting the Quad, however, is how Donald Trump engages with the group and the broader Indo-Pacific geography"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Comply with new prices of 137 anti-cancer drugs or face action, says regulator",
+      "link": "https://www.thehindu.com/sci-tech/health/comply-with-new-prices-of-137-anti-cancer-drugs-or-face-action-says-regulator/article71698592.ece",
+      "pubDate": "Sat, 14 Nov 2026 01:17:05 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• NPPA directs State drug controllers to strictly monitor prices"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Andhra Pradesh secures ₹9.88 lakh crore investment commitments at CII Partnership Summit in Vizag",
+      "link": "https://www.thehindu.com/news/national/andhra-pradesh/andhra-pradesh-secures-988-lakh-crore-investment-commitments-at-cii-partnership-summit-in-vizag/article71699029.ece",
+      "pubDate": "Sat, 14 Nov 2026 01:15:08 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• government will implement Investment Protection Act with retrospective effect from 2024, says Chief Minister Naidu"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Manipur probe panel gets sixth extension; no sign of report yet",
+      "link": "https://www.thehindu.com/news/national/manipur/centre-gives-another-extension-to-panel-probing-2023-manipur-violence/article71697573.ece",
+      "pubDate": "Sat, 14 Nov 2026 01:12:04 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The report is awaited even as the ethnic conflict has now spread to Kuki and Naga communities"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Four-day Chhath festival begins in Bihar with Nahay Khay",
+      "link": "https://www.thehindu.com/news/national/bihar/four-day-chhath-festival-begins-in-bihar-with-nahay-khay/article71698082.ece",
+      "pubDate": "Sat, 14 Nov 2026 01:10:13 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Out of 103 ghats in Patna, 90 have been declared safe for devotees, while 13 have been termed unsafe"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -12,51 +57,6 @@
       "pubDate": "Sat, 14 Nov 2026 01:01:01 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> Man held for setting house on fire in Vellore"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Tamil Nadu engages realty developers to fast track Global Capability Centre corridors",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/tamil-nadu-engages-realty-developers-to-fast-track-global-capability-centre-corridors/article71698884.ece",
-      "pubDate": "Sat, 14 Nov 2026 00:59:47 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Tamil Nadu engages realty developers to fast track Global Capability Centre corridors"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "BIM, Texas university to offer course on AI in Business from next year",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/bim-texas-university-to-offer-course-on-ai-in-business-from-next-year/article71698085.ece",
-      "pubDate": "Sat, 14 Nov 2026 00:44:59 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> BIM, Texas university to offer course on AI in Business from next year"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Rajya Sabha panel visits ISRO, HAL facilities in Bengaluru",
-      "link": "https://www.thehindu.com/news/national/karnataka/rajya-sabha-panel-visits-isro-hal-facilities-in-bengaluru/article71698110.ece",
-      "pubDate": "Sat, 14 Nov 2026 00:41:46 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Rajya Sabha panel visits ISRO, HAL facilities in Bengaluru"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Two men die as van rams tree in Tirupattur",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/two-men-die-as-van-rams-tree-in-tirupattur/article71698192.ece",
-      "pubDate": "Sat, 14 Nov 2026 00:41:01 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The other men are undergoing treatment"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Over 7,000 books removed from District Central Libraries in Vellore, nearby districts",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/over-7000-books-removed-from-district-central-libraries-in-vellore-nearby-districts/article71698167.ece",
-      "pubDate": "Sat, 14 Nov 2026 00:39:30 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Ranipet and Tirupattur have the highest number (2,401) of books each from these publications"
     },
     {
       "category": "economy",
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "The challenge of holding the Quad together",
+      "link": "https://www.thehindu.com/opinion/op-ed/the-challenge-of-holding-the-quad-together/article71698092.ece",
+      "pubDate": "Sat, 14 Nov 2026 01:27:29 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The big ticket question confronting the Quad, however, is how Donald Trump engages with the group and the broader Indo-Pacific geography"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Turkiye, Qatar sign mutual defence agreement, Turkish presidency says",
       "link": "https://www.thehindu.com/news/international/turkiye-qatar-sign-mutual-defence-agreement-turkish-presidency-says/article71699542.ece",
       "pubDate": "Sat, 14 Nov 2026 00:32:34 +0530",
@@ -158,13 +167,13 @@
       "keyPoints": "• Two Arab-majority parties, Raam and the Joint List, secured a combined 19 seats in last month's election, winning nearly a sixth of the 120-seat parliament and potentially emerging as kingmakers in efforts by Eisenkot to form a government"
     },
     {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Microsoft Outage LIVE: Microsoft apologises for outage, says it was not linked to cyber or AI",
-      "link": "https://www.thehindu.com/sci-tech/technology/microsoft-outage-live-updates-november-13-2026-steps-to-fix-outlook-and-other-apps-ongoing/article71696624.ece",
-      "pubDate": "Fri, 13 Nov 2026 22:32:44 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Microsoft services are beginning to come back online after a massive global outage left millions of users without access for nearly 18 hours"
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Comply with new prices of 137 anti-cancer drugs or face action, says regulator",
+      "link": "https://www.thehindu.com/sci-tech/health/comply-with-new-prices-of-137-anti-cancer-drugs-or-face-action-says-regulator/article71698592.ece",
+      "pubDate": "Sat, 14 Nov 2026 01:17:05 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• NPPA directs State drug controllers to strictly monitor prices"
     },
     {
       "category": "scitech",
@@ -210,15 +219,6 @@
       "pubDate": "Fri, 13 Nov 2026 22:20:15 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
       "keyPoints": "• <strong>Key Update:</strong> Telangana Women’s Commission issues notices to eight ART centres in illegal oocyte racket case"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "As external funding to combat TB falls, domestic spending accounts for 86%: WHO report",
-      "link": "https://www.thehindu.com/sci-tech/health/as-external-funding-to-combat-tb-falls-domestic-spending-accounts-for-86-who-report/article71697995.ece",
-      "pubDate": "Fri, 13 Nov 2026 20:59:30 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• TB cases remain one of the leading causes of death from a single infectious agent, with a quarter of all cases concentrated in India in 2025"
     },
     {
       "category": "editorial",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "17 Nov 2026, 03:27 AM IST",
+  "updatedAt": "17 Nov 2026, 04:23 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Customers at some of the U.S.’ largest banks are reporting difficulty accessing accounts online",
+      "link": "https://www.thehindu.com/news/international/customers-at-some-of-the-us-largest-banks-are-reporting-difficulty-accessing-accounts-online/article71709556.ece",
+      "pubDate": "Tue, 17 Nov 2026 03:51:10 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• Bank of America, Chase, J.P.<br>• Bank, Wells Fargo and Zelle were listed by users as down or experiencing issues, according to the website downdetector.com"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Trump says ‘would not mind’ Huang being reinstated at Nvidia",
       "link": "https://www.thehindu.com/news/international/trump-says-would-not-mind-huang-being-reinstated-at-nvidia/article71709259.ece",
       "pubDate": "Mon, 16 Nov 2026 23:19:15 +0530",
@@ -156,15 +165,6 @@
       "pubDate": "Mon, 16 Nov 2026 22:15:13 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The Houthis have made rapid gains ⁠against the Saudi-backed Yemeni government since the U.S.-Iran conflict reignited Yemen’s frozen civil war this summer, drawing Riyadh back into confrontation with the group"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Israeli opposition chiefs denounce Netanyahu over ‘attempted coup’",
-      "link": "https://www.thehindu.com/news/international/israeli-opposition-chiefs-denounce-netanyahu-over-attempted-coup/article71709115.ece",
-      "pubDate": "Mon, 16 Nov 2026 22:05:18 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Netanyahu subsequently accused Arab parties of electoral fraud after they gained a record number of seats"
     },
     {
       "category": "scitech",

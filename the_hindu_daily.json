@@ -1,9 +1,27 @@
 {
-  "updatedAt": "17 Nov 2026, 04:23 AM IST",
+  "updatedAt": "17 Nov 2026, 05:19 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "BJP holds key party meeting in Mathura for Assembly polls",
+      "link": "https://www.thehindu.com/news/national/uttar-pradesh/bjp-holds-key-party-meeting-in-mathura-for-assembly-polls/article71709422.ece",
+      "pubDate": "Tue, 17 Nov 2026 04:57:22 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The party announced the meeting to discuss organisational programmes, booth empowerment, and public welfare benefits, while also outlining electoral strategy and caste-based outreach"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Tribute to Kartar Singh Sarabha, Punjab free from drugs and unemployment, says CM Mann",
+      "link": "https://www.thehindu.com/news/national/punjab/tribute-to-kartar-singh-sarabha-punjab-free-from-drugs-and-unemployment-says-cm-mann/article71709559.ece",
+      "pubDate": "Tue, 17 Nov 2026 04:27:18 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The Chief Minister said his government is working to build the progressive Punjab they envision"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -39,24 +57,6 @@
       "pubDate": "Tue, 17 Nov 2026 01:49:08 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The RMC, Chennai, has forecast that mainly dry weather is likely to prevail over the rest of the State during this time"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Kerala High Court refers petition challenging clean chit to Chief Minister in Punarjani case to Chief Justice",
-      "link": "https://www.thehindu.com/news/national/kerala/kerala-high-court-refers-petition-challenging-clean-chit-to-chief-minister-in-punarjani-case-to-chief-justice/article71708756.ece",
-      "pubDate": "Tue, 17 Nov 2026 01:48:23 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• High Court Registry directed to place the matter before the Chief Justice to decide whether the case would be considered by the court trying MP/MLA cases, Prevention of Corruption Act, or as a PIL"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "70% turnout in most districts as four-phase panchayat polls end in Rajasthan",
-      "link": "https://www.thehindu.com/news/national/rajasthan/70-turnout-in-most-districts-as-four-phase-panchayat-polls-end-in-rajasthan/article71709420.ece",
-      "pubDate": "Tue, 17 Nov 2026 01:34:41 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The declaration of results will bring the election of representatives in all 14,403 panchayats in the State to a close"
     },
     {
       "category": "economy",

@@ -1,9 +1,18 @@
 {
-  "updatedAt": "18 Nov 2026, 03:14 AM IST",
+  "updatedAt": "18 Nov 2026, 04:37 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Construction activities on Kaziranga wildlife corridors flagged",
+      "link": "https://www.thehindu.com/news/national/assam/construction-activities-on-kaziranga-wildlife-corridors-flagged/article71713607.ece",
+      "pubDate": "Wed, 18 Nov 2026 03:14:11 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• An Eastern Assam-based environment activist writes to the Supreme Court-constituted Central Empowered Committee, highlighting the concerns"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -48,15 +57,6 @@
       "pubDate": "Wed, 18 Nov 2026 01:42:21 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The incident caused disrepute to the image of the institution in the public domain, finds inquiry report"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Kochi woman loses ₹90,000 in credit card activation scam",
-      "link": "https://www.thehindu.com/news/national/kerala/kochi-woman-loses-90000-in-credit-card-activation-scam/article71711687.ece",
-      "pubDate": "Wed, 18 Nov 2026 01:34:19 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The complainant, a resident of Mulavukad, was allegedly cheated by an unidentified person who contacted her over the phone, promising to activate a credit card issued by a private sector bank"
     },
     {
       "category": "economy",
@@ -115,6 +115,24 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Russian military transport plane crashes in Siberia, killing 19: Defence Ministry",
+      "link": "https://www.thehindu.com/news/international/several-dead-after-russian-military-transport-plane-crashes-in-siberia/article71713626.ece",
+      "pubDate": "Wed, 18 Nov 2026 04:09:31 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The An-12 aircraft went down in an unpopulated area near the city of Kemerovo, about 3,000 kilometres (about 1,860 miles) east of Moscow"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "U.K. hands NATO-assigned American soldier accused of Russia spying to U.S.",
+      "link": "https://www.thehindu.com/news/international/american-soldier-accused-of-russia-spying/article71713619.ece",
+      "pubDate": "Wed, 18 Nov 2026 03:50:14 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• Army official has named the detained soldier as 41-year-old Lieutenant Colonel Brandon Tyner"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "All-too fallible: On India’s vote against moratorium on death penalty",
       "link": "https://www.thehindu.com/opinion/editorial/the-hindu-editorial-on-indias-vote-against-moratorium-on-death-penalty/article71713256.ece",
       "pubDate": "Tue, 17 Nov 2026 23:56:51 +0530",
@@ -149,29 +167,29 @@
       "keyPoints": "• Defense Secretary Pete Hegseth unveiled the six-month review in June and threatened to withhold some ‌U.S.<br>• dues to NATO if “free riding” allies fell short of defence spending commitments"
     },
     {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Nabeel Rajab, prominent Bahraini human rights activist, dies at 62",
-      "link": "https://www.thehindu.com/news/international/nabeel-rajab-prominent-bahraini-human-rights-activist-dies-at-62/article71713180.ece",
-      "pubDate": "Tue, 17 Nov 2026 23:27:24 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• <strong>Key Update:</strong> Nabeel Rajab, prominent Bahraini human rights activist, dies at 62"
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Construction activities on Kaziranga wildlife corridors flagged",
+      "link": "https://www.thehindu.com/news/national/assam/construction-activities-on-kaziranga-wildlife-corridors-flagged/article71713607.ece",
+      "pubDate": "Wed, 18 Nov 2026 03:14:11 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• An Eastern Assam-based environment activist writes to the Supreme Court-constituted Central Empowered Committee, highlighting the concerns"
     },
     {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Iran targets Bahrain, slams 'fabricated' dirty-bomb report",
-      "link": "https://www.thehindu.com/news/international/iran-targets-bahrain-slams-fabricated-dirty-bomb-report/article71713177.ece",
-      "pubDate": "Tue, 17 Nov 2026 23:16:56 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Mediator Qatar urged \"all parties\" to show restraint following an uptick in hostilities, with Bahrain targeted three times in five days after a lull in Iranian attacks on Gulf countries since September"
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Why frontline experience and operational research need to come together in the health sector",
+      "link": "https://www.thehindu.com/opinion/op-ed/why-frontline-experience-and-operational-research-need-to-come-together-in-the-health-sector/article71711604.ece",
+      "pubDate": "Wed, 18 Nov 2026 01:38:55 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• The field worker knows which question matters; the researcher brings the systematic approach and methodological rigour needed to investigate it"
     },
     {
       "category": "scitech",
       "categoryLabel": "🚀 Science, Tech & Environment",
       "title": "Earthshot Prize: Climate action needs innovation, global cooperation, say leaders on green carpet in Mumbai",
       "link": "https://www.thehindu.com/news/national/earthshot-prize-climate-action-needs-innovation-global-cooperation-say-leaders-on-green-carpet-in-mumbai/article71713406.ece",
-      "pubDate": "Wed, 18 Nov 2026 01:09:36 +0530",
+      "pubDate": "Wed, 18 Nov 2026 01:19:26 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
       "keyPoints": "• Maharashtra Environment and Climate Change Minister Pankaja Munde called for global cooperation to protect the planet for future generations"
     },
@@ -201,24 +219,6 @@
       "pubDate": "Wed, 18 Nov 2026 01:00:41 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
       "keyPoints": "• Clinical understanding of the care needs of a transgender person remains rudimentary in India.<br>• Doctors, nurses, receptionists, security staff and hospital administrators need to be trained in basic transgender health."
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Prince William says Gen Z is the torchbearer of the global movement for change",
-      "link": "https://www.thehindu.com/news/national/maharashtra/prince-william-says-gen-z-is-the-torchbearer-of-the-global-movement-for-change/article71713218.ece",
-      "pubDate": "Wed, 18 Nov 2026 00:02:26 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Himalayan Kingdom of Bhutan, Mahindra Last Mile Mobility among the five winners of Earthshot Prize"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Ex-Nvidia CEO Jensen Huang acknowledges ‘mistakes,’ signals interest in return if company chooses",
-      "link": "https://www.thehindu.com/news/international/ex-nvidia-ceo-jensen-huang-acknowledges-mistakes-signals-interest-in-return-if-company-chooses/article71713348.ece",
-      "pubDate": "Tue, 17 Nov 2026 23:47:12 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• The statement comes after an online petition to reinstate Huang gathered more than 1,90,000 signatures, including from tech industry figures like SpaceX and Tesla CEO Elon Musk"
     },
     {
       "category": "editorial",

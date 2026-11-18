@@ -1,5 +1,5 @@
 {
-  "updatedAt": "19 Nov 2026, 02:54 AM IST",
+  "updatedAt": "19 Nov 2026, 04:11 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
@@ -12,6 +12,15 @@
       "pubDate": "Thu, 19 Nov 2026 02:34:34 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> UEF, IIT-M join hands for Tamil Nadu Growth Conclave 2026; focus on 10 key sectors"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Panjab University improves its global standing in interdisciplinary scientific research",
+      "link": "https://www.thehindu.com/news/national/chandigarh/panjab-university-improves-its-global-standing-in-interdisciplinary-scientific-research/article71717519.ece",
+      "pubDate": "Thu, 19 Nov 2026 02:29:41 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The 2027 edition of the rankings, produced by Times Higher Education in association with Schmidt Science Fellows, assessed 1,058 institutions across 102 countries and territories, compared with 911 institutions in the 2026 edition"
     },
     {
       "category": "national",
@@ -48,15 +57,6 @@
       "pubDate": "Thu, 19 Nov 2026 01:27:25 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• The storm picked up speed to 7 kmph over the past six hours.<br>• It was about 580 km from Visakhapatnam, 590 km from Machilipatnam and 710 km from Gopalpur in Odisha"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Karnataka charts 1,000 MW roadmap in consultation with industry stakeholders",
-      "link": "https://www.thehindu.com/news/national/karnataka/karnataka-charts-1000-mw-roadmap-in-consultation-with-industry-stakeholders/article71716752.ece",
-      "pubDate": "Thu, 19 Nov 2026 01:25:54 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Coastal Karnataka, especially Mangaluru, was highlighted as a strategic growth corridor for capacity expansion and enhanced global connectivity via cable landing stations.<br>• The government invites companies to propose concrete interventions for rollout within the next six to twelve months"
     },
     {
       "category": "economy",
@@ -169,6 +169,15 @@
     {
       "category": "scitech",
       "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Panjab University improves its global standing in interdisciplinary scientific research",
+      "link": "https://www.thehindu.com/news/national/chandigarh/panjab-university-improves-its-global-standing-in-interdisciplinary-scientific-research/article71717519.ece",
+      "pubDate": "Thu, 19 Nov 2026 02:29:41 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• The 2027 edition of the rankings, produced by Times Higher Education in association with Schmidt Science Fellows, assessed 1,058 institutions across 102 countries and territories, compared with 911 institutions in the 2026 edition"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
       "title": "COVID-19 lessons should inform response to air pollution",
       "link": "https://www.thehindu.com/opinion/lead/covid-19-lessons-should-inform-response-to-air-pollution/article71717336.ece",
       "pubDate": "Thu, 19 Nov 2026 01:39:50 +0530",
@@ -210,15 +219,6 @@
       "pubDate": "Wed, 18 Nov 2026 23:15:54 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
       "keyPoints": "• The group has been constituted even as the international community ramps up efforts to achieve the 2030 Agenda for Sustainable Development"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Construction activities on Kaziranga wildlife corridors flagged",
-      "link": "https://www.thehindu.com/news/national/assam/construction-activities-on-kaziranga-wildlife-corridors-flagged/article71713607.ece",
-      "pubDate": "Wed, 18 Nov 2026 21:44:59 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• An Eastern Assam-based environment activist writes to the Supreme Court-constituted Central Empowered Committee, highlighting the concerns"
     },
     {
       "category": "editorial",

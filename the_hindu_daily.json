@@ -1,9 +1,36 @@
 {
-  "updatedAt": "20 Nov 2026, 01:59 AM IST",
+  "updatedAt": "20 Nov 2026, 02:58 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "FIR against two former Bengal Ministers over sexual assault charges",
+      "link": "https://www.thehindu.com/news/national/west-bengal/fir-against-two-former-bengal-ministers-over-sexual-assault-charges/article71721081.ece",
+      "pubDate": "Fri, 20 Nov 2026 02:05:27 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Five former Ministers, who had been part of Mamata Banerjee’s cabinet, have been arrested since the BJP government came to power in May 2026"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Cyclone ‘Akvan’ updates: Three lakh evacuated, 423 rescue teams deployed as cyclone heads to Odisha",
+      "link": "https://www.thehindu.com/news/national/cyclone-akwan-tracker-live-updates-odisha-andhra-pradesh-landfall-imd-map-location-puri-vizag-bay-of-bengal/article71718788.ece",
+      "pubDate": "Fri, 20 Nov 2026 01:43:37 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The severe cyclonic storm is likely to cross north Andhra Pradesh and south Odisha coasts close to Gopalpur by noon on November 20"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Trinamool party symbol row: Abhishek Banerjee says twin flower symbol will return in seven days",
+      "link": "https://www.thehindu.com/news/national/west-bengal/trinamool-party-symbol-row-abhishek-banerjee-says-twin-flower-symbol-will-return-in-seven-days/article71721362.ece",
+      "pubDate": "Fri, 20 Nov 2026 01:29:48 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Leader of the Opposition in the West Bengal Assembly Ritabrata Banerjee said that the symbol does not belong to either faction and Mr.<br>• Banerjee will not be able to stake claim over the symbol in seven births"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -30,33 +57,6 @@
       "pubDate": "Fri, 20 Nov 2026 01:02:30 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> 19-year-old B.Tech student found dead at hostel in VIT"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Set aside differences and oppose Mekedatu dam, says TNCC president",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/set-aside-differences-and-oppose-mekedatu-dam-says-tncc-president/article71720861.ece",
-      "pubDate": "Fri, 20 Nov 2026 00:46:32 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• He also questions Prime Minister Narendra Modi’s silence when Karnataka Chief Minister D.K.<br>• Shivakumar spoke in favour of the project in his presence"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Assam medical college department withdraws ‘defer marriage’ order for trainees after backlash",
-      "link": "https://www.thehindu.com/news/national/assam/assam-medical-college-department-withdraws-defer-marriage-order-for-trainees-after-backlash/article71721405.ece",
-      "pubDate": "Fri, 20 Nov 2026 00:45:02 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Assam medical college department withdraws ‘defer marriage’ order for trainees after backlash"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Cheran, the poet who chronicled Eelam’s war and memory, passes away at 68",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/cheran-the-poet-who-chronicled-eelams-war-and-memory-passes-away-at-68/article71721105.ece",
-      "pubDate": "Fri, 20 Nov 2026 00:28:28 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Hailing from Alaveddy in Jaffna, Cheran was a multifaceted artist — a poet, short story writer, essayist, and painter.<br>• Alongside his poetry, he frequently contributed essays in both Tamil and English to various journals."
     },
     {
       "category": "economy",
@@ -115,11 +115,20 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
-      "title": "Anthropic soars in Wall Street debut despite AI jitters",
+      "title": "Anthropic shares close 17% higher on first day of trading",
       "link": "https://www.thehindu.com/business/markets/ai-firm-anthropic-shares-wall-streets-nasdaq-debut/article71721723.ece",
-      "pubDate": "Fri, 20 Nov 2026 00:46:06 +0530",
+      "pubDate": "Fri, 20 Nov 2026 02:46:25 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Anthropic raised a record $81.3 billion in the offering.<br>• The IPO price valued the maker of the Claude chatbot at about $1.5 trillion, including employee stock options and restricted shares.<br>• At around $98 a share, the company was worth about $1.8 trillion"
+      "keyPoints": "• The shares ended the session at around $97, up from an IPO price of $83, after opening at $111.50 and briefly valuing the maker of the Claude chatbot at about $2 trillion"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "Draft of COP31 cover text drops references to fossil fuel phase-out, net zero dates",
+      "link": "https://www.thehindu.com/news/international/cop31-negotiators-publish-revised-deal-draft-with-no-mention-of-fossil-fuels/article71721240.ece",
+      "pubDate": "Fri, 20 Nov 2026 01:01:16 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• A major concern raised by developing countries, of phasing out unilateral trade measures such as the CBAM (Carbon Border Adjustment Mechanism) by 2027, that was present in the earlier draft has also been eliminated"
     },
     {
       "category": "ir",
@@ -129,15 +138,6 @@
       "pubDate": "Thu, 19 Nov 2026 23:09:07 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• Hamas denounced a \"blatant ceasefire violation,\" while the military said the rare ground incursion was a response to Hamas ceasefire violations in the area"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "COP31 negotiators publish revised deal draft with no mention of fossil fuels",
-      "link": "https://www.thehindu.com/news/international/cop31-negotiators-publish-revised-deal-draft-with-no-mention-of-fossil-fuels/article71721240.ece",
-      "pubDate": "Thu, 19 Nov 2026 23:02:26 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The revised deal, ‌which is not expected to be the final version, was weaker on some of the conference's central topics — fossil fuels, electrification and adaptation finance — compared to a first draft ‌published on November 16"
     },
     {
       "category": "ir",
@@ -169,11 +169,20 @@
     {
       "category": "scitech",
       "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Anthropic soars in Wall Street debut despite AI jitters",
+      "title": "Anthropic shares close 17% higher on first day of trading",
       "link": "https://www.thehindu.com/business/markets/ai-firm-anthropic-shares-wall-streets-nasdaq-debut/article71721723.ece",
-      "pubDate": "Fri, 20 Nov 2026 00:46:06 +0530",
+      "pubDate": "Fri, 20 Nov 2026 02:46:25 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• Anthropic raised a record $81.3 billion in the offering.<br>• The IPO price valued the maker of the Claude chatbot at about $1.5 trillion, including employee stock options and restricted shares.<br>• At around $98 a share, the company was worth about $1.8 trillion"
+      "keyPoints": "• The shares ended the session at around $97, up from an IPO price of $83, after opening at $111.50 and briefly valuing the maker of the Claude chatbot at about $2 trillion"
+    },
+    {
+      "category": "scitech",
+      "categoryLabel": "🚀 Science, Tech & Environment",
+      "title": "Draft of COP31 cover text drops references to fossil fuel phase-out, net zero dates",
+      "link": "https://www.thehindu.com/news/international/cop31-negotiators-publish-revised-deal-draft-with-no-mention-of-fossil-fuels/article71721240.ece",
+      "pubDate": "Fri, 20 Nov 2026 01:01:16 +0530",
+      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
+      "keyPoints": "• A major concern raised by developing countries, of phasing out unilateral trade measures such as the CBAM (Carbon Border Adjustment Mechanism) by 2027, that was present in the earlier draft has also been eliminated"
     },
     {
       "category": "scitech",
@@ -210,15 +219,6 @@
       "pubDate": "Thu, 19 Nov 2026 21:01:16 +0530",
       "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
       "keyPoints": "• Seven children diagnosed with Allan-Herndon-Dudley syndrome (AHDS), a rare genetic disorder, are set to receive a year’s supply of the medicine tiratricol free of cost on November 30; the compounded formulation is estimated to cost just ₹2.5 lakh per child for a year"
-    },
-    {
-      "category": "scitech",
-      "categoryLabel": "🚀 Science, Tech & Environment",
-      "title": "Sellas’ cancer vaccine extends survival in blood cancer trial, company says",
-      "link": "https://www.thehindu.com/sci-tech/health/sellas-cancer-vaccine-extends-survival-in-blood-cancer-trial-company-says/article71719791.ece",
-      "pubDate": "Thu, 19 Nov 2026 17:42:34 +0530",
-      "examRelevance": "GS Paper-III & Prelims: ISRO/NASA Missions, Defense Updates, Tech & Climate Reports",
-      "keyPoints": "• The ⁠vaccine, called galinpepimut-S ⁠or GPS, was tested in patients with acute ​myeloid ‌leukaemia, a fast-growing cancer of the blood and bone marrow"
     },
     {
       "category": "editorial",

@@ -1,9 +1,18 @@
 {
-  "updatedAt": "21 Nov 2026, 01:35 AM IST",
+  "updatedAt": "21 Nov 2026, 02:33 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "West Bengal CEO office postpones SSR due to unavoidable circumstances",
+      "link": "https://www.thehindu.com/news/national/west-bengal/west-bengal-special-summary-revision-of-electoral-rolls-postponed/article71724439.ece",
+      "pubDate": "Sat, 21 Nov 2026 01:41:35 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The development comes ahead of pending civic elections in West Bengal.<br>• The State government is keen to hold elections to the civic bodies of Howrah and Kolkata."
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -12,6 +21,15 @@
       "pubDate": "Sat, 21 Nov 2026 01:25:46 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• Party proposes retaining 543 Lok Sabha seats, existing State-wise distribution and a 25-year freeze, with one-third reservation for women"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Patna High Court quashes dismissal of teachers and staff of Sanskrit Colleges",
+      "link": "https://www.thehindu.com/news/national/bihar/patna-high-court-quashes-dismissal-of-teachers-and-staff-of-sanskrit-colleges/article71725090.ece",
+      "pubDate": "Sat, 21 Nov 2026 01:25:15 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The court has directed the Bihar Education Department to release the grant-in-aid to the university within three months."
     },
     {
       "category": "national",
@@ -39,24 +57,6 @@
       "pubDate": "Sat, 21 Nov 2026 01:19:54 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> 53 vendors participate in Atomic Energy Department’s Vendor-Buyer Meet"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Infra push and low base effect pushes core sector growth to series-high of 10.9% in October 2026",
-      "link": "https://www.thehindu.com/business/Economy/infra-push-and-low-base-effect-pushes-core-sector-growth-to-series-high-in-october-2026/article71724481.ece",
-      "pubDate": "Sat, 21 Nov 2026 01:18:11 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• While the coal and electricity sectors saw growth shoot up, a large part of this was due to a statistical effect rather than growth in actual output.<br>• On the other hand, fuel-related sectors contracted again"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Following Cyclone Akvan, monsoon rain to resume over T.N. from tomorrow",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/following-cyclone-akvan-monsoon-rain-to-resume-over-tn-from-tomorrow/article71724527.ece",
-      "pubDate": "Sat, 21 Nov 2026 01:16:09 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The RMC has forecast moderate rainfall in coastal districts, including Chennai and Cuddalore, and mild rainfall over adjoining areas; wet weather likely to last till the first week of December"
     },
     {
       "category": "economy",

@@ -1,9 +1,18 @@
 {
-  "updatedAt": "22 Nov 2026, 01:34 AM IST",
+  "updatedAt": "22 Nov 2026, 02:34 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Amid cold wave, students’ indefinite strike against J&K recruitment board scam gathers steam",
+      "link": "https://www.thehindu.com/news/national/amid-cold-wave-students-indefinite-strike-against-jk-recruitment-board-scam-gathers-steam/article71729167.ece",
+      "pubDate": "Sun, 22 Nov 2026 01:19:20 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• ‘Students and Aga sahib were removed from the site against their will; the demand stands: a fair probe into the alleged FAA rigging; this fight isn’t over,’ said a protester"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -48,15 +57,6 @@
       "pubDate": "Sun, 22 Nov 2026 01:12:20 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> T.N. may see solar energy installations slowing down, say energy generators"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Raja Ravi Varma Gallery of Oleographs and Chromo Lithographs inaugurated in Chennai",
-      "link": "https://www.thehindu.com/news/cities/chennai/raja-ravi-varma-gallery-of-oleographs-and-chromo-lithographs-inaugurated-in-chennai/article71729335.ece",
-      "pubDate": "Sun, 22 Nov 2026 01:12:07 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Raja Ravi Varma Gallery of Oleographs and Chromo Lithographs inaugurated in Chennai"
     },
     {
       "category": "economy",
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "The Rohingya | Vindication for a persecuted people",
+      "link": "https://www.thehindu.com/news/international/the-rohingya-vindication-for-a-persecuted-people/article71729370.ece",
+      "pubDate": "Sat, 21 Nov 2026 23:50:18 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The International Court of Justice’s ruling that Myanmar committed genocide during its 2017 ‘clearance operations’ offers a measure of justice for the ethnic and religious minority, but the court has no means of enforcing its judgment"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Iran wants diplomacy to end war, says Araghchi as U.S. rejects terms",
       "link": "https://www.thehindu.com/news/international/iran-wants-diplomacy-to-end-war-says-araghchi-as-us-rejects-terms/article71729396.ece",
       "pubDate": "Sat, 21 Nov 2026 23:23:45 +0530",
@@ -156,15 +165,6 @@
       "pubDate": "Sat, 21 Nov 2026 22:21:03 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• Finland's Defence Ministry said the military had reintroduced temporary aviation and maritime restrictions in the eastern Gulf of Finland as a precaution to protect civilians and enable authorities ​to operate if drones needed ‌to be intercepted."
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Ballistic missile attack on Zelenskyy's hometown kills 2",
-      "link": "https://www.thehindu.com/news/international/ballistic-missile-attack-on-zelenskyys-hometown-kills-2/article71729235.ece",
-      "pubDate": "Sat, 21 Nov 2026 22:08:21 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The attack added to uncertainty about the prospects for ongoing talks brokered by Washington; It also came hours after two Russian missiles and a suspected drone came down in Poland"
     },
     {
       "category": "scitech",

@@ -1,9 +1,27 @@
 {
-  "updatedAt": "23 Nov 2026, 01:49 AM IST",
+  "updatedAt": "23 Nov 2026, 02:43 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "18th U.P. Legislative Assembly sits less than 90 days, experts point to unhealthy concentration of power in the Executive",
+      "link": "https://www.thehindu.com/news/national/uttar-pradesh/18th-up-legislative-assembly-sits-less-than-90-days-experts-point-to-unhealthy-concentration-of-power-in-the-executive/article71732384.ece",
+      "pubDate": "Mon, 23 Nov 2026 01:47:07 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Fewer functioning days directly limit legislative oversight, and MLAs lose the chance to raise people-centric issues making legislature a passive spectator; experts call it contrary to spirit of constitutional checks and balance"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Factory inspections to be intensified after boy’s death at Perumbavoor in Kochi",
+      "link": "https://www.thehindu.com/news/national/kerala//article71732057.ece",
+      "pubDate": "Mon, 23 Nov 2026 01:36:11 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Strict legal action to be initiated against establishments found violating regulations relating to imminent danger"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -39,24 +57,6 @@
       "pubDate": "Mon, 23 Nov 2026 01:04:02 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• Police registered a case and produced all eight before the Board, and notices were sent to parents; the case was registered under sections 189(2), 189(4), 118(1), 352 and 351(2) of the Bharatiya Nyaya Sanhita, 2023, says Deputy Commissioner of Police"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Over 40% Group A posts vacant at PGIMS Rohtak, says former Minister",
-      "link": "https://www.thehindu.com/news/national/haryana/over-40-group-a-posts-vacant-atpgimsrohtak-says-former-minister/article71731991.ece",
-      "pubDate": "Mon, 23 Nov 2026 01:01:11 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Over 40% Group A posts vacant at PGIMS Rohtak, says former Minister"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "CMC honours essay, painting, quiz competition winners in Vellore",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/cmc-honours-essay-painting-quiz-competition-winners-in-vellore/article71731390.ece",
-      "pubDate": "Mon, 23 Nov 2026 01:00:16 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> CMC honours essay, painting, quiz competition winners in Vellore"
     },
     {
       "category": "economy",
@@ -115,11 +115,29 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
-      "title": "Netanyahu, Eisenkot parties resume talks to form Israel government",
-      "link": "https://www.thehindu.com/news/international/netanyahu-eisenkot-parties-resume-talks-to-form-israel-government/article71732120.ece",
-      "pubDate": "Sun, 22 Nov 2026 22:58:27 +0530",
+      "title": "Netanyahu, Eisenkot parties end talks without deal on forming Israel government",
+      "link": "https://www.thehindu.com/news/international/netanyahu-eisenkot-parties-end-talks-without-deal-on-forming-israel-government/article71732431.ece",
+      "pubDate": "Mon, 23 Nov 2026 02:02:14 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Likud laid down conditions for a unity government, including no Arab parties and rejection of a Palestinian state, while Gadi Eisenkot has until December 6 to form a government"
+      "keyPoints": "• ‘The latest round of coalition talks...<br>• has concluded; the two sides outlined their positions on a range of substantive issues and discussed them in detail,’ the two parties said in a joint statement"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "COP31 talks fail as EU, others reject any climate deal without language on a fossil fuel phase-out",
+      "link": "https://www.thehindu.com/news/international/cop31-fails-to-agree-on-climate-deal-in-chaotic-finale/article71731651.ece",
+      "pubDate": "Mon, 23 Nov 2026 01:05:46 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• EU, Panama among about 130 parties that refuse to accept COP President’s consensus cover text, alleges that it “greenwashes” fossil fuels; India, China, Saudi Arabia are on the other side of the divide"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
+      "title": "Russian attack near Ukraine’s capital strikes apartment building, killing two and wounding four others",
+      "link": "https://www.thehindu.com/news/international/a-russian-attack-destroyed-an-apartment-building-in-dymer-near-kyiv-killing-two-as-kaliningrad-sounded-a-rare-air-alert/article71731042.ece",
+      "pubDate": "Sun, 22 Nov 2026 23:00:27 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• Rescuers evacuated nine people, including a child, from the destroyed five-storey building in Dymer, while 11 were believed to be trapped under the rubble"
     },
     {
       "category": "ir",
@@ -133,38 +151,20 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Netanyahu, Eisenkot parties resume talks to form Israel government",
+      "link": "https://www.thehindu.com/news/international/netanyahu-eisenkot-parties-resume-talks-to-form-israel-government/article71732120.ece",
+      "pubDate": "Sun, 22 Nov 2026 22:58:27 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• Likud laid down conditions for a unity government, including no Arab parties and rejection of a Palestinian state, while Gadi Eisenkot has until December 6 to form a government"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Nvidia faces U.S. accounting probe amid deepening turmoil: media",
       "link": "https://www.thehindu.com/news/international/nvidia-faces-us-accounting-probe-amid-deepening-turmoil-media/article71732128.ece",
       "pubDate": "Sun, 22 Nov 2026 22:37:04 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The Securities and Exchange Commission inquiry is in its early stages, U.S.<br>• media reported, after Jensen Huang’s resignation as chief executive and a 14% fall in Nvidia shares on Friday (November 20, 2026)"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Iran strike wounds two in Bahrain, Riyadh denounces ‘criminal’ attacks",
-      "link": "https://www.thehindu.com/news/international/bahrain-says-iran-struck-industrial-site-as-tankers-hit-in-hormuz/article71730497.ece",
-      "pubDate": "Sun, 22 Nov 2026 22:18:54 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• Bahrain said two people were wounded in an attack on “a civilian industrial site”, while Iran’s Revolutionary Guards said they targeted U.S."
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "COP 31 talks fail as EU, others reject any climate deal without language on a fossil fuel phase-out",
-      "link": "https://www.thehindu.com/news/international/cop31-fails-to-agree-on-climate-deal-in-chaotic-finale/article71731651.ece",
-      "pubDate": "Sun, 22 Nov 2026 21:53:23 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• EU, Panama among about 130 parties that refuse to accept COP President’s consensus cover text, alleges that it “greenwashes” fossil fuels; India, China, Saudi Arabia are on the other side of the divide"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Drone strikes hit homes, UN premises in Sudan's capital",
-      "link": "https://www.thehindu.com/news/international/drone-strikes-hit-homes-un-premises-in-sudans-capital/article71731677.ece",
-      "pubDate": "Sun, 22 Nov 2026 19:58:28 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• A drone strike completely destroyed a house, a witness said, while a Sudanese Army source said the drones had been launched from Ethiopia"
     },
     {
       "category": "scitech",

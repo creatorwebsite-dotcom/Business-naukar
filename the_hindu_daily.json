@@ -1,9 +1,18 @@
 {
-  "updatedAt": "24 Nov 2026, 05:18 AM IST",
+  "updatedAt": "24 Nov 2026, 06:18 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "LoP Ritabrata Banerjee files counter complaint against Mamata-Trinamool for fabrication of signature on affidavits",
+      "link": "https://www.thehindu.com/news/national/west-bengal/lop-ritabrata-banerjee-files-counter-complaintagainst-mamata-trinamool-for-fabrication-of-signature-on-affidavits/article71735289.ece",
+      "pubDate": "Tue, 24 Nov 2026 02:52:16 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Both Trinamool factions raise allegations of signature forgery and document fabrication, file complaints against each other"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -48,15 +57,6 @@
       "pubDate": "Tue, 24 Nov 2026 02:04:05 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> Proposal for extending scholarship to Sri Lankan students to pursue medical education in Tamil Nadu"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "No Winter Session of Parliament? Skipped only four times in history",
-      "link": "https://www.thehindu.com/news/national/no-winter-session-of-parliament-skipped-only-four-times-in-history/article71735258.ece",
-      "pubDate": "Tue, 24 Nov 2026 02:02:44 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Each previous instance coincided with extraordinary disruptions, from the Emergency and Lok Sabha dissolutions to Indira Gandhi’s assassination and the COVID-19 pandemic"
     },
     {
       "category": "economy",
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Chinese neuroscientist at Princeton is held by ICE after detention at Washington airport",
+      "link": "https://www.thehindu.com/news/international/chinese-neuroscientist-at-princeton-is-held-by-ice-after-detention-at-washington-airport/article71736987.ece",
+      "pubDate": "Tue, 24 Nov 2026 05:41:16 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• ‘News of Eva’s detention is distressing for me and many members of the Princeton University community,’ Rodney Priestley, dean of the university’s graduate school, said in a statement"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Federal appeals court gives President Donald Trump path to erasing hush money conviction",
       "link": "https://www.thehindu.com/news/international/federal-appeals-court-gives-president-donald-trump-path-to-erasing-hush-money-conviction/article71736252.ece",
       "pubDate": "Tue, 24 Nov 2026 03:06:25 +0530",
@@ -156,15 +165,6 @@
       "pubDate": "Mon, 23 Nov 2026 22:34:51 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The draft deletes the 1990 preamble, which included a clause for re-unification with the Nagorno-Karabakh region and called for the international recognition of the genocide of Armenians by the Ottoman Empire"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Zelenskyy hails Ukraine's attack on a Russian warship in Libya",
-      "link": "https://www.thehindu.com/news/international/zelenskyy-hails-ukraines-attack-on-a-russian-warship-in-libya/article71735901.ece",
-      "pubDate": "Mon, 23 Nov 2026 22:27:47 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The operation, conducted some 2,400 kilometres (1,500 miles) from the front line in Ukraine, was the latest daring long-range assault by Kyiv's forces"
     },
     {
       "category": "scitech",

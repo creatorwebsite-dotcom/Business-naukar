@@ -1,9 +1,18 @@
 {
-  "updatedAt": "26 Nov 2026, 03:07 AM IST",
+  "updatedAt": "26 Nov 2026, 03:58 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Supreme Court suggests referring KMC delimitation case back to High Court for fresh look",
+      "link": "https://www.thehindu.com/news/national/west-bengal/supreme-court-inclined-to-stay-calcutta-hc-order-deferring-kolkata-civic-polls-till-decision-on-ward-delimitation/article71741489.ece",
+      "pubDate": "Thu, 26 Nov 2026 02:48:50 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Supreme Court lists the case for hearing on November 30 after lawyers seek time to get instructions on the suggestion from the court"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -12,6 +21,15 @@
       "pubDate": "Thu, 26 Nov 2026 02:46:16 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• <strong>Key Update:</strong> Governor seeks CM’s report on compliance with SC’s directions"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Rajbanshi language to be included in Eighth Schedule of Constitution: Suvendu Adhikari",
+      "link": "https://www.thehindu.com/news/national/west-bengal/rajbanshi-languageto-be-included-ineighth-schedule-of-constitutionsuvendu-adhikari/article71742836.ece",
+      "pubDate": "Thu, 26 Nov 2026 01:53:32 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• This was a promise made the BJP during their 2026 Assembly election campaign"
     },
     {
       "category": "national",
@@ -39,24 +57,6 @@
       "pubDate": "Thu, 26 Nov 2026 01:17:28 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
       "keyPoints": "• People Against SIR emailed the police details of the proposed Constitution Day march from Valmiki Sadan to Jantar Mantar; the police, however, say they have received no such communication and warn that Section 163 of BNSS remains in force in the area"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "G.O. issued on CAS for teachers of aided arts and science colleges",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/go-issued-on-cas-for-teachers-of-aided-arts-and-science-colleges/article71743611.ece",
-      "pubDate": "Thu, 26 Nov 2026 00:52:41 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• The eligibility criteria and procedures to be followed for CAS will be implemented ‘in strict adherence’ to guidelines issued through a G.O."
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Man arrested for murdering his wife over family dispute",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/man-arrested-for-murdering-his-wife-over-family-dispute/article71742418.ece",
-      "pubDate": "Thu, 26 Nov 2026 00:35:56 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Man arrested for murdering his wife over family dispute"
     },
     {
       "category": "economy",
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Fuel tanker crash ignites massive fire on highway surrounding Cairo, killing at least 30 people",
+      "link": "https://www.thehindu.com/news/international/fuel-tanker-crash-ignites-massive-fire-on-highway-surrounding-cairo/article71744262.ece",
+      "pubDate": "Thu, 26 Nov 2026 03:34:14 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The blaze on Ring Road, a key artery that encircles the Egyptian capital, also injured at least 25 people and left more than two dozen cars and motorcycles charred, the Public Prosecutor’s office said in a statement"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Ukraine says it struck two oil refineries in Russia's Samara region",
       "link": "https://www.thehindu.com/news/international/ukraine-says-it-struck-two-oil-refineries-in-russias-samara-region/article71743934.ece",
       "pubDate": "Wed, 25 Nov 2026 23:39:47 +0530",
@@ -156,15 +165,6 @@
       "pubDate": "Wed, 25 Nov 2026 23:10:18 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The Trump administration is preparing a fresh tariff offensive targeting major trading partners including China, India and the European Union.<br>• Here’s what the investigation is about and what it could mean for global trade."
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "U.S. announces new 25% tariffs on India, second-highest in the 14 countries against which action has been taken",
-      "link": "https://www.thehindu.com/news/international/donald-trump-tariffs-us-midterm-elections/article71743081.ece",
-      "pubDate": "Wed, 25 Nov 2026 23:08:36 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The order by the U.S.<br>• Trade Representative also opens the door for a lower 17% tariff if India and the U.S."
     },
     {
       "category": "scitech",

@@ -1,9 +1,27 @@
 {
-  "updatedAt": "26 Nov 2026, 03:58 AM IST",
+  "updatedAt": "26 Nov 2026, 05:16 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Uttariya instead of robes: West Bengal Government suggests universities to adopt Indian attire in convocations",
+      "link": "https://www.thehindu.com/news/national/west-bengal/uttariya-instead-of-robes-west-bengal-government-suggests-universities-to-adopt-indian-attire-in-convocations/article71742913.ece",
+      "pubDate": "Thu, 26 Nov 2026 04:01:27 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• West Bengal Higher Education Minister Jagannath Chattopadhyay said that the government was putting effort to follow own Indian culture and tradition and Uttariyo is enough for such ceremonies"
+    },
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "Congress wins majority of Zila Pramukh posts in Rajasthan polls",
+      "link": "https://www.thehindu.com/news/national/rajasthan/congress-wins-majority-of-zila-pramukh-posts-in-rajasthan-polls/article71743297.ece",
+      "pubDate": "Thu, 26 Nov 2026 03:45:09 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• The votes for panchayat samitis and zila parishads were counted on November 20 in 37 of the State’s 41 districts"
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -25,38 +43,20 @@
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
-      "title": "Rajbanshi language to be included in Eighth Schedule of Constitution: Suvendu Adhikari",
-      "link": "https://www.thehindu.com/news/national/west-bengal/rajbanshi-languageto-be-included-ineighth-schedule-of-constitutionsuvendu-adhikari/article71742836.ece",
-      "pubDate": "Thu, 26 Nov 2026 01:53:32 +0530",
+      "title": "Delhi High Court grants time to ED to respond to Engineer Rashid’s plea",
+      "link": "https://www.thehindu.com/news/cities/Delhi/delhi-high-court-grants-time-to-ed-to-respond-to-engineer-rashids-plea/article71742613.ece",
+      "pubDate": "Thu, 26 Nov 2026 02:29:13 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• This was a promise made the BJP during their 2026 Assembly election campaign"
+      "keyPoints": "• Justice Sachin Datta listed the matter for further hearing on December 16 after the prosecutor said he needed one week to consult the special public prosecutor in the case"
     },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
-      "title": "Right to choose a partner is an aspect of constitutional freedom, not a privilege granted by a family, caste or community: Thirumavalavan",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/right-to-choose-a-partner-is-an-aspect-of-constitutional-freedom-not-a-privilege-granted-by-a-family-caste-or-community-thirumavalavan/article71743441.ece",
-      "pubDate": "Thu, 26 Nov 2026 01:45:56 +0530",
+      "title": "Thane Crime Branch arrests five in Mumbra dacoity case, cracks seven other cases",
+      "link": "https://www.thehindu.com/news/national/maharashtra/thane-crime-branch-arrests-five-in-mumbra-dacoity-case-cracks-seven-other-cases/article71742645.ece",
+      "pubDate": "Thu, 26 Nov 2026 02:15:39 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• <strong>Key Update:</strong> Right to choose a partner is an aspect of constitutional freedom, not a privilege granted by a family, caste or community: Thirumavalavan"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Kallakurichi TVK MLA Arul Vignesh summoned for questioning in harassment case",
-      "link": "https://www.thehindu.com/news/national/tamil-nadu/kallakurichi-tvk-mla-arul-vignesh-summoned-for-questioning-in-harassment-case/article71742298.ece",
-      "pubDate": "Thu, 26 Nov 2026 01:42:18 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Police personnel have been deployed in strength at the MLA’s office in Kallakurichi"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "No permission sought for November 26 anti-SIR march, Delhi Police say; organisers say ‘intimation’ sent",
-      "link": "https://www.thehindu.com/news/cities/Delhi/no-permission-sought-for-november-26-anti-sir-march-says-delhi-police/article71741234.ece",
-      "pubDate": "Thu, 26 Nov 2026 01:17:28 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• People Against SIR emailed the police details of the proposed Constitution Day march from Valmiki Sadan to Jantar Mantar; the police, however, say they have received no such communication and warn that Section 163 of BNSS remains in force in the area"
+      "keyPoints": "• Some of the accused became acquainted in prison; stolen valuables worth ₹2.39 lakh recovered, four others wanted in the Mumbra case"
     },
     {
       "category": "economy",
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Andy Taylor, guitarist of new wave icons Duran Duran, dies at 65",
+      "link": "https://www.thehindu.com/entertainment/music/andy-taylor-guitarist-of-new-wave-icons-duran-duran-dies-at-65/article71744266.ece",
+      "pubDate": "Thu, 26 Nov 2026 04:16:30 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• The band’s imperial stage occurred with a trio of hit albums between 1981 and 1983, with such dance-floor barnburners as ‘Girls on Film’ and ‘Union of the Snake’ and the moody ballads ‘The Chauffeur’ and ‘Save a Prayer’"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Fuel tanker crash ignites massive fire on highway surrounding Cairo, killing at least 30 people",
       "link": "https://www.thehindu.com/news/international/fuel-tanker-crash-ignites-massive-fire-on-highway-surrounding-cairo/article71744262.ece",
       "pubDate": "Thu, 26 Nov 2026 03:34:14 +0530",
@@ -156,15 +165,6 @@
       "pubDate": "Wed, 25 Nov 2026 23:28:32 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The statement said the vessels ‌had been attempting to transit ‌an ⁠unauthorised route through the ⁠waterway"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "Trump’s tariff plan explained: Which countries could be hit and why?",
-      "link": "https://www.thehindu.com/videos/trumps-tariff-plan-explained-which-countries-could-be-hit-and-why/article71743829.ece",
-      "pubDate": "Wed, 25 Nov 2026 23:10:18 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The Trump administration is preparing a fresh tariff offensive targeting major trading partners including China, India and the European Union.<br>• Here’s what the investigation is about and what it could mean for global trade."
     },
     {
       "category": "scitech",

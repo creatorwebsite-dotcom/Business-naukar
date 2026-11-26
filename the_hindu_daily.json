@@ -1,9 +1,18 @@
 {
-  "updatedAt": "27 Nov 2026, 02:56 AM IST",
+  "updatedAt": "27 Nov 2026, 03:48 AM IST",
   "hookLine1": "Aaj ki Top 5 Khabrein jo aapke Exam ko Crack karengi - Sirf 3 minute mein!",
   "hookLine2": "Utho! Aaj ke is dynamic analysis mein RBI ka naya update aur Supreme Court ka landmark faisla shamil hai.",
   "totalArticles": 30,
   "articles": [
+    {
+      "category": "national",
+      "categoryLabel": "🏛️ National & Polity",
+      "title": "In Rajasthan, the girls who refuse to be spoken for",
+      "link": "https://www.thehindu.com/news/national/rajasthan/in-rajasthan-the-girls-who-refuse-to-be-spoken-for/article71742334.ece",
+      "pubDate": "Fri, 27 Nov 2026 02:45:13 +0530",
+      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
+      "keyPoints": "• Rajasthan ranks sixth among India’s States with the highest prevalence of child marriage, according to the latest National Family Health Survey (2023-24).<br>• Poverty, the lack of education, and entrenched customs such as atta-satta, reinforced by a skewed sex ratio, continue to fuel the practice, particularly in tribal and rural areas.<br>• Now, a growing number of girls, empowered by education and greater access to social media, are saying no, reports Ashok Kumar."
+    },
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
@@ -43,20 +52,11 @@
     {
       "category": "national",
       "categoryLabel": "🏛️ National & Polity",
-      "title": "Amended Delimitation Bill likely to be tabled in special Parliament sitting from November 30",
-      "link": "https://www.thehindu.com/news/national/government-to-reconvene-parliament-from-november-30-to-december-3-kiren-rijiju/article71747089.ece",
-      "pubDate": "Fri, 27 Nov 2026 01:34:56 +0530",
+      "title": "Two women booked over use of banned VPNs in Poonch; absconder held after two decades in Reasi: Officials",
+      "link": "https://www.thehindu.com/news/national/jammu-and-kashmir/two-women-booked-over-use-of-banned-vpns-in-poonch-absconder-held-after-two-decadesin-reasi-officials/article71747503.ece",
+      "pubDate": "Fri, 27 Nov 2026 01:45:57 +0530",
       "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• Centre announces special sitting of Parliament from November 30, 2026, over 100 days since both Houses were adjourned without prorogation; government trying to pass the Bill after ‘operation lotus’, says Congress"
-    },
-    {
-      "category": "national",
-      "categoryLabel": "🏛️ National & Polity",
-      "title": "Sthaneeka Bhattars make contradictory statements on the lighting of deepam",
-      "link": "https://www.thehindu.com/news/cities/Madurai/sthanika-bhattars-make-contradictory-statements-on-the-lighting-of-deepam/article71747038.ece",
-      "pubDate": "Fri, 27 Nov 2026 01:28:15 +0530",
-      "examRelevance": "GS Paper-II: Polity, Governance, Supreme Court Judgements, Bills & Govt Schemes",
-      "keyPoints": "• On November 24, the Executive Officer of the Subramaniya Swamy Temple at Thirupparankundram had said the reasoning for lighting the lamp at the Deepa Mandapam was backed by the Bhattars.<br>• But a letter purportedly written by the Bhattars, stating that they had not given any letter of consent, went viral on social media the next day"
+      "keyPoints": "• In 2025, the District Magistrate, Poonch, issued prohibitory orders on the use of VPN apps in the district close to the Line of Control (LoC) and also considered as an infiltration route of terrorists"
     },
     {
       "category": "economy",
@@ -115,6 +115,15 @@
     {
       "category": "ir",
       "categoryLabel": "🌐 International Relations",
+      "title": "Strobe Talbott, former Time magazine reporter and Deputy Secretary of State, has died",
+      "link": "https://www.thehindu.com/news/international/strobe-talbott-former-time-magazine-reporter-and-deputy-secretary-of-state-has-died/article71748303.ece",
+      "pubDate": "Fri, 27 Nov 2026 03:41:51 +0530",
+      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
+      "keyPoints": "• While at the British university, after interning for Time in Moscow, the magazine asked Talbott to help translate the leaked memoirs of Nikita Khrushchev"
+    },
+    {
+      "category": "ir",
+      "categoryLabel": "🌐 International Relations",
       "title": "Yemen's Houthi-held capital hit after group targets Riyadh",
       "link": "https://www.thehindu.com/news/international/yemens-houthi-held-capital-hit-after-group-targets-riyadh/article71748008.ece",
       "pubDate": "Thu, 26 Nov 2026 23:09:34 +0530",
@@ -156,15 +165,6 @@
       "pubDate": "Thu, 26 Nov 2026 22:42:15 +0530",
       "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
       "keyPoints": "• The ruling by ‌the ⁠ICJ, the first instance of the UN court holding a ⁠state responsible for genocide, is final but the court has very limited options to enforce it"
-    },
-    {
-      "category": "ir",
-      "categoryLabel": "🌐 International Relations",
-      "title": "China's Defence Ministry urges Japan to stop 'stirring up' South China Sea disputes",
-      "link": "https://www.thehindu.com/news/international/chinas-defence-ministry-urges-japan-to-stop-stirring-up-south-china-sea-disputes/article71747672.ece",
-      "pubDate": "Thu, 26 Nov 2026 22:26:27 +0530",
-      "examRelevance": "GS Paper-II & Current Affairs: Bilateral Agreements, Foreign Visits & UN/G20/BRICS",
-      "keyPoints": "• The comments were in response to an ⁠announcement earlier this month that Japan will provide the Philippines with radars and drones to boost its coastal surveillance capabilities"
     },
     {
       "category": "scitech",
